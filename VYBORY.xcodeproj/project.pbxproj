@@ -7,23 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03572FEE547DEB9463B9B98C /* Pods_VYBORY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1031F2042AD1B76B05A3D60E /* Pods_VYBORY.framework */; };
+		1810F97D254073C500D3641B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F97C254073C500D3641B /* TabBarViewController.swift */; };
 		181350AD253DC47000FB7E08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350AC253DC47000FB7E08 /* AppDelegate.swift */; };
 		181350AF253DC47000FB7E08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350AE253DC47000FB7E08 /* SceneDelegate.swift */; };
-		181350B1253DC47000FB7E08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350B0253DC47000FB7E08 /* ViewController.swift */; };
+		181350B1253DC47000FB7E08 /* ProtocolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350B0253DC47000FB7E08 /* ProtocolViewController.swift */; };
 		181350B4253DC47000FB7E08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181350B2253DC47000FB7E08 /* Main.storyboard */; };
 		181350B6253DC47300FB7E08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 181350B5253DC47300FB7E08 /* Assets.xcassets */; };
 		181350B9253DC47300FB7E08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181350B7253DC47300FB7E08 /* LaunchScreen.storyboard */; };
+		181350C8253DD21A00FB7E08 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350C7253DD21A00FB7E08 /* CodeViewController.swift */; };
+		181350CC253DD26100FB7E08 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350CB253DD26100FB7E08 /* FavoriteTableViewController.swift */; };
+		181350D0253DD29E00FB7E08 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350CF253DD29E00FB7E08 /* SearchViewController.swift */; };
+		181350D9253DD87C00FB7E08 /* CodeBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350D7253DD87C00FB7E08 /* CodeBookCell.swift */; };
+		181350DA253DD87C00FB7E08 /* CodeBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181350D8253DD87C00FB7E08 /* CodeBookCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1031F2042AD1B76B05A3D60E /* Pods_VYBORY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VYBORY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1810F97C254073C500D3641B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		181350A9253DC47000FB7E08 /* VYBORY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VYBORY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		181350AC253DC47000FB7E08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		181350AE253DC47000FB7E08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		181350B0253DC47000FB7E08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		181350B0253DC47000FB7E08 /* ProtocolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolViewController.swift; sourceTree = "<group>"; };
 		181350B3253DC47000FB7E08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		181350B5253DC47300FB7E08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		181350B8253DC47300FB7E08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		181350BA253DC47300FB7E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		181350C7253DD21A00FB7E08 /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
+		181350CB253DD26100FB7E08 /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
+		181350CF253DD29E00FB7E08 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		181350D7253DD87C00FB7E08 /* CodeBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBookCell.swift; sourceTree = "<group>"; };
+		181350D8253DD87C00FB7E08 /* CodeBookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CodeBookCell.xib; sourceTree = "<group>"; };
+		2153F3124CDEE7754F7FB2D8 /* Pods-VYBORY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VYBORY.release.xcconfig"; path = "Target Support Files/Pods-VYBORY/Pods-VYBORY.release.xcconfig"; sourceTree = "<group>"; };
+		251BC590B2FF047B0E22E94F /* Pods-VYBORY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VYBORY.debug.xcconfig"; path = "Target Support Files/Pods-VYBORY/Pods-VYBORY.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03572FEE547DEB9463B9B98C /* Pods_VYBORY.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +59,8 @@
 			children = (
 				181350AB253DC47000FB7E08 /* VYBORY */,
 				181350AA253DC47000FB7E08 /* Products */,
+				4E5D8872B4E0539DF5532455 /* Pods */,
+				218B0A21346DBDEC0DD36C14 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +77,61 @@
 			children = (
 				181350AC253DC47000FB7E08 /* AppDelegate.swift */,
 				181350AE253DC47000FB7E08 /* SceneDelegate.swift */,
-				181350B0253DC47000FB7E08 /* ViewController.swift */,
-				181350B2253DC47000FB7E08 /* Main.storyboard */,
+				181350DC253DD88600FB7E08 /* Model */,
+				181350DE253E029100FB7E08 /* View */,
+				181350C5253DD1A700FB7E08 /* Controllers */,
 				181350B5253DC47300FB7E08 /* Assets.xcassets */,
 				181350B7253DC47300FB7E08 /* LaunchScreen.storyboard */,
 				181350BA253DC47300FB7E08 /* Info.plist */,
 			);
 			path = VYBORY;
+			sourceTree = "<group>";
+		};
+		181350C5253DD1A700FB7E08 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				181350C7253DD21A00FB7E08 /* CodeViewController.swift */,
+				181350B0253DC47000FB7E08 /* ProtocolViewController.swift */,
+				181350CB253DD26100FB7E08 /* FavoriteTableViewController.swift */,
+				181350CF253DD29E00FB7E08 /* SearchViewController.swift */,
+				1810F97C254073C500D3641B /* TabBarViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		181350DC253DD88600FB7E08 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		181350DE253E029100FB7E08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				181350D7253DD87C00FB7E08 /* CodeBookCell.swift */,
+				181350D8253DD87C00FB7E08 /* CodeBookCell.xib */,
+				181350B2253DC47000FB7E08 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		218B0A21346DBDEC0DD36C14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1031F2042AD1B76B05A3D60E /* Pods_VYBORY.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E5D8872B4E0539DF5532455 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				251BC590B2FF047B0E22E94F /* Pods-VYBORY.debug.xcconfig */,
+				2153F3124CDEE7754F7FB2D8 /* Pods-VYBORY.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +141,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 181350BD253DC47300FB7E08 /* Build configuration list for PBXNativeTarget "VYBORY" */;
 			buildPhases = (
+				14D6951D633C29B40F27B6B4 /* [CP] Check Pods Manifest.lock */,
 				181350A5253DC47000FB7E08 /* Sources */,
 				181350A6253DC47000FB7E08 /* Frameworks */,
 				181350A7253DC47000FB7E08 /* Resources */,
+				CC3CDEC583C9D9AA057073A2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,19 +196,67 @@
 				181350B9253DC47300FB7E08 /* LaunchScreen.storyboard in Resources */,
 				181350B6253DC47300FB7E08 /* Assets.xcassets in Resources */,
 				181350B4253DC47000FB7E08 /* Main.storyboard in Resources */,
+				181350DA253DD87C00FB7E08 /* CodeBookCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14D6951D633C29B40F27B6B4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VYBORY-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC3CDEC583C9D9AA057073A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VYBORY/Pods-VYBORY-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VYBORY/Pods-VYBORY-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VYBORY/Pods-VYBORY-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		181350A5253DC47000FB7E08 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				181350B1253DC47000FB7E08 /* ViewController.swift in Sources */,
+				1810F97D254073C500D3641B /* TabBarViewController.swift in Sources */,
+				181350D0253DD29E00FB7E08 /* SearchViewController.swift in Sources */,
+				181350B1253DC47000FB7E08 /* ProtocolViewController.swift in Sources */,
+				181350CC253DD26100FB7E08 /* FavoriteTableViewController.swift in Sources */,
 				181350AD253DC47000FB7E08 /* AppDelegate.swift in Sources */,
 				181350AF253DC47000FB7E08 /* SceneDelegate.swift in Sources */,
+				181350D9253DD87C00FB7E08 /* CodeBookCell.swift in Sources */,
+				181350C8253DD21A00FB7E08 /* CodeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +400,7 @@
 		};
 		181350BE253DC47300FB7E08 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 251BC590B2FF047B0E22E94F /* Pods-VYBORY.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +420,7 @@
 		};
 		181350BF253DC47300FB7E08 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2153F3124CDEE7754F7FB2D8 /* Pods-VYBORY.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

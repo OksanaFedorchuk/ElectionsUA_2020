@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ProtocolViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
