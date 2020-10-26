@@ -16,31 +16,28 @@ class CodeViewController: UICollectionViewController {
     let db = Database()
     
     var books = [String]()
-    
+    var bookNames = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        books = db.getBooks()
+        bookNames = db.getBooksName()
     }
     // MARK: UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 4
+        return books.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         
         let bookCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-            //            let book = books[indexPath.row]
-            //            let book = "Book"
-            //            bookCell.configure(with: book)
-            bookCell.bookName.text = "Book Name"
-            bookCell.bookNumber.text = "Book Number"
-            
-            bookCell.bookImage.image = UIImage(named: "01_book_01_dark")
-
+        bookCell.bookName.text = bookNames[indexPath.row]
+        bookCell.bookNumber.text = books[indexPath.row]
+        bookCell.bookImage.image = UIImage(named: "01_book_01_dark")
+        
         
         return bookCell
     }
@@ -52,8 +49,9 @@ class CodeViewController: UICollectionViewController {
 extension CodeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.bounds.size.width/2,
-               height: collectionView.bounds.size.height/2 - 100)
+        let width = collectionView.bounds.size.width/2
+        return CGSize(width: width,
+               height: width)
     }
 }
 
