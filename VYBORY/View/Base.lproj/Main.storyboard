@@ -51,14 +51,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillProportionally" alignment="top" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wsP-fb-w9l">
+                                        <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wsP-fb-w9l">
                                             <rect key="frame" x="67.5" y="15" width="115" height="220"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l5l-RI-khu">
-                                                    <rect key="frame" x="0.0" y="0.0" width="115" height="139"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="115" height="159"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiL-lp-Sju">
-                                                    <rect key="frame" x="0.0" y="143" width="41.5" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="153" width="41.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -75,6 +75,7 @@
                                     <constraints>
                                         <constraint firstItem="wsP-fb-w9l" firstAttribute="top" secondItem="ZiY-C3-0nC" secondAttribute="top" constant="15" id="EfE-XB-0Vb"/>
                                         <constraint firstItem="wsP-fb-w9l" firstAttribute="leading" secondItem="ZiY-C3-0nC" secondAttribute="leading" constant="67.5" id="EyI-Dh-mGx"/>
+                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="wsP-fb-w9l" secondAttribute="trailing" constant="67.5" id="N8R-Xm-p2f"/>
                                         <constraint firstItem="wsP-fb-w9l" firstAttribute="centerY" secondItem="ZiY-C3-0nC" secondAttribute="centerY" id="gD6-gC-73j"/>
                                     </constraints>
                                 </collectionViewCellContentView>
@@ -86,8 +87,8 @@
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="a66-PT-u3R" id="j5t-rw-dBt"/>
-                            <outlet property="delegate" destination="a66-PT-u3R" id="qA1-Gg-dCm"/>
+                            <outlet property="dataSource" destination="a66-PT-u3R" id="tS3-S8-Aq4"/>
+                            <outlet property="delegate" destination="a66-PT-u3R" id="CSu-qg-aGs"/>
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Кодекс" id="yvJ-1o-skd"/>
