@@ -10,6 +10,6 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var bookNumber: UILabel!
-    @IBOutlet weak var bookName: UILabel!
+    @IBOutlet weak var bookTitle: UILabel!
     
 }

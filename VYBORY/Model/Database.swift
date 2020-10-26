@@ -22,36 +22,4 @@ class Database {
             print ("Cannot connect to Database. Error is: \(nserror), \(nserror.userInfo)")
         }
     }
-     
-    func getBooks() -> [String]{
-        var bookArray = Array<String>()
-        do {
-            if let books = try connection?.prepare(Books.shared.books) {
-                
-                for book in books {
-                    let number = book[Books.shared.number]
-                    bookArray.append(number)
-                }
-            }
-        } catch {
-            print(error)
-        }
-        return bookArray
-    }
-    
-    func getBooksName() -> [String]{
-        var bookArray = Array<String>()
-        do {
-            if let books = try connection?.prepare(Books.shared.books) {
-                
-                for book in books {
-                    let title = book[Books.shared.title]
-                    bookArray.append(title)
-                }
-            }
-        } catch {
-            print(error)
-        }
-        return bookArray
-    }
 }

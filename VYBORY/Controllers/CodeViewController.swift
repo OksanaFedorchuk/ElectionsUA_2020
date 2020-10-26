@@ -13,15 +13,16 @@ class CodeViewController: UICollectionViewController {
     
     
     //    var collectionViewFlowLayout: UICollectionViewFlowLayout!
-    let db = Database()
+    let db = BookEntity()
     
     var books = [String]()
-    var bookNames = [String]()
+    var bookTitles = [String]()
+    let bookImages = ["01_book_01", "01_book_02", "01_book_03", "01_book_04"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         books = db.getBooks()
-        bookNames = db.getBooksName()
+        bookTitles = db.getTitles()
     }
     // MARK: UICollectionViewDataSource
     
@@ -34,9 +35,9 @@ class CodeViewController: UICollectionViewController {
         
         
         let bookCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        bookCell.bookName.text = bookNames[indexPath.row]
+        bookCell.bookTitle.text = bookTitles[indexPath.row]
         bookCell.bookNumber.text = books[indexPath.row]
-        bookCell.bookImage.image = UIImage(named: "01_book_01_dark")
+        bookCell.bookImage.image = UIImage(named: bookImages[indexPath.row])
         
         
         return bookCell
