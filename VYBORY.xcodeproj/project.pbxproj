@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		03572FEE547DEB9463B9B98C /* Pods_VYBORY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1031F2042AD1B76B05A3D60E /* Pods_VYBORY.framework */; };
 		1810F97D254073C500D3641B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F97C254073C500D3641B /* TabBarViewController.swift */; };
+		1810F9842541822F00D3641B /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F9832541822F00D3641B /* Database.swift */; };
+		1810F98725419B1900D3641B /* code.db in Resources */ = {isa = PBXBuildFile; fileRef = 1810F98625419B1900D3641B /* code.db */; };
+		1810F98A25419C7700D3641B /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F98925419C7700D3641B /* DataModel.swift */; };
 		181350AD253DC47000FB7E08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350AC253DC47000FB7E08 /* AppDelegate.swift */; };
 		181350AF253DC47000FB7E08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350AE253DC47000FB7E08 /* SceneDelegate.swift */; };
 		181350B1253DC47000FB7E08 /* ProtocolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350B0253DC47000FB7E08 /* ProtocolViewController.swift */; };
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		1031F2042AD1B76B05A3D60E /* Pods_VYBORY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VYBORY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1810F97C254073C500D3641B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		1810F9832541822F00D3641B /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		1810F98625419B1900D3641B /* code.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = code.db; sourceTree = "<group>"; };
+		1810F98925419C7700D3641B /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		181350A9253DC47000FB7E08 /* VYBORY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VYBORY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		181350AC253DC47000FB7E08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		181350AE253DC47000FB7E08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +108,9 @@
 		181350DC253DD88600FB7E08 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1810F9832541822F00D3641B /* Database.swift */,
+				1810F98625419B1900D3641B /* code.db */,
+				1810F98925419C7700D3641B /* DataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -130,7 +139,6 @@
 				251BC590B2FF047B0E22E94F /* Pods-VYBORY.debug.xcconfig */,
 				2153F3124CDEE7754F7FB2D8 /* Pods-VYBORY.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -193,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1810F98725419B1900D3641B /* code.db in Resources */,
 				181350B9253DC47300FB7E08 /* LaunchScreen.storyboard in Resources */,
 				181350B6253DC47300FB7E08 /* Assets.xcassets in Resources */,
 				181350B4253DC47000FB7E08 /* Main.storyboard in Resources */,
@@ -254,7 +263,9 @@
 				181350B1253DC47000FB7E08 /* ProtocolViewController.swift in Sources */,
 				181350CC253DD26100FB7E08 /* FavoriteTableViewController.swift in Sources */,
 				181350AD253DC47000FB7E08 /* AppDelegate.swift in Sources */,
+				1810F98A25419C7700D3641B /* DataModel.swift in Sources */,
 				181350AF253DC47000FB7E08 /* SceneDelegate.swift in Sources */,
+				1810F9842541822F00D3641B /* Database.swift in Sources */,
 				181350D9253DD87C00FB7E08 /* CodeBookCell.swift in Sources */,
 				181350C8253DD21A00FB7E08 /* CodeViewController.swift in Sources */,
 			);
