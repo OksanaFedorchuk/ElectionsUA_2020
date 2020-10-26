@@ -33,11 +33,11 @@
         <scene sceneID="rvQ-Yi-o0J">
             <objects>
                 <collectionViewController restorationIdentifier="CodeViewController" storyboardIdentifier="CodeViewController" id="a66-PT-u3R" customClass="CodeViewController" customModule="VYBORY" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" id="qbT-kM-Kie">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" scrollEnabled="NO" dataMode="prototypes" id="qbT-kM-Kie">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Km7-HK-4OH">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Km7-HK-4OH">
                             <size key="itemSize" width="250" height="250"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -73,9 +73,9 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="wsP-fb-w9l" firstAttribute="centerX" secondItem="ZiY-C3-0nC" secondAttribute="centerX" id="09H-Rb-ce0"/>
+                                        <constraint firstItem="wsP-fb-w9l" firstAttribute="width" secondItem="ZiY-C3-0nC" secondAttribute="height" multiplier="23:50" id="7Z3-ho-7cI"/>
                                         <constraint firstItem="wsP-fb-w9l" firstAttribute="top" secondItem="ZiY-C3-0nC" secondAttribute="top" constant="15" id="EfE-XB-0Vb"/>
-                                        <constraint firstItem="wsP-fb-w9l" firstAttribute="leading" secondItem="ZiY-C3-0nC" secondAttribute="leading" constant="67.5" id="EyI-Dh-mGx"/>
-                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="wsP-fb-w9l" secondAttribute="trailing" constant="67.5" id="N8R-Xm-p2f"/>
                                         <constraint firstItem="wsP-fb-w9l" firstAttribute="centerY" secondItem="ZiY-C3-0nC" secondAttribute="centerY" id="gD6-gC-73j"/>
                                     </constraints>
                                 </collectionViewCellContentView>

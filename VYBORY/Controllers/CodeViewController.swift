@@ -14,7 +14,6 @@ class CodeViewController: UICollectionViewController {
     
     //    var collectionViewFlowLayout: UICollectionViewFlowLayout!
     let db = Database()
-    let minimumInteritemSpacing: CGFloat = 10
     
     var books = [String]()
     
@@ -53,12 +52,8 @@ class CodeViewController: UICollectionViewController {
 extension CodeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.bounds.size.width/2 - minimumInteritemSpacing,
-               height: collectionView.bounds.size.height/2 - minimumInteritemSpacing)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        minimumInteritemSpacing
+        CGSize(width: collectionView.bounds.size.width/2,
+               height: collectionView.bounds.size.height/2 - 100)
     }
 }
 
