@@ -8,9 +8,16 @@
 import UIKit
 
 class ChapterViewController: UITableViewController {
+    
+    let db = ChaptersEntity()
+    
+    var chapters = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        chapters = db.filter(by: navigationItem.title!)
+        print(chapters)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

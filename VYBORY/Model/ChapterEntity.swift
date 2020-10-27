@@ -36,6 +36,21 @@ class ChaptersEntity {
         }
     }
     
-    
+    func filter(by selectedBook: String) -> [String] {
+        var chapterArray = Array<String>()
+        do {
+            let filterCondition = (bookNumber == selectedBook)
+            if let chapters = try Database.shared.connection?.prepare(self.tblChapters.filter(filterCondition)) {
+                for chapterNumber in chapters {
+                    let number = chapterNumber[ChaptersEntity.shared.number]
+                    chapterArray.append(number)
+                }
+            }
+        } catch {
+            let nserror = error as NSError
+            print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
+        }
+        return chapterArray
+    }
     
 }
