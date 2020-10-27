@@ -35,4 +35,7 @@ class ChaptersEntity {
             print("Fail creating the table Chapters. Error: \(nserror)")
         }
     }
+    
+    
+    
 }

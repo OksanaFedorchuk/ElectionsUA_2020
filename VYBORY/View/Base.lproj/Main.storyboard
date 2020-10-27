@@ -112,13 +112,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Olk-VJ-37u">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Olk-VJ-37u" customClass="TableViewCell" customModule="VYBORY" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="27"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Olk-VJ-37u" id="M9G-Sg-mJY">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="27"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oLy-QE-irg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="27"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0h-Os-Ek8">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="9.6666666666666661"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gK0-HF-3nZ">
+                                                    <rect key="frame" x="0.0" y="9.6666666666666661" width="414" height="17.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="oLy-QE-irg" firstAttribute="leading" secondItem="M9G-Sg-mJY" secondAttribute="leading" id="8cs-SM-XV2"/>
+                                        <constraint firstItem="oLy-QE-irg" firstAttribute="top" secondItem="M9G-Sg-mJY" secondAttribute="top" id="DYc-o1-A8M"/>
+                                        <constraint firstAttribute="trailing" secondItem="oLy-QE-irg" secondAttribute="trailing" id="KaM-7K-o3i"/>
+                                        <constraint firstAttribute="bottom" secondItem="oLy-QE-irg" secondAttribute="bottom" id="cpf-81-MMc"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contentLabel" destination="gK0-HF-3nZ" id="bSP-B7-Ql6"/>
+                                    <outlet property="numberLabel" destination="g0h-Os-Ek8" id="rtW-w8-Frd"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -60,7 +60,6 @@ class CodeViewController: UICollectionViewController {
         
         selectedBook = books[indexPath.row]
         self.performSegue(withIdentifier: "GoToChapter", sender: Any.self)
-        
     }
 }
 

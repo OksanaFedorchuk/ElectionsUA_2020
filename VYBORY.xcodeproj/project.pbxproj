@@ -15,6 +15,7 @@
 		1810F9982546DBDB00D3641B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F9972546DBDB00D3641B /* CollectionViewCell.swift */; };
 		1810F99F25474E5F00D3641B /* ChapterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F99E25474E5F00D3641B /* ChapterEntity.swift */; };
 		1810F9A72548170A00D3641B /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F9A62548170A00D3641B /* ChapterViewController.swift */; };
+		1810F9AE2548707C00D3641B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F9AD2548707C00D3641B /* TableViewCell.swift */; };
 		181350AD253DC47000FB7E08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350AC253DC47000FB7E08 /* AppDelegate.swift */; };
 		181350AF253DC47000FB7E08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350AE253DC47000FB7E08 /* SceneDelegate.swift */; };
 		181350B1253DC47000FB7E08 /* ProtocolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350B0253DC47000FB7E08 /* ProtocolViewController.swift */; };
@@ -35,6 +36,7 @@
 		1810F9972546DBDB00D3641B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = VYBORY/View/CollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		1810F99E25474E5F00D3641B /* ChapterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterEntity.swift; sourceTree = "<group>"; };
 		1810F9A62548170A00D3641B /* ChapterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChapterViewController.swift; path = VYBORY/View/ChapterViewController.swift; sourceTree = SOURCE_ROOT; };
+		1810F9AD2548707C00D3641B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = VYBORY/Controllers/TableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		181350A9253DC47000FB7E08 /* VYBORY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VYBORY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		181350AC253DC47000FB7E08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		181350AE253DC47000FB7E08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		181350DC253DD88600FB7E08 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1810F9AD2548707C00D3641B /* TableViewCell.swift */,
 				1810F9972546DBDB00D3641B /* CollectionViewCell.swift */,
 				1810F9832541822F00D3641B /* Database.swift */,
 				1810F98625419B1900D3641B /* code.db */,
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1810F9AE2548707C00D3641B /* TableViewCell.swift in Sources */,
 				1810F9982546DBDB00D3641B /* CollectionViewCell.swift in Sources */,
 				1810F97D254073C500D3641B /* TabBarViewController.swift in Sources */,
 				181350D0253DD29E00FB7E08 /* SearchViewController.swift in Sources */,
