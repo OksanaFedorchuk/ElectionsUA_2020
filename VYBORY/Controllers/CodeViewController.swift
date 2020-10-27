@@ -18,6 +18,7 @@ class CodeViewController: UICollectionViewController {
     var books = [String]()
     var bookTitles = [String]()
     let bookImages = ["01_book_01", "01_book_02", "01_book_03", "01_book_04"]
+    var selectedBook = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,18 +50,16 @@ class CodeViewController: UICollectionViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let cell = sender as? UICollectionViewCell,
-           let indexPath = self.collectionView.indexPath(for: cell) {
-            let destinationVC = segue.destination as! ChapterViewController
-            destinationVC.navigationController?.title = bookTitles[indexPath.row] as String
-        }
-        
 
+        if let destinationVC = segue.destination as? ChapterViewController {
+            destinationVC.navigationItem.title = selectedBook
+        }
     }
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let book = books[indexPath.row]
-        self.performSegue(withIdentifier: "GoToChapter", sender: book)
+        
+        selectedBook = books[indexPath.row]
+        self.performSegue(withIdentifier: "GoToChapter", sender: Any.self)
         
     }
 }
