@@ -21,10 +21,14 @@ class CodeViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadBooks()
+    }
+    // MARK: UICollectionViewDataSource
+    
+    func loadBooks() {
         books = db.getBooks()
         bookTitles = db.getTitles()
     }
-    // MARK: UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
@@ -43,16 +47,32 @@ class CodeViewController: UICollectionViewController {
         return bookCell
     }
     
-    
-    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let cell = sender as? UICollectionViewCell,
+           let indexPath = self.collectionView.indexPath(for: cell) {
+            let destinationVC = segue.destination as! ChapterViewController
+            destinationVC.navigationController?.title = bookTitles[indexPath.row] as String
+        }
+        
+
+    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let book = books[indexPath.row]
+        self.performSegue(withIdentifier: "GoToChapter", sender: book)
+        
+    }
 }
 
+
+// MARK: - FlowLayout
 extension CodeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.size.width/2
         return CGSize(width: width,
-               height: width)
+                      height: width)
     }
 }
 
