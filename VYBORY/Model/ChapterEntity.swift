@@ -12,11 +12,11 @@ class ChaptersEntity {
     
     static let shared = ChaptersEntity()
     
-    let tblChapters = Table("chapters")
+    private let tblChapters = Table("chapters")
     
-    let number = Expression<String>("number")
-    let title = Expression<String>("title")
-    let bookNumber = Expression<String>("book_number")
+    private let number = Expression<String>("number")
+    private let title = Expression<String>("title")
+    private let bookNumber = Expression<String>("book_number")
     
     init() {
         do {

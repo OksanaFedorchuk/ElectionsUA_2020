@@ -67,15 +67,3 @@ class BookEntity {
         return bookArray
     }
 }
-
-
-
-//struct Articles {
-//    let articles = Table("articles_content")
-//    let articleId = Expression<Int>("docid")
-//    let number = Expression<String>("c0number")
-//    let title = Expression<String>("c1title")
-//    let content = Expression<String>("c2content")
-//    let favourite = Expression<Int>("c3favourite")
-//    let chapterNumber = Expression<String>("c4chapter_number")
-//}
