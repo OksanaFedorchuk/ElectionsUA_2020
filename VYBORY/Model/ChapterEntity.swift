@@ -36,21 +36,37 @@ class ChaptersEntity {
         }
     }
     
-    func filter(by selectedBook: String) -> [String] {
-        var chapterArray = Array<String>()
+    func getChapterNumbersFiltered(by selectedBook: String) -> [String] {
+        var chapterNumbers = Array<String>()
         do {
             let filterCondition = (bookNumber == selectedBook)
             if let chapters = try Database.shared.connection?.prepare(self.tblChapters.filter(filterCondition)) {
                 for chapterNumber in chapters {
                     let number = chapterNumber[ChaptersEntity.shared.number]
-                    chapterArray.append(number)
+                    chapterNumbers.append(number)
                 }
             }
         } catch {
             let nserror = error as NSError
             print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
         }
-        return chapterArray
+        return chapterNumbers
     }
     
+    func getChapterTitleFiltered(by selectedBook: String) -> [String] {
+        var chapterTitles = Array<String>()
+        do {
+            let filterCondition = (bookNumber == selectedBook)
+            if let titles = try Database.shared.connection?.prepare(self.tblChapters.filter(filterCondition)) {
+                for chapterTitle in titles {
+                    let title = chapterTitle[ChaptersEntity.shared.title]
+                    chapterTitles.append(title)
+                }
+            }
+        } catch {
+            let nserror = error as NSError
+            print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
+        }
+        return chapterTitles
+    }
 }
