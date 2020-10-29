@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "01_book_02.svg",
+      "filename" : "dog_1.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,6 @@
           "value" : "dark"
         }
       ],
-      "filename" : "01_book_02_dark.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
