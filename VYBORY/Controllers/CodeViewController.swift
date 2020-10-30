@@ -12,7 +12,6 @@ private let reuseIdentifier = "CollectionViewCell"
 class CodeViewController: UICollectionViewController {
     
     
-    //    var collectionViewFlowLayout: UICollectionViewFlowLayout!
     let db = BookEntity()
     
     var books = [String]()
@@ -23,8 +22,11 @@ class CodeViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadBooks()
+
     }
     // MARK: UICollectionViewDataSource
+    
+
     
     func loadBooks() {
         books = db.getBooks()
@@ -32,7 +34,6 @@ class CodeViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return books.count
     }
     
@@ -50,7 +51,7 @@ class CodeViewController: UICollectionViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        
         if let destinationVC = segue.destination as? ChapterViewController {
             destinationVC.navigationItem.title = selectedBook
         }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03572FEE547DEB9463B9B98C /* Pods_VYBORY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1031F2042AD1B76B05A3D60E /* Pods_VYBORY.framework */; };
 		1810F97D254073C500D3641B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F97C254073C500D3641B /* TabBarViewController.swift */; };
 		1810F9842541822F00D3641B /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F9832541822F00D3641B /* Database.swift */; };
 		1810F98725419B1900D3641B /* code.db in Resources */ = {isa = PBXBuildFile; fileRef = 1810F98625419B1900D3641B /* code.db */; };
@@ -29,6 +28,8 @@
 		18833961254AB66E0002AAB8 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833960254AB66E0002AAB8 /* ArticlesViewController.swift */; };
 		18833965254AB7C70002AAB8 /* ArticleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833964254AB7C70002AAB8 /* ArticleViewCell.swift */; };
 		18BDA244254AFF2B009A493D /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BDA243254AFF2B009A493D /* ArticleViewController.swift */; };
+		18BDA258254C378E009A493D /* Pods_VYBORY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1031F2042AD1B76B05A3D60E /* Pods_VYBORY.framework */; };
+		18BDA25E254C3860009A493D /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BDA25D254C3860009A493D /* SQLite.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		18833960254AB66E0002AAB8 /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		18833964254AB7C70002AAB8 /* ArticleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleViewCell.swift; path = VYBORY/Controllers/ArticleViewCell.swift; sourceTree = SOURCE_ROOT; };
 		18BDA243254AFF2B009A493D /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleViewController.swift; path = VYBORY/View/ArticleViewController.swift; sourceTree = SOURCE_ROOT; };
+		18BDA24C254C2C3C009A493D /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18BDA25D254C3860009A493D /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2153F3124CDEE7754F7FB2D8 /* Pods-VYBORY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VYBORY.release.xcconfig"; path = "Target Support Files/Pods-VYBORY/Pods-VYBORY.release.xcconfig"; sourceTree = "<group>"; };
 		251BC590B2FF047B0E22E94F /* Pods-VYBORY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VYBORY.debug.xcconfig"; path = "Target Support Files/Pods-VYBORY/Pods-VYBORY.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,7 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03572FEE547DEB9463B9B98C /* Pods_VYBORY.framework in Frameworks */,
+				18BDA258254C378E009A493D /* Pods_VYBORY.framework in Frameworks */,
+				18BDA25E254C3860009A493D /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +150,8 @@
 		218B0A21346DBDEC0DD36C14 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18BDA25D254C3860009A493D /* SQLite.framework */,
+				18BDA24C254C2C3C009A493D /* SQLite.framework */,
 				1031F2042AD1B76B05A3D60E /* Pods_VYBORY.framework */,
 			);
 			name = Frameworks;

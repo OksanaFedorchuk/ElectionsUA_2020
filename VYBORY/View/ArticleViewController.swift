@@ -12,12 +12,15 @@ class ArticleViewController: UIViewController {
     let db1 = ArticleEntity()
     var articleTitle = String()
     var articleContent = String()
-    
+    var favoriteArticles = [String]()
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     
+    
     @IBAction func likeTapped(_ sender: UIBarButtonItem) {
+        favoriteArticles.append(navigationItem.title!)
+        navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
     }
     
     override func viewDidLoad() {
