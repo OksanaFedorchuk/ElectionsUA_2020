@@ -15,6 +15,8 @@ class ArticlesViewController: UITableViewController {
     var articles = [String]()
     var articleTitles = [String]()
     
+    var selectedArticle = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateData()
@@ -23,8 +25,8 @@ class ArticlesViewController: UITableViewController {
     // MARK: - Table view data source
     
     func updateData() {
-        articles = db1.getArticleNumbersFiltered(by: navigationItem.title!)
-        articleTitles = db1.getArticleTitleFiltered(by: navigationItem.title!)
+            articles = db1.getArticleNumbersFiltered(by: navigationItem.title!)
+            articleTitles = db1.getArticleTitleFiltered(by: navigationItem.title!)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,7 +45,21 @@ class ArticlesViewController: UITableViewController {
     
 
     // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? ArticleViewController {
+            destinationVC.navigationItem.title = selectedArticle
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: navigationItem.title, style: .plain, target: nil, action: nil)
+        }
+    }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        selectedArticle = articles[indexPath.row]
+        let selectedTitle = articleTitles[indexPath.row]
+        if selectedTitle != "Виключена." {
+        self.performSegue(withIdentifier: "goToArticle", sender: Any.self)
+        }
+    }
 
 
 }

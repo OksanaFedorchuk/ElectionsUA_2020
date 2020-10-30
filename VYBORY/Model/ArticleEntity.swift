@@ -76,4 +76,36 @@ class ArticleEntity {
         return articleTitles
     }
     
+    func getSelectedArticleTitleFiltered(by selectedArticle: String) -> String {
+        var articleTitles = String()
+        do {
+            let filterCondition = (number == selectedArticle)
+            if let titles = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
+                for articleTitle in titles {
+                    articleTitles = articleTitle[ArticleEntity.shared.title]
+
+                }
+            }
+        } catch {
+            let nserror = error as NSError
+            print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
+        }
+        return articleTitles
+    }
+    
+    func getSelectedArticleContentFiltered(by selectedArticle: String) -> String {
+        var articleContent = String()
+        do {
+            let filterCondition = (number == selectedArticle)
+            if let requests = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
+                for request in requests {
+                        articleContent = request[ArticleEntity.shared.content]
+                }
+            }
+        } catch {
+            let nserror = error as NSError
+            print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
+        }
+        return articleContent
+    }
 }

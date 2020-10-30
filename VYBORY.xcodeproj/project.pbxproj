@@ -28,6 +28,7 @@
 		181350D0253DD29E00FB7E08 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350CF253DD29E00FB7E08 /* SearchViewController.swift */; };
 		18833961254AB66E0002AAB8 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833960254AB66E0002AAB8 /* ArticlesViewController.swift */; };
 		18833965254AB7C70002AAB8 /* ArticleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833964254AB7C70002AAB8 /* ArticleViewCell.swift */; };
+		18BDA244254AFF2B009A493D /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BDA243254AFF2B009A493D /* ArticleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		181350CF253DD29E00FB7E08 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		18833960254AB66E0002AAB8 /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		18833964254AB7C70002AAB8 /* ArticleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleViewCell.swift; path = VYBORY/Controllers/ArticleViewCell.swift; sourceTree = SOURCE_ROOT; };
+		18BDA243254AFF2B009A493D /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleViewController.swift; path = VYBORY/View/ArticleViewController.swift; sourceTree = SOURCE_ROOT; };
 		2153F3124CDEE7754F7FB2D8 /* Pods-VYBORY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VYBORY.release.xcconfig"; path = "Target Support Files/Pods-VYBORY/Pods-VYBORY.release.xcconfig"; sourceTree = "<group>"; };
 		251BC590B2FF047B0E22E94F /* Pods-VYBORY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VYBORY.debug.xcconfig"; path = "Target Support Files/Pods-VYBORY/Pods-VYBORY.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +111,7 @@
 				181350C7253DD21A00FB7E08 /* CodeViewController.swift */,
 				1810F9A62548170A00D3641B /* ChapterViewController.swift */,
 				18833960254AB66E0002AAB8 /* ArticlesViewController.swift */,
+				18BDA243254AFF2B009A493D /* ArticleViewController.swift */,
 				181350B0253DC47000FB7E08 /* ProtocolViewController.swift */,
 				181350CB253DD26100FB7E08 /* FavoriteTableViewController.swift */,
 				181350CF253DD29E00FB7E08 /* SearchViewController.swift */,
@@ -283,6 +286,7 @@
 				1810F98A25419C7700D3641B /* BookEntity.swift in Sources */,
 				18833961254AB66E0002AAB8 /* ArticlesViewController.swift in Sources */,
 				181350AF253DC47000FB7E08 /* SceneDelegate.swift in Sources */,
+				18BDA244254AFF2B009A493D /* ArticleViewController.swift in Sources */,
 				1810F9A72548170A00D3641B /* ChapterViewController.swift in Sources */,
 				1810F99F25474E5F00D3641B /* ChapterEntity.swift in Sources */,
 				1810F9842541822F00D3641B /* Database.swift in Sources */,
