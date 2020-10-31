@@ -23,13 +23,15 @@ class ArticleViewController: UIViewController {
 
         getCurrentStatus()
         db1.changeFavouriteArticleStatus(by: navigationItem.title!, currentFavouriteStatus: currentStatus)
-        changeCurrentStatus()
+        getCurrentStatus()
+        setCurrentStatusImage()
         
     }
     
     override func viewDidLoad() {
         updateData()
         getCurrentStatus()
+        setCurrentStatusImage()
         super.viewDidLoad()
     }
     
@@ -37,11 +39,11 @@ class ArticleViewController: UIViewController {
         currentStatus = db1.getFavouriteArticleStatus(by: navigationItem.title!)
     }
     
-    func changeCurrentStatus() {
+    func setCurrentStatusImage() {
         if currentStatus == 0 {
-            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
-        } else {
             navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
+        } else {
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
         }
     }
     

@@ -14,7 +14,6 @@ class ArticleEntity {
     
     private let tblArticles = Table("articles")
     
-//    private let articleId = Expression<Int64>("docid")
     private let number = Expression<String>("number")
     private let title = Expression<String>("title")
     private let content = Expression<String>("content")
@@ -25,7 +24,6 @@ class ArticleEntity {
         do {
             if let connection = Database.shared.connection {
                 try connection.run(tblArticles.create(temporary: false, ifNotExists: true, withoutRowid: false, block: { (table) in
-//                    table.column(self.articleId)
                     table.column(self.number)
                     table.column(self.title)
                     table.column(self.content)
@@ -144,13 +142,29 @@ class ArticleEntity {
    }
     
     func getFavouriteArticlesNumber() -> [String]{
+        var articleNumbers = [String()]
+        do {
+            let filterCondition = (favourite == 1)
+            if let numbers = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
+                for articleTitle in numbers {
+                    articleNumbers.append(articleTitle[ArticleEntity.shared.number])
+
+                }
+            }
+        } catch {
+            let nserror = error as NSError
+            print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
+        }
+        return articleNumbers
+    }
+    
+    func getFavouriteArticlesTitle() -> [String]{
         var articleTitles = [String()]
         do {
             let filterCondition = (favourite == 1)
             if let titles = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
                 for articleTitle in titles {
-                    articleTitles.append(articleTitle[ArticleEntity.shared.number])
-
+                    articleTitles.append(articleTitle[ArticleEntity.shared.title])
                 }
             }
         } catch {
@@ -159,5 +173,4 @@ class ArticleEntity {
         }
         return articleTitles
     }
-    
 }
