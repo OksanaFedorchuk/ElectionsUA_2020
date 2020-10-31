@@ -12,30 +12,39 @@ class ArticleViewController: UIViewController {
     let db1 = ArticleEntity()
     var articleTitle = String()
     var articleContent = String()
-    var articleFavouriteStatus = Int()
+    
+    var currentStatus = Int()
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     
     
     @IBAction func likeTapped(_ sender: UIBarButtonItem) {
-        
-        let currentStatus = db1.getFavouriteArticleStatus(by: navigationItem.title!)
-        
+
+        getCurrentStatus()
         db1.changeFavouriteArticleStatus(by: navigationItem.title!, currentFavouriteStatus: currentStatus)
+        changeCurrentStatus()
         
+    }
+    
+    override func viewDidLoad() {
+        updateData()
+        getCurrentStatus()
+        super.viewDidLoad()
+    }
+    
+    func getCurrentStatus() {
+        currentStatus = db1.getFavouriteArticleStatus(by: navigationItem.title!)
+    }
+    
+    func changeCurrentStatus() {
         if currentStatus == 0 {
             navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
         } else {
             navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
         }
-        
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateData()
-    }
     func updateData() {
         
         articleTitle = db1.getSelectedArticleTitleFiltered(by: navigationItem.title!)

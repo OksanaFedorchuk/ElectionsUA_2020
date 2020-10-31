@@ -143,5 +143,21 @@ class ArticleEntity {
        return articleStatus
    }
     
+    func getFavouriteArticlesNumber() -> [String]{
+        var articleTitles = [String()]
+        do {
+            let filterCondition = (favourite == 1)
+            if let titles = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
+                for articleTitle in titles {
+                    articleTitles.append(articleTitle[ArticleEntity.shared.number])
+
+                }
+            }
+        } catch {
+            let nserror = error as NSError
+            print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
+        }
+        return articleTitles
+    }
     
 }

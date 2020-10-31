@@ -10,32 +10,38 @@ import UIKit
 class FavoriteTableViewController: UITableViewController {
     
     let segueId = "goToFavoriteArticle"
+    
+    let db1 = ArticleEntity()
+    var articles = [String()]
+    var articleTitles = [String()]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateData()
+        tableView.reloadData()
     }
 
+    func updateData() {
+        articles = db1.getFavouriteArticlesNumber()
+//            articleTitles = db1.getArticleTitleFiltered(by: navigationItem.title!)
+    }
+    
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+
+        return articles.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "favouriteArticle", for: indexPath) as! FavoriteViewCell
 
-        // Configure the cell...
+        cell.numberLabel.text = articles[indexPath.row]
+//        cell.contentLabel.text = articleTitles[indexPath.row]
 
         return cell
     }
-    */
+
 
     /*
     // MARK: - Navigation
