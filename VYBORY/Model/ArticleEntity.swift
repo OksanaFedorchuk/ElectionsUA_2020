@@ -42,6 +42,8 @@ class ArticleEntity {
         }
     }
     
+    // MARK: - Query for the list of articles in chapter
+    
     func getArticleNumbersFiltered(by selectedChapter: String) -> [String] {
         var articleNumbers = Array<String>()
         do {
@@ -76,6 +78,8 @@ class ArticleEntity {
         return articleTitles
     }
     
+    // MARK: - Query for the title and content of selected article
+    
     func getSelectedArticleTitleFiltered(by selectedArticle: String) -> String {
         var articleTitles = String()
         do {
@@ -108,4 +112,36 @@ class ArticleEntity {
         }
         return articleContent
     }
+    
+    func changeFavouriteArticleStatus(by selectedArticle: String, currentFavouriteStatus: Int) {
+        var status = Int()
+        do {
+            let article = tblArticles.filter(number == selectedArticle)
+            status = currentFavouriteStatus == 0 ? 1 : 0
+            do {
+                try Database.shared.connection?.run(article.update(favourite <- status))
+            }
+            catch {
+                print("Unable to shange the favorite article status. Error is: \(error)")
+            }
+        }
+    }
+    
+    func getFavouriteArticleStatus(by selectedArticle: String) -> Int {
+       var articleStatus = Int()
+       do {
+           let filterCondition = (number == selectedArticle)
+           if let requests = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
+               for request in requests {
+                articleStatus = request[ArticleEntity.shared.favourite]
+               }
+           }
+       } catch {
+           let nserror = error as NSError
+           print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
+       }
+       return articleStatus
+   }
+    
+    
 }

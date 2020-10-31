@@ -12,15 +12,24 @@ class ArticleViewController: UIViewController {
     let db1 = ArticleEntity()
     var articleTitle = String()
     var articleContent = String()
-    var favoriteArticles = [String]()
+    var articleFavouriteStatus = Int()
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     
     
     @IBAction func likeTapped(_ sender: UIBarButtonItem) {
-        favoriteArticles.append(navigationItem.title!)
-        navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
+        
+        let currentStatus = db1.getFavouriteArticleStatus(by: navigationItem.title!)
+        
+        db1.changeFavouriteArticleStatus(by: navigationItem.title!, currentFavouriteStatus: currentStatus)
+        
+        if currentStatus == 0 {
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
+        } else {
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
+        }
+        
     }
     
     override func viewDidLoad() {
