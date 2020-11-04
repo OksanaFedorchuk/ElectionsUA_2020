@@ -15,6 +15,8 @@ class FavoriteTableViewController: UITableViewController {
     var articles = [String()]
     var articleTitles = [String()]
     
+    var selectedArticle = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateData()
@@ -35,7 +37,9 @@ class FavoriteTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteViewCell", for: indexPath) as! FavoriteViewCell
-        
+//
+//        cell.accessoryView = UIImageView(image: UIImage(systemName: "heart.fill"), highlightedImage: UIImage(systemName: "heart.fill"))
+//        cell.accessoryType = .checkmark
         cell.numberLabel.text = articles[indexPath.row]
         cell.contentLabel.text = articleTitles[indexPath.row]
         
@@ -46,14 +50,21 @@ class FavoriteTableViewController: UITableViewController {
         updateData()
         tableView.reloadData()
     }
-    /*
+
      // MARK: - Navigation
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+        if let destinationVC = segue.destination as? ArticleViewController {
+            destinationVC.navigationItem.title = selectedArticle
+//            navigationItem.backBarButtonItem = UIBarButtonItem(title: navigationItem.title, style: .plain, target: nil, action: nil)
+        }
      }
-     */
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedArticle = articles[indexPath.row]
+        let selectedTitle = articleTitles[indexPath.row]
+        if selectedTitle != "Виключена." {
+        self.performSegue(withIdentifier: segueId, sender: Any.self)
+        }
+    }
 }
