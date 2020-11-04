@@ -35,35 +35,20 @@ class BookEntity {
         }
     }
     
-    func getBooks() -> [String]{
-        var bookArray = Array<String>()
+    func getBooks() -> [[String]]{
+        var books = [[String]]()
         do {
-            if let books = try Database.shared.connection?.prepare(BookEntity.shared.tblBooks) {
+            if let booksTable = try Database.shared.connection?.prepare(BookEntity.shared.tblBooks) {
                 
-                for book in books {
+                for book in booksTable {
                     let number = book[BookEntity.shared.number]
-                    bookArray.append(number)
-                }
-            }
-        } catch {
-            print(error)
-        }
-        return bookArray
-    }
-    
-    func getTitles() -> [String]{
-        var bookArray = Array<String>()
-        do {
-            if let books = try Database.shared.connection?.prepare(BookEntity.shared.tblBooks) {
-                
-                for book in books {
                     let title = book[BookEntity.shared.title]
-                    bookArray.append(title)
+                    books.append([number, title])
                 }
             }
         } catch {
             print(error)
         }
-        return bookArray
+        return books
     }
 }

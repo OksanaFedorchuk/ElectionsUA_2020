@@ -33,8 +33,8 @@ class ArticlesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleViewCell", for: indexPath) as! TableViewCell
-        cell.numberLabel.text = self.articles[indexPath.row][0]
-        cell.contentLabel.text = self.articles[indexPath.row][1]
+        cell.numberLabel.text = articles[indexPath.row][0]
+        cell.contentLabel.text = articles[indexPath.row][1]
         return cell
     }
     

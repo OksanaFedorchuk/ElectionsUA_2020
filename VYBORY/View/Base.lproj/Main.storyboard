@@ -109,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="-3462.3188405797105" y="1116.2946428571429"/>
         </scene>
-        <!--Chapter View Controller-->
+        <!--Chapters View Controller-->
         <scene sceneID="273-iO-vbg">
             <objects>
-                <tableViewController storyboardIdentifier="ChapterViewController" id="t4J-qL-FG9" customClass="ChapterViewController" customModule="VYBORY" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ChapterViewController" id="t4J-qL-FG9" customClass="ChaptersViewController" customModule="VYBORY" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fZ7-pg-QWU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -314,7 +314,7 @@
         <!--Обране-->
         <scene sceneID="RFr-Y9-Ljb">
             <objects>
-                <tableViewController id="F40-fZ-VY6" customClass="FavoriteTableViewController" customModule="VYBORY" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="F40-fZ-VY6" customClass="FavoritesTableViewController" customModule="VYBORY" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6Kr-iy-fyN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

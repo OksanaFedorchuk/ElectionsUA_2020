@@ -62,53 +62,25 @@ class ArticleEntity {
     
     // MARK: - Query for the title and content of selected article
     
-    func getSelectedArticleTitleFiltered(by selectedArticle: String) -> String {
-        var articleTitles = String()
+    func getSelectedArticleFiltered(by selectedArticle: String) -> [[String]] {
+        var article = [[String]]()
         do {
             let filterCondition = (number == selectedArticle)
-            if let titles = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
-                for articleTitle in titles {
-                    articleTitles = articleTitle[ArticleEntity.shared.title]
+            if let articleData = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
+                for content in articleData {
+                    let title = content[ArticleEntity.shared.title]
+                    let content = content[ArticleEntity.shared.content]
+                    article.append([title, content])
                 }
             }
         } catch {
             let nserror = error as NSError
             print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
         }
-        return articleTitles
-    }
-    
-    func getSelectedArticleContentFiltered(by selectedArticle: String) -> String {
-        var articleContent = String()
-        do {
-            let filterCondition = (number == selectedArticle)
-            if let requests = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
-                for request in requests {
-                    articleContent = request[ArticleEntity.shared.content]
-                }
-            }
-        } catch {
-            let nserror = error as NSError
-            print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
-        }
-        return articleContent
+        return article
     }
     
     // MARK: - Queries for favorite articles
-    
-    func changeFavouriteArticleStatus(by selectedArticle: String, currentFavouriteStatus: Int) {
-        var status = Int()
-        do {
-            let article = tblArticles.filter(number == selectedArticle)
-            status = currentFavouriteStatus == 0 ? 1 : 0
-            do {
-                try Database.shared.connection?.run(article.update(favourite <- status))
-            }
-            catch {
-                print("Unable to shange the favorite article status. Error is: \(error)")
-            }
-        }
-    }
     
     func getFavouriteArticleStatus(by selectedArticle: String) -> Int {
         var articleStatus = Int()
@@ -126,37 +98,36 @@ class ArticleEntity {
         return articleStatus
     }
     
-    func getFavouriteArticlesNumber() -> [String]{
-        var articleNumbers = [String()]
+    func changeFavouriteArticleStatus(by selectedArticle: String, currentFavouriteStatus: Int) {
+        var status = Int()
         do {
-            let filterCondition = (favourite == 1)
-            if let numbers = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
-                for articleTitle in numbers {
-                    articleNumbers.append(articleTitle[ArticleEntity.shared.number])
-                    
-                }
+            let article = tblArticles.filter(number == selectedArticle)
+            status = currentFavouriteStatus == 0 ? 1 : 0
+            do {
+                try Database.shared.connection?.run(article.update(favourite <- status))
             }
-        } catch {
-            let nserror = error as NSError
-            print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
+            catch {
+                print("Unable to shange the favorite article status. Error is: \(error)")
+            }
         }
-        return articleNumbers
     }
     
-    func getFavouriteArticlesTitle() -> [String]{
-        var articleTitles = [String()]
+    func getFavouriteArticles() -> [[String]]{
+        var favoriteArticles = [[String]]()
         do {
             let filterCondition = (favourite == 1)
-            if let titles = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
-                for articleTitle in titles {
-                    articleTitles.append(articleTitle[ArticleEntity.shared.title])
+            if let favoriteArticlesTable = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
+                for favoriteArticle in favoriteArticlesTable {
+                    let number = favoriteArticle[ArticleEntity.shared.number]
+                    let title = favoriteArticle[ArticleEntity.shared.title]
+                    favoriteArticles.append([number, title])
                 }
             }
         } catch {
             let nserror = error as NSError
             print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
         }
-        return articleTitles
+        return favoriteArticles
     }
     
     // MARK: - Queries for search

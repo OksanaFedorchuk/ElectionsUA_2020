@@ -13,7 +13,7 @@
 		1810F98A25419C7700D3641B /* BookEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F98925419C7700D3641B /* BookEntity.swift */; };
 		1810F9982546DBDB00D3641B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F9972546DBDB00D3641B /* CollectionViewCell.swift */; };
 		1810F99F25474E5F00D3641B /* ChapterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F99E25474E5F00D3641B /* ChapterEntity.swift */; };
-		1810F9A72548170A00D3641B /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F9A62548170A00D3641B /* ChapterViewController.swift */; };
+		1810F9A72548170A00D3641B /* ChaptersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F9A62548170A00D3641B /* ChaptersViewController.swift */; };
 		1810F9AE2548707C00D3641B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F9AD2548707C00D3641B /* TableViewCell.swift */; };
 		1810F9B12549648700D3641B /* ArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F9B02549648700D3641B /* ArticleEntity.swift */; };
 		181350AD253DC47000FB7E08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350AC253DC47000FB7E08 /* AppDelegate.swift */; };
@@ -23,7 +23,7 @@
 		181350B6253DC47300FB7E08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 181350B5253DC47300FB7E08 /* Assets.xcassets */; };
 		181350B9253DC47300FB7E08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181350B7253DC47300FB7E08 /* LaunchScreen.storyboard */; };
 		181350C8253DD21A00FB7E08 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350C7253DD21A00FB7E08 /* CodeViewController.swift */; };
-		181350CC253DD26100FB7E08 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350CB253DD26100FB7E08 /* FavoriteTableViewController.swift */; };
+		181350CC253DD26100FB7E08 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350CB253DD26100FB7E08 /* FavoritesTableViewController.swift */; };
 		181350D0253DD29E00FB7E08 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350CF253DD29E00FB7E08 /* SearchViewController.swift */; };
 		18833961254AB66E0002AAB8 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833960254AB66E0002AAB8 /* ArticlesViewController.swift */; };
 		18833965254AB7C70002AAB8 /* ArticleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833964254AB7C70002AAB8 /* ArticleViewCell.swift */; };
@@ -41,7 +41,7 @@
 		1810F98925419C7700D3641B /* BookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEntity.swift; sourceTree = "<group>"; };
 		1810F9972546DBDB00D3641B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = VYBORY/View/CollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		1810F99E25474E5F00D3641B /* ChapterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterEntity.swift; sourceTree = "<group>"; };
-		1810F9A62548170A00D3641B /* ChapterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChapterViewController.swift; path = VYBORY/View/ChapterViewController.swift; sourceTree = SOURCE_ROOT; };
+		1810F9A62548170A00D3641B /* ChaptersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChaptersViewController.swift; path = VYBORY/View/ChaptersViewController.swift; sourceTree = SOURCE_ROOT; };
 		1810F9AD2548707C00D3641B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = VYBORY/Controllers/TableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		1810F9B02549648700D3641B /* ArticleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleEntity.swift; sourceTree = "<group>"; };
 		181350A9253DC47000FB7E08 /* VYBORY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VYBORY.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,7 +53,7 @@
 		181350B8253DC47300FB7E08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		181350BA253DC47300FB7E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		181350C7253DD21A00FB7E08 /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
-		181350CB253DD26100FB7E08 /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
+		181350CB253DD26100FB7E08 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		181350CF253DD29E00FB7E08 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		18833960254AB66E0002AAB8 /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		18833964254AB7C70002AAB8 /* ArticleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleViewCell.swift; path = VYBORY/Controllers/ArticleViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -115,11 +115,11 @@
 			isa = PBXGroup;
 			children = (
 				181350C7253DD21A00FB7E08 /* CodeViewController.swift */,
-				1810F9A62548170A00D3641B /* ChapterViewController.swift */,
+				1810F9A62548170A00D3641B /* ChaptersViewController.swift */,
 				18833960254AB66E0002AAB8 /* ArticlesViewController.swift */,
 				18BDA243254AFF2B009A493D /* ArticleViewController.swift */,
 				181350B0253DC47000FB7E08 /* ProtocolViewController.swift */,
-				181350CB253DD26100FB7E08 /* FavoriteTableViewController.swift */,
+				181350CB253DD26100FB7E08 /* FavoritesTableViewController.swift */,
 				181350CF253DD29E00FB7E08 /* SearchViewController.swift */,
 				1810F97C254073C500D3641B /* TabBarViewController.swift */,
 			);
@@ -291,13 +291,13 @@
 				181350B1253DC47000FB7E08 /* ProtocolViewController.swift in Sources */,
 				1810F9B12549648700D3641B /* ArticleEntity.swift in Sources */,
 				18BDA26D254D93BA009A493D /* FavoriteViewCell.swift in Sources */,
-				181350CC253DD26100FB7E08 /* FavoriteTableViewController.swift in Sources */,
+				181350CC253DD26100FB7E08 /* FavoritesTableViewController.swift in Sources */,
 				181350AD253DC47000FB7E08 /* AppDelegate.swift in Sources */,
 				1810F98A25419C7700D3641B /* BookEntity.swift in Sources */,
 				18833961254AB66E0002AAB8 /* ArticlesViewController.swift in Sources */,
 				181350AF253DC47000FB7E08 /* SceneDelegate.swift in Sources */,
 				18BDA244254AFF2B009A493D /* ArticleViewController.swift in Sources */,
-				1810F9A72548170A00D3641B /* ChapterViewController.swift in Sources */,
+				1810F9A72548170A00D3641B /* ChaptersViewController.swift in Sources */,
 				1810F99F25474E5F00D3641B /* ChapterEntity.swift in Sources */,
 				1810F9842541822F00D3641B /* Database.swift in Sources */,
 				181350C8253DD21A00FB7E08 /* CodeViewController.swift in Sources */,

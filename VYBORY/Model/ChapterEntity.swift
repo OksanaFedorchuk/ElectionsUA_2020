@@ -8,9 +8,9 @@
 import Foundation
 import SQLite
 
-class ChaptersEntity {
+class ChapterEntity {
     
-    static let shared = ChaptersEntity()
+    static let shared = ChapterEntity()
     
     private let tblChapters = Table("chapters")
     
@@ -36,37 +36,21 @@ class ChaptersEntity {
         }
     }
     
-    func getChapterNumbersFiltered(by selectedBook: String) -> [String] {
-        var chapterNumbers = Array<String>()
+    func getChaptersFiltered(by selectedBook: String) -> [[String]] {
+        var chapters = [[String]]()
         do {
             let filterCondition = (bookNumber == selectedBook)
-            if let chapters = try Database.shared.connection?.prepare(self.tblChapters.filter(filterCondition)) {
-                for chapterNumber in chapters {
-                    let number = chapterNumber[ChaptersEntity.shared.number]
-                    chapterNumbers.append(number)
+            if let chaptersTable = try Database.shared.connection?.prepare(self.tblChapters.filter(filterCondition)) {
+                for chapter in chaptersTable {
+                    let number = chapter[ChapterEntity.shared.number]
+                    let title = chapter[ChapterEntity.shared.title]
+                    chapters.append([number, title])
                 }
             }
         } catch {
             let nserror = error as NSError
             print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
         }
-        return chapterNumbers
-    }
-    
-    func getChapterTitleFiltered(by selectedBook: String) -> [String] {
-        var chapterTitles = Array<String>()
-        do {
-            let filterCondition = (bookNumber == selectedBook)
-            if let titles = try Database.shared.connection?.prepare(self.tblChapters.filter(filterCondition)) {
-                for chapterTitle in titles {
-                    let title = chapterTitle[ChaptersEntity.shared.title]
-                    chapterTitles.append(title)
-                }
-            }
-        } catch {
-            let nserror = error as NSError
-            print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
-        }
-        return chapterTitles
+        return chapters
     }
 }
