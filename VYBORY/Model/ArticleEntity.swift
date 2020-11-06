@@ -132,8 +132,25 @@ class ArticleEntity {
     
     // MARK: - Queries for search
     
-    //    func getSearchResults(filtered by: String) -> [String] {
-    //
-    //        return
-    //    }
+        func getSearchResultsFiltered(by searchText: String) -> [String] {
+            var searchResult = [String]()
+            do {
+
+                let filterCondition = content.like("%\(searchText)%") || title.like("%\(searchText)%")
+                
+                if let articleData = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
+                    for content in articleData {
+//                        let number = content[ArticleEntity.shared.number]
+//                        let title = content[ArticleEntity.shared.title]
+                        let cont = content[ArticleEntity.shared.content]
+//                        searchResult.append([[number], [title], [content]])
+                        searchResult.append(cont)
+                    }
+                }
+            } catch {
+                let nserror = error as NSError
+                print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
+            }
+            return searchResult
+        }
 }

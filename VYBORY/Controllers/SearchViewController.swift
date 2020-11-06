@@ -8,30 +8,38 @@
 import UIKit
 
 class SearchViewController: UITableViewController {
+    
+    let db = ArticleEntity()
+    
+    var searchResult = [String]()
+//    var searchResult = [[[String]]]()
+    var searchText = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
     }
 
+    func updateData() {
+        searchResult = db.getSearchResultsFiltered(by: searchText)
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return searchResult.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath) as! SearchCell
 
-        // Configure the cell...
+//        cell.contentLabel.text = searchResult[indexPath.row][2][0]
+        cell.titleLabel.text = searchResult[indexPath.row]
+
 
         return cell
     }
-    */
 
     /*
     // MARK: - Navigation
@@ -49,7 +57,8 @@ class SearchViewController: UITableViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        searchText = searchBar.text!
+        updateData()
     }
     
 }
