@@ -61,7 +61,9 @@ class SearchViewController: UITableViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchText = searchBar.text!.lowercased()
+        if let text = searchBar.text?.lowercased() {
+            searchText = text
+        }
         updateData()
     }
     

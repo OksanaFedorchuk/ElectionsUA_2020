@@ -135,7 +135,7 @@ class ArticleEntity {
     func getSearchResultsFiltered(by searchText: String) -> [[[String]]] {
             var searchResult = [[[String]]]()
             do {
-                let filterCondition = content.like("%\(searchText)%") || title.like("%\(searchText)%")
+                let filterCondition = title.like("%\(searchText)%")
                 
                 if let articleData = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
                     for content in articleData {
@@ -150,7 +150,21 @@ class ArticleEntity {
                 print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
             }
         
-        
+        do {
+            let filterCondition = content.like("%\(searchText)%")
+            
+            if let articleData = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
+                for content in articleData {
+                    let number = content[ArticleEntity.shared.number]
+                    let title = content[ArticleEntity.shared.title]
+                    let cont = content[ArticleEntity.shared.content]
+                    searchResult.append([[number], [title], [cont]])
+                }
+            }
+        } catch {
+            let nserror = error as NSError
+            print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
+        }
         
         
             return searchResult
