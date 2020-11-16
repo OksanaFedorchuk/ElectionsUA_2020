@@ -7,12 +7,13 @@
 
 import Foundation
 import SQLite
+import sqlite3
 
 class ArticleEntity {
     
     static let shared = ArticleEntity()
     
-    private let tblArticles = Table("articles")
+    private let tblArticles = VirtualTable("articles")
     
     private let number = Expression<String>("number")
     private let title = Expression<String>("title")
@@ -23,20 +24,13 @@ class ArticleEntity {
     init() {
         do {
             if let connection = Database.shared.connection {
-                try connection.run(tblArticles.create(temporary: false, ifNotExists: true, withoutRowid: false, block: { (table) in
-                    table.column(self.number)
-                    table.column(self.title)
-                    table.column(self.content)
-                    table.column(self.favourite)
-                    table.column(self.chapterNumber)
-                }))
+                try connection.run(tblArticles.create(.FTS4(number, title, content, favourite, chapterNumber), ifNotExists: true))
                 print ("Table Articles has been created")
             } else {
                 print ("Fail creating the table Articles")
             }
         }catch {
-            let nserror = error as NSError
-            print("Fail creating the table Articles. Error: \(nserror)")
+            print("Fail creating the table Articles. Error: \(error), \(error.localizedDescription)")
         }
     }
     
@@ -45,17 +39,16 @@ class ArticleEntity {
     func getArticlesFiltered(by selectedChapter: String) -> [[String]] {
         var articles = [[String]]()
         do {
-            let filterCondition = (chapterNumber == selectedChapter)
-            if let articlesArray = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
-                for article in articlesArray {
-                    let number = article[ArticleEntity.shared.number]
-                    let title = article[ArticleEntity.shared.title]
+            if let articlesVtable = try Database.shared.connection?.prepare(tblArticles.filter(chapterNumber.match("\(selectedChapter)*"))) {
+                for a in articlesVtable {
+                    
+                    let number = a[ArticleEntity.shared.number]
+                    let title = a[ArticleEntity.shared.title]
                     articles.append([number, title])
                 }
             }
         } catch {
-            let nserror = error as NSError
-            print("Cannot list quesry objects in tblArticles. Error: \(nserror), \(nserror.userInfo)")
+            print("Cannot list quesry objects in tblArticles. Error: \(error), \(error.localizedDescription)")
         }
         return articles
     }
@@ -65,8 +58,7 @@ class ArticleEntity {
     func getSelectedArticleFiltered(by selectedArticle: String) -> [[String]] {
         var article = [[String]]()
         do {
-            let filterCondition = (number == selectedArticle)
-            if let articleData = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
+            if let articleData = try Database.shared.connection?.prepare(tblArticles.filter(number.match("\(selectedArticle)*"))) {
                 for content in articleData {
                     let title = content[ArticleEntity.shared.title]
                     let content = content[ArticleEntity.shared.content]
@@ -74,8 +66,7 @@ class ArticleEntity {
                 }
             }
         } catch {
-            let nserror = error as NSError
-            print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
+            print("Cannot list quesry objects in tblChapters. Error: \(error), \(error.localizedDescription)")
         }
         return article
     }
@@ -85,15 +76,14 @@ class ArticleEntity {
     func getFavouriteArticleStatus(by selectedArticle: String) -> Int {
         var articleStatus = Int()
         do {
-            let filterCondition = (number == selectedArticle)
-            if let requests = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
+            //        let filterCondition = (number == selectedArticle)
+            if let requests = try Database.shared.connection?.prepare(tblArticles.filter(number.match("\(selectedArticle)*"))) {
                 for request in requests {
                     articleStatus = request[ArticleEntity.shared.favourite]
                 }
             }
         } catch {
-            let nserror = error as NSError
-            print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
+            print("Cannot list quesry objects in tblChapters. Error: \(error), \(error.localizedDescription)")
         }
         return articleStatus
     }
@@ -107,7 +97,7 @@ class ArticleEntity {
                 try Database.shared.connection?.run(article.update(favourite <- status))
             }
             catch {
-                print("Unable to shange the favorite article status. Error is: \(error)")
+                print("Unable to shange the favorite article status. Error is: \(error), \(error.localizedDescription)")
             }
         }
     }
@@ -124,8 +114,7 @@ class ArticleEntity {
                 }
             }
         } catch {
-            let nserror = error as NSError
-            print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
+            print("Cannot list quesry objects in tblChapters. Error: \(error), \(error.localizedDescription)")
         }
         return favoriteArticles
     }
@@ -133,40 +122,19 @@ class ArticleEntity {
     // MARK: - Queries for search
     
     func getSearchResultsFiltered(by searchText: String) -> [[[String]]] {
-            var searchResult = [[[String]]]()
-            do {
-                let filterCondition = title.like("%\(searchText)%")
-                
-                if let articleData = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
-                    for content in articleData {
-                        let number = content[ArticleEntity.shared.number]
-                        let title = content[ArticleEntity.shared.title]
-                        let cont = content[ArticleEntity.shared.content]
-                        searchResult.append([[number], [title], [cont]])
-                    }
-                }
-            } catch {
-                let nserror = error as NSError
-                print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
-            }
-        
+        var searchResult = [[[String]]]()
         do {
-            let filterCondition = content.like("%\(searchText)%")
-            
-            if let articleData = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
-                for content in articleData {
-                    let number = content[ArticleEntity.shared.number]
-                    let title = content[ArticleEntity.shared.title]
-                    let cont = content[ArticleEntity.shared.content]
-                    searchResult.append([[number], [title], [cont]])
+            if let results = try Database.shared.connection?.prepare(tblArticles.match("\(searchText)*")) {
+                for result in results {
+                    let number = result[ArticleEntity.shared.number]
+                    let title = result[ArticleEntity.shared.title]
+                    let content = result[ArticleEntity.shared.content]
+                    searchResult.append([[number], [title], [content]])
                 }
             }
         } catch {
-            let nserror = error as NSError
-            print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
+            print("Cannot list quesry objects in tblChapters. Error: \(error), \(error.localizedDescription)")
         }
-        
-        
-            return searchResult
-        }
+        return searchResult
+    }
 }

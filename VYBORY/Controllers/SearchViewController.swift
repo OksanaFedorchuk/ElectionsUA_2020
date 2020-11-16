@@ -11,18 +11,17 @@ class SearchViewController: UITableViewController {
     
     let db = ArticleEntity()
     
-    //    var searchResult = [String]()
     var searchResult = [[[String]]]()
     var searchText = String()
     var content = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        db1.insert()
         
     }
     
     func updateData() {
-//        let lowercased = searchText.lowercased()
         searchResult = db.getSearchResultsFiltered(by: searchText)
         tableView.reloadData()
     }
@@ -41,7 +40,6 @@ class SearchViewController: UITableViewController {
         cell.numberLabel.attributedText = searchResult[indexPath.row][0][0].highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica Light", size: 10)!)
         cell.titleLabel.attributedText = searchResult[indexPath.row][1][0].highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 16)!)
         cell.contentLabel.attributedText =  label.highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 14)!)
-//
         return cell
     }
     
@@ -61,9 +59,10 @@ class SearchViewController: UITableViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let text = searchBar.text?.lowercased() {
+        if let text = searchBar.text {
             searchText = text
         }
+        searchResult.removeAll()
         updateData()
     }
     

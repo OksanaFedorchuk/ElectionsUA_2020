@@ -31,8 +31,7 @@ class ChapterEntity {
                 print ("Fail creating the table Chapters")
             }
         }catch {
-            let nserror = error as NSError
-            print("Fail creating the table Chapters. Error: \(nserror)")
+            print("Fail creating the table Chapters. Error: \(error)")
         }
     }
     
@@ -48,8 +47,7 @@ class ChapterEntity {
                 }
             }
         } catch {
-            let nserror = error as NSError
-            print("Cannot list quesry objects in tblChapters. Error: \(nserror), \(nserror.userInfo)")
+            print("Cannot list query objects in tblChapters. Error: \(error), \(error.localizedDescription)")
         }
         return chapters
     }
