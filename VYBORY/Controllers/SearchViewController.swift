@@ -17,7 +17,7 @@ class SearchViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        db1.insert()
+        //        db1.insert()
         
     }
     
@@ -35,21 +35,23 @@ class SearchViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath) as! SearchCell
         
-        let string = searchResult[indexPath.row][2][0]
-        let label = string.getSubstring(of: string, searchTxt: searchText)
+//        let titleString = searchResult[indexPath.row][1][0]
+//        let labelT = titleString.getSubstring(of: titleString, searchTxt: searchText)
+//        let contentString = searchResult[indexPath.row][2][0]
+//        let labelC = contentString.getSubstring(of: contentString, searchTxt: searchText)
+        
+        
         cell.numberLabel.attributedText = searchResult[indexPath.row][0][0].highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica Light", size: 10)!)
         cell.titleLabel.attributedText = searchResult[indexPath.row][1][0].highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 16)!)
-        cell.contentLabel.attributedText =  label.highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 14)!)
+        cell.contentLabel.attributedText =  searchResult[indexPath.row][2][0].highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 14)!)
+        print("\(searchResult[indexPath.row][0][0]) /n \(searchResult[indexPath.row][1][0]) /n \(searchResult[indexPath.row][2][0]) ")
         return cell
     }
     
     /*
      // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+     
      }
      */
     
@@ -88,14 +90,14 @@ extension String {
             range: NSRange(location: 0, length: attrString.length))
         return attrString
     }
-    
-    func getSubstring(of string: String, searchTxt: String) -> String {
-        var substring = String()
-        let endIndex = String.Index(utf16Offset: string.count, in: string)
-        if let startIndex = string.range(of: searchTxt)?.lowerBound {
-            substring = String("...\(string[startIndex..<endIndex])...")
-        }
-        return substring
-    }
-    
+
+//    func getSubstring(of string: String, searchTxt: String) -> String {
+//        var substring = String()
+//        let endIndex = String.Index(utf16Offset: string.count, in: string)
+//        if let startIndex = string.range(of: searchTxt)?.lowerBound {
+//            substring = String("...\(string[startIndex..<endIndex])...")
+//        }
+//        return substring
+//    }
+//
 }

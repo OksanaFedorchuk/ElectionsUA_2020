@@ -21,6 +21,9 @@ class ArticleEntity {
     private let favourite = Expression<Int>("favourite")
     private let chapterNumber = Expression<String>("chapter_number")
     
+    lazy var snippet = snippetWrapper(column: content, tableName: "articles")
+    
+    
     init() {
         do {
             if let connection = Database.shared.connection {
@@ -123,12 +126,25 @@ class ArticleEntity {
     
     func getSearchResultsFiltered(by searchText: String) -> [[[String]]] {
         var searchResult = [[[String]]]()
+//        do {
+//            if let results = try Database.shared.connection?.prepare(tblArticles.select(number, title, content).filter(title.match("\(searchText)*"))) {
+//                for result in results {
+//                    let number = result[ArticleEntity.shared.number]
+//                    let title = result[ArticleEntity.shared.title]
+//                    let content = result[ArticleEntity.shared.content]
+//                    searchResult.append([[number], [title], [content]])
+//                }
+//            }
+//        } catch {
+//            print("Cannot list quesry objects in tblChapters. Error: \(error), \(error.localizedDescription)")
+//        }
+
         do {
-            if let results = try Database.shared.connection?.prepare(tblArticles.match("\(searchText)*")) {
-                for result in results {
+            if let results2 = try Database.shared.connection?.prepare(tblArticles.select(number, title, snippet).filter(content.match("\(searchText)*"))) {
+                for result in results2 {
                     let number = result[ArticleEntity.shared.number]
                     let title = result[ArticleEntity.shared.title]
-                    let content = result[ArticleEntity.shared.content]
+                    let content = result[ArticleEntity.shared.snippet]
                     searchResult.append([[number], [title], [content]])
                 }
             }
@@ -137,4 +153,9 @@ class ArticleEntity {
         }
         return searchResult
     }
+    
+    func snippetWrapper(column: Expression<String>, tableName: String) -> Expression<String> {
+        return Expression("snippet(\(tableName), '', '', '...')", column.bindings)
+      }
+    
 }
