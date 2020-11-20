@@ -32,6 +32,7 @@
 		18BDA25E254C3860009A493D /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BDA25D254C3860009A493D /* SQLite.framework */; };
 		18BDA26D254D93BA009A493D /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BDA26C254D93BA009A493D /* FavoriteViewCell.swift */; };
 		18DC5CA925541B8D0062284E /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC5CA825541B8D0062284E /* SearchCell.swift */; };
+		18F6658D2567BA0B00891A26 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6658C2567BA0B00891A26 /* Article.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		18BDA25D254C3860009A493D /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BDA26C254D93BA009A493D /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteViewCell.swift; path = VYBORY/View/FavoriteViewCell.swift; sourceTree = SOURCE_ROOT; };
 		18DC5CA825541B8D0062284E /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCell.swift; path = VYBORY/Controllers/SearchCell.swift; sourceTree = SOURCE_ROOT; };
+		18F6658C2567BA0B00891A26 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		2153F3124CDEE7754F7FB2D8 /* Pods-VYBORY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VYBORY.release.xcconfig"; path = "Target Support Files/Pods-VYBORY/Pods-VYBORY.release.xcconfig"; sourceTree = "<group>"; };
 		251BC590B2FF047B0E22E94F /* Pods-VYBORY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VYBORY.debug.xcconfig"; path = "Target Support Files/Pods-VYBORY/Pods-VYBORY.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +143,7 @@
 				1810F98925419C7700D3641B /* BookEntity.swift */,
 				1810F99E25474E5F00D3641B /* ChapterEntity.swift */,
 				1810F9B02549648700D3641B /* ArticleEntity.swift */,
+				18F6658C2567BA0B00891A26 /* Article.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				1810F9982546DBDB00D3641B /* CollectionViewCell.swift in Sources */,
 				1810F97D254073C500D3641B /* TabBarViewController.swift in Sources */,
 				181350D0253DD29E00FB7E08 /* SearchViewController.swift in Sources */,
+				18F6658D2567BA0B00891A26 /* Article.swift in Sources */,
 				18DC5CA925541B8D0062284E /* SearchCell.swift in Sources */,
 				181350B1253DC47000FB7E08 /* ProtocolViewController.swift in Sources */,
 				1810F9B12549648700D3641B /* ArticleEntity.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 class ArticleViewController: UIViewController {
     
     let db1 = ArticleEntity()
-    var article = [[String]]()
+    var article = [Article]()
     var currentStatus = Int()
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -48,7 +48,7 @@ class ArticleViewController: UIViewController {
     func updateData() {
         
         article = db1.getSelectedArticleFiltered(by: navigationItem.title!)
-        titleLabel.text = article[0][0]
-        contentLabel.text = article[0][1]
+        titleLabel.text = article[0].title
+        contentLabel.text = article[0].content
     }
 }

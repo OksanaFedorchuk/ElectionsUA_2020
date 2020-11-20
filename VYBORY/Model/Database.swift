@@ -22,13 +22,12 @@ class Database {
             ).first! as String
             
             connection = try Connection("\(path)/code.db")
-            
             print("Database created")
-        } catch(let error) {
-            print(error)
+            
+        } catch {
+            
             connection = nil
-            let nserror = error as NSError
-            print ("Cannot connect to Database. Error is: \(nserror), \(nserror.userInfo)")
+            print ("Cannot connect to Database. Error is: \(error), \(error.localizedDescription)")
         }
     }
 }

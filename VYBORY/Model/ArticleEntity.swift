@@ -7,7 +7,6 @@
 
 import Foundation
 import SQLite
-import sqlite3
 
 class ArticleEntity {
     
@@ -37,17 +36,16 @@ class ArticleEntity {
         }
     }
     
-    // MARK: - Query for the list of articles in chapter
+    // MARK: - Query for the list of articles in selected chapter
     
-    func getArticlesFiltered(by selectedChapter: String) -> [[String]] {
-        var articles = [[String]]()
+    func getArticlesFiltered(by selectedChapter: String) -> [Article] {
+        var articles = [Article]()
+        
         do {
             if let articlesVtable = try Database.shared.connection?.prepare(tblArticles.filter(chapterNumber.match("\(selectedChapter)*"))) {
                 for a in articlesVtable {
-                    
-                    let number = a[ArticleEntity.shared.number]
-                    let title = a[ArticleEntity.shared.title]
-                    articles.append([number, title])
+                    let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.content], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
+                    articles.append(article)
                 }
             }
         } catch {
@@ -56,22 +54,21 @@ class ArticleEntity {
         return articles
     }
     
-    // MARK: - Query for the title and content of selected article
+    // MARK: - Query for the selected article
     
-    func getSelectedArticleFiltered(by selectedArticle: String) -> [[String]] {
-        var article = [[String]]()
+    func getSelectedArticleFiltered(by selectedArticle: String) -> [Article] {
+        var articles = [Article]()
         do {
             if let articleData = try Database.shared.connection?.prepare(tblArticles.filter(number.match("\(selectedArticle)*"))) {
-                for content in articleData {
-                    let title = content[ArticleEntity.shared.title]
-                    let content = content[ArticleEntity.shared.content]
-                    article.append([title, content])
+                for a in articleData {
+                    let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.content], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
+                    articles.append(article)
                 }
             }
         } catch {
             print("Cannot list quesry objects in tblChapters. Error: \(error), \(error.localizedDescription)")
         }
-        return article
+        return articles
     }
     
     // MARK: - Queries for favorite articles
@@ -79,7 +76,6 @@ class ArticleEntity {
     func getFavouriteArticleStatus(by selectedArticle: String) -> Int {
         var articleStatus = Int()
         do {
-            //        let filterCondition = (number == selectedArticle)
             if let requests = try Database.shared.connection?.prepare(tblArticles.filter(number.match("\(selectedArticle)*"))) {
                 for request in requests {
                     articleStatus = request[ArticleEntity.shared.favourite]
@@ -105,15 +101,14 @@ class ArticleEntity {
         }
     }
     
-    func getFavouriteArticles() -> [[String]]{
-        var favoriteArticles = [[String]]()
+    func getFavouriteArticles() -> [Article]{
+        var favoriteArticles = [Article]()
         do {
             let filterCondition = (favourite == 1)
             if let favoriteArticlesTable = try Database.shared.connection?.prepare(self.tblArticles.filter(filterCondition)) {
-                for favoriteArticle in favoriteArticlesTable {
-                    let number = favoriteArticle[ArticleEntity.shared.number]
-                    let title = favoriteArticle[ArticleEntity.shared.title]
-                    favoriteArticles.append([number, title])
+                for a in favoriteArticlesTable {
+                    let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.content], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
+                    favoriteArticles.append(article)
                 }
             }
         } catch {
@@ -122,40 +117,40 @@ class ArticleEntity {
         return favoriteArticles
     }
     
-    // MARK: - Queries for search
+    // MARK: - Query for search
     
-    func getSearchResultsFiltered(by searchText: String) -> [[[String]]] {
-        var searchResult = [[[String]]]()
-//        do {
-//            if let results = try Database.shared.connection?.prepare(tblArticles.select(number, title, content).filter(title.match("\(searchText)*"))) {
-//                for result in results {
-//                    let number = result[ArticleEntity.shared.number]
-//                    let title = result[ArticleEntity.shared.title]
-//                    let content = result[ArticleEntity.shared.content]
-//                    searchResult.append([[number], [title], [content]])
-//                }
-//            }
-//        } catch {
-//            print("Cannot list quesry objects in tblChapters. Error: \(error), \(error.localizedDescription)")
-//        }
-
+    func getTitleSearchResultsFiltered(by searchText: String) -> [Article] {
+        var searchResult = [Article]()
         do {
-            if let results2 = try Database.shared.connection?.prepare(tblArticles.select(number, title, snippet).filter(content.match("\(searchText)*"))) {
-                for result in results2 {
-                    let number = result[ArticleEntity.shared.number]
-                    let title = result[ArticleEntity.shared.title]
-                    let content = result[ArticleEntity.shared.snippet]
-                    searchResult.append([[number], [title], [content]])
+            
+            if let results = try Database.shared.connection?.prepare(tblArticles.select(number, title, content, favourite, chapterNumber).filter(title.match("\(searchText)*"))) {
+                for a in results {
+                    let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.content], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
+                    searchResult.append(article)
                 }
             }
         } catch {
-            print("Cannot list quesry objects in tblChapters. Error: \(error), \(error.localizedDescription)")
+            print("Cannot list query objects in tblArticles. Error: \(error), \(error.localizedDescription)")
+        }
+        return searchResult
+    }
+    
+    func getContentSearchResultsFiltered(by searchText: String) -> [Article] {
+        var searchResult = [Article]()
+        do {
+            if let results2 = try Database.shared.connection?.prepare(tblArticles.select(number, title, snippet, favourite, chapterNumber).filter(content.match("\(searchText)*"))) {
+                for a in results2 {
+                    let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.snippet], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
+                    searchResult.append(article)
+                }
+            }
+        } catch {
+            print("Cannot list query objects in tblArticles. Error: \(error), \(error.localizedDescription)")
         }
         return searchResult
     }
     
     func snippetWrapper(column: Expression<String>, tableName: String) -> Expression<String> {
         return Expression("snippet(\(tableName), '', '', '...')", column.bindings)
-      }
-    
+    }
 }

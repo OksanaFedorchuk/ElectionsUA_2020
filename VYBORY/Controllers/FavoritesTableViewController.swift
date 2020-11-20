@@ -10,10 +10,9 @@ import UIKit
 class FavoritesTableViewController: UITableViewController {
     
     let segueId = "goToFavoriteArticle"
-    
     let db1 = ArticleEntity()
     
-    var articles = [[String]]()
+    var articles = [Article]()
     var selectedArticle = String()
     
     override func viewDidLoad() {
@@ -36,8 +35,8 @@ class FavoritesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteViewCell", for: indexPath) as! FavoriteViewCell
         
-        cell.numberLabel.text = articles[indexPath.row][0]
-        cell.contentLabel.text = articles[indexPath.row][1]
+        cell.numberLabel.text = articles[indexPath.row].number
+        cell.contentLabel.text = articles[indexPath.row].title
         
         return cell
     }
@@ -55,8 +54,8 @@ class FavoritesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedArticle = articles[indexPath.row][0]
-        let selectedTitle = articles[indexPath.row][1]
+        selectedArticle = articles[indexPath.row].number
+        let selectedTitle = articles[indexPath.row].title
         if selectedTitle != "Виключена." {
             self.performSegue(withIdentifier: segueId, sender: Any.self)
         }

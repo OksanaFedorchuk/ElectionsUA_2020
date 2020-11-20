@@ -10,9 +10,8 @@ import UIKit
 class ArticlesViewController: UITableViewController {
     
     let db1 = ArticleEntity()
-    
-    
-    var articles = [[String]]()
+        
+    var articles = [Article]()
     var selectedArticle = String()
     
     override func viewDidLoad() {
@@ -33,8 +32,8 @@ class ArticlesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleViewCell", for: indexPath) as! TableViewCell
-        cell.numberLabel.text = articles[indexPath.row][0]
-        cell.contentLabel.text = articles[indexPath.row][1]
+        cell.numberLabel.text = articles[indexPath.row].number
+        cell.contentLabel.text = articles[indexPath.row].title
         return cell
     }
     
@@ -48,8 +47,8 @@ class ArticlesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedArticle = articles[indexPath.row][0]
-        let selectedTitle = articles[indexPath.row][1]
+        selectedArticle = articles[indexPath.row].number
+        let selectedTitle = articles[indexPath.row].title
         if selectedTitle != "Виключена." {
             self.performSegue(withIdentifier: "goToArticle", sender: Any.self)
         }
