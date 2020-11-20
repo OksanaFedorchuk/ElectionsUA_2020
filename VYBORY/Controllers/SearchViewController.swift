@@ -10,12 +10,14 @@ import UIKit
 class SearchViewController: UITableViewController {
     
     let db = ArticleEntity()
+    let segueId = "goToSearchArticle"
     
     var allTheData = [[Article]]()
     
     var titleSearchResult = [Article]()
     var contentSearchResult = [Article]()
     var searchText = String()
+    var selectedArticle = String()
 
     
     override func viewDidLoad() {
@@ -75,13 +77,21 @@ class SearchViewController: UITableViewController {
         return cell
     }
     
-    /*
+
      // MARK: - Navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     
+        if let destinationVC = segue.destination as? ArticleViewController {
+            destinationVC.navigationItem.title = selectedArticle
+        }
      }
-     */
-    
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedArticle = allTheData[indexPath.section][indexPath.row].number
+        let selectedTitle = allTheData[indexPath.section][indexPath.row].title
+        if selectedTitle != "Виключена." {
+            self.performSegue(withIdentifier: segueId, sender: Any.self)
+        }
+    }
 }
 // MARK: - Search Bar Delegate Methods
 

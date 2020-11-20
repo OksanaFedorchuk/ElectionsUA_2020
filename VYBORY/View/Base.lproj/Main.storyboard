@@ -490,6 +490,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Пошук" id="LE2-Vu-S40"/>
+                    <connections>
+                        <segue destination="b8G-di-0SB" kind="show" identifier="goToSearchArticle" id="bGI-nb-ikg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKe-6H-E1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -579,7 +582,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4yS-OF-5XC"/>
+        <segue reference="bGI-nb-ikg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>
