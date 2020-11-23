@@ -23,7 +23,6 @@ class ArticleViewController: UIViewController {
         db1.changeFavouriteArticleStatus(by: navigationItem.title!, currentFavouriteStatus: currentStatus)
         getCurrentStatus()
         setCurrentStatusImage()
-        
     }
     
     override func viewDidLoad() {

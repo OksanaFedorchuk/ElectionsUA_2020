@@ -42,7 +42,7 @@ class ArticleEntity {
         var articles = [Article]()
         
         do {
-            if let articlesVtable = try Database.shared.connection?.prepare(tblArticles.filter(chapterNumber.match("\(selectedChapter)*"))) {
+            if let articlesVtable = try Database.shared.connection?.prepare(tblArticles.filter(chapterNumber.match("\(selectedChapter)"))) {
                 for a in articlesVtable {
                     let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.content], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
                     articles.append(article)
@@ -59,7 +59,7 @@ class ArticleEntity {
     func getSelectedArticleFiltered(by selectedArticle: String) -> [Article] {
         var articles = [Article]()
         do {
-            if let articleData = try Database.shared.connection?.prepare(tblArticles.filter(number.match("\(selectedArticle)*"))) {
+            if let articleData = try Database.shared.connection?.prepare(tblArticles.filter(number.match("\(selectedArticle)"))) {
                 for a in articleData {
                     let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.content], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
                     articles.append(article)
@@ -76,7 +76,7 @@ class ArticleEntity {
     func getFavouriteArticleStatus(by selectedArticle: String) -> Int {
         var articleStatus = Int()
         do {
-            if let requests = try Database.shared.connection?.prepare(tblArticles.filter(number.match("\(selectedArticle)*"))) {
+            if let requests = try Database.shared.connection?.prepare(tblArticles.filter(number.match("\(selectedArticle)"))) {
                 for request in requests {
                     articleStatus = request[ArticleEntity.shared.favourite]
                 }

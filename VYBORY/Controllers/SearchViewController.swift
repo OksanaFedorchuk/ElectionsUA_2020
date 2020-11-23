@@ -37,10 +37,19 @@ class SearchViewController: UITableViewController {
             backgroundImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
         super.viewDidLoad()
+        updateData()
         
     }
     
     // MARK: - Data Manipulation Methods
+    
+    func updateImage() {
+        if self.titleSearchResult.count + self.contentSearchResult.count == 0 {
+            self.backgroundImage.image = UIImage(named: "dog_2")
+        }
+        
+        tableView.reloadData()
+    }
     
     func updateData() {
         titleSearchResult = db.getTitleSearchResultsFiltered(by: searchText)
@@ -48,10 +57,10 @@ class SearchViewController: UITableViewController {
         let diff = unique(array1: titleSearchResult, array2: contentSearchResult)
         allTheData = [titleSearchResult, diff]
         
-        if self.titleSearchResult.count + self.contentSearchResult.count == 0 {
-            self.backgroundImage.image = UIImage(named: "dog_2")
-        }
-        
+//        if self.titleSearchResult.count + self.contentSearchResult.count == 0 {
+//            self.backgroundImage.image = UIImage(named: "dog_2")
+//        }
+//
         tableView.reloadData()
     }
     
@@ -125,6 +134,8 @@ extension SearchViewController: UISearchBarDelegate {
         }
         allTheData.removeAll()
         updateData()
+        updateImage()
+        searchBar.resignFirstResponder()
     }
     
 }
