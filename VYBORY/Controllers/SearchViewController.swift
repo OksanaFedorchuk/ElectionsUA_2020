@@ -12,16 +12,30 @@ class SearchViewController: UITableViewController {
     let db = ArticleEntity()
     let segueId = "goToSearchArticle"
     
+    let backgroundImage: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.image = UIImage()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     var allTheData = [[Article]]()
     
     var titleSearchResult = [Article]()
     var contentSearchResult = [Article]()
     var searchText = String()
     var selectedArticle = String()
-
     
     override func viewDidLoad() {
         
+        backgroundImage.image = UIImage(named: "dog_1")
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        view.insertSubview(backgroundImage, at: 0)
+        NSLayoutConstraint.activate([
+            backgroundImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            backgroundImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
         super.viewDidLoad()
         
     }
@@ -33,6 +47,11 @@ class SearchViewController: UITableViewController {
         contentSearchResult = db.getContentSearchResultsFiltered(by: searchText)
         let diff = unique(array1: titleSearchResult, array2: contentSearchResult)
         allTheData = [titleSearchResult, diff]
+        
+        if self.titleSearchResult.count + self.contentSearchResult.count == 0 {
+            self.backgroundImage.image = UIImage(named: "dog_2")
+        }
+        
         tableView.reloadData()
     }
     
@@ -59,7 +78,8 @@ class SearchViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        allTheData.count
+        return allTheData.count
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,24 +87,26 @@ class SearchViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "titleSearchResultCell", for: indexPath) as! SearchCell
         
+        backgroundImage.image = .none
         
-        cell.numberLabel.attributedText = allTheData[indexPath.section][indexPath.row].number.highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica Light", size: 10)!)
-        cell.titleLabel.attributedText = allTheData[indexPath.section][indexPath.row].title.highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 16)!)
-        cell.contentLabel.attributedText =  allTheData[indexPath.section][indexPath.row].content.highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 14)!)
+        let searchResultCell = tableView.dequeueReusableCell(withIdentifier: "titleSearchResultCell", for: indexPath) as! SearchCell
         
-        return cell
+        searchResultCell.numberLabel.attributedText = allTheData[indexPath.section][indexPath.row].number.highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica Light", size: 10)!)
+        searchResultCell.titleLabel.attributedText = allTheData[indexPath.section][indexPath.row].title.highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 16)!)
+        searchResultCell.contentLabel.attributedText =  allTheData[indexPath.section][indexPath.row].content.highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 14)!)
+        
+        return searchResultCell
     }
     
-
-     // MARK: - Navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? ArticleViewController {
             destinationVC.navigationItem.title = selectedArticle
         }
-     }
-
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedArticle = allTheData[indexPath.section][indexPath.row].number
         let selectedTitle = allTheData[indexPath.section][indexPath.row].title
