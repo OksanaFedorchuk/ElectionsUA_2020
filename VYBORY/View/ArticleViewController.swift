@@ -14,6 +14,8 @@ class ArticleViewController: UIViewController {
     let db1 = ArticleEntity()
     var article = [Article]()
     var currentStatus = Int()
+    var segueFlag = Int()
+    var searchText = String()
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
@@ -41,9 +43,22 @@ class ArticleViewController: UIViewController {
     
     // MARK: - Swipe Gesture Methods
     
-    func getNextArticle() -> [Article] {
+    func getSwipedArticle() -> [Article] {
         
-        let articles = db1.getArticlesFiltered(by: article[0].chapterNumber)
+        var articles = [Article]()
+        
+        switch segueFlag {
+        case 1:
+            articles = db1.getArticlesFiltered(by: article[0].chapterNumber)
+        case 2:
+            articles = db1.getFavouriteArticles()
+        case 3:
+            articles = db1.getTitleSearchResultsFiltered(by: searchText)
+            
+        default:
+            print("You failed")
+        }
+        
         let searchValue = article[0]
         
         var currentIndex = 0
@@ -80,14 +95,14 @@ class ArticleViewController: UIViewController {
     
     @IBAction func swipedRight(_ sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
-            article = db1.getSelectedArticleFiltered(by: getNextArticle()[0].number)
+            article = db1.getSelectedArticleFiltered(by: getSwipedArticle()[0].number)
             updateUI()
         }
     }
     
     @IBAction func swipedLeft(_ sender: UISwipeGestureRecognizer) {
         if (sender.direction == .left) {
-            article = db1.getSelectedArticleFiltered(by: getNextArticle()[1].number)
+            article = db1.getSelectedArticleFiltered(by: getSwipedArticle()[1].number)
             updateUI()
         }
     }

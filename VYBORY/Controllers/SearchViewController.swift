@@ -56,11 +56,6 @@ class SearchViewController: UITableViewController {
         contentSearchResult = db.getContentSearchResultsFiltered(by: searchText)
         let diff = unique(array1: titleSearchResult, array2: contentSearchResult)
         allTheData = [titleSearchResult, diff]
-        
-//        if self.titleSearchResult.count + self.contentSearchResult.count == 0 {
-//            self.backgroundImage.image = UIImage(named: "dog_2")
-//        }
-//
         tableView.reloadData()
     }
     
@@ -113,6 +108,8 @@ class SearchViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? ArticleViewController {
             destinationVC.navigationItem.title = selectedArticle
+            destinationVC.segueFlag = 3
+            destinationVC.searchText = searchText
         }
     }
     

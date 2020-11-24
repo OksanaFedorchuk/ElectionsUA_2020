@@ -10,7 +10,7 @@ import UIKit
 class ArticlesViewController: UITableViewController {
     
     let db1 = ArticleEntity()
-        
+
     var articles = [Article]()
     var selectedArticle = String()
     
@@ -42,6 +42,7 @@ class ArticlesViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? ArticleViewController {
             destinationVC.navigationItem.title = selectedArticle
+            destinationVC.segueFlag = 1
             navigationItem.backBarButtonItem = UIBarButtonItem(title: navigationItem.title, style: .plain, target: nil, action: nil)
         }
     }

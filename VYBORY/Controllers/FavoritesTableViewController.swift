@@ -50,6 +50,7 @@ class FavoritesTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? ArticleViewController {
             destinationVC.navigationItem.title = selectedArticle
+            destinationVC.segueFlag = 2
         }
     }
     
