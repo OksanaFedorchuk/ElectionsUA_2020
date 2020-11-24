@@ -26,6 +26,9 @@ class SearchViewController: UITableViewController {
     var contentSearchResult = [Article]()
     var searchText = String()
     var selectedArticle = String()
+    var diff = [Article]()
+    var allSearchArticles = [Article]()
+    
     
     override func viewDidLoad() {
         
@@ -54,8 +57,9 @@ class SearchViewController: UITableViewController {
     func updateData() {
         titleSearchResult = db.getTitleSearchResultsFiltered(by: searchText)
         contentSearchResult = db.getContentSearchResultsFiltered(by: searchText)
-        let diff = unique(array1: titleSearchResult, array2: contentSearchResult)
+        diff = unique(array1: titleSearchResult, array2: contentSearchResult)
         allTheData = [titleSearchResult, diff]
+        allSearchArticles = titleSearchResult + diff
         tableView.reloadData()
     }
     
@@ -110,6 +114,8 @@ class SearchViewController: UITableViewController {
             destinationVC.navigationItem.title = selectedArticle
             destinationVC.segueFlag = 3
             destinationVC.searchText = searchText
+            
+            destinationVC.searchArticles = allSearchArticles
         }
     }
     
