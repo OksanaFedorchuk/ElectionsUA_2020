@@ -53,6 +53,4 @@ class ArticlesViewController: UITableViewController {
             self.performSegue(withIdentifier: "goToArticle", sender: Any.self)
         }
     }
-    
-    
 }

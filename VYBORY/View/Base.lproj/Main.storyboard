@@ -47,10 +47,10 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" restorationIdentifier="CollectionViewCell" reuseIdentifier="CollectionViewCell" id="7d5-JH-Iva" customClass="CollectionViewCell" customModule="VYBORY" customModuleProvider="target">
-                                <rect key="frame" x="62.666666666666664" y="0.0" width="249.99999999999994" height="250"/>
+                                <rect key="frame" x="62.666666666666664" y="0.0" width="249.99999999999997" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZiY-C3-0nC">
-                                    <rect key="frame" x="0.0" y="0.0" width="249.99999999999994" height="250"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="249.99999999999997" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l5l-RI-khu">
@@ -248,11 +248,16 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Roy-lm-6xp">
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Roy-lm-6xp">
                                         <rect key="frame" x="20" y="54.000000000000007" width="338.66666666666669" height="20.333333333333336"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="jrR-0A-2jT" appends="YES" id="1bk-rb-eS6"/>
+                                            <outletCollection property="gestureRecognizers" destination="9A4-jz-vAD" appends="YES" id="SjJ-bI-wux"/>
+                                        </connections>
                                     </label>
                                 </subviews>
                                 <constraints>
@@ -291,6 +296,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1GL-CL-qzl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="jrR-0A-2jT">
+                    <connections>
+                        <action selector="swipedRight:" destination="b8G-di-0SB" id="3Zk-cQ-OHA"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="9A4-jz-vAD">
+                    <connections>
+                        <action selector="swipedLeft:" destination="b8G-di-0SB" id="Chn-YT-daK"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1849.2753623188407" y="1965.4891304347827"/>
         </scene>
@@ -451,20 +466,20 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noSearchResultCell" id="edy-YN-eF6" customClass="NoSearchResultCell" customModule="VYBORY" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136.66666412353516" width="375" height="81.333335876464844"/>
+                                <rect key="frame" x="0.0" y="136.66666412353516" width="375" height="81.666664123535156"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="edy-YN-eF6" id="HWg-XR-Shh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="81.333335876464844"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="81.666664123535156"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="auw-cN-3Yy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="81.333333333333329"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="81.666666666666671"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Fy-8b-I1a">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="51.333333333333336"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO RESULTS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuT-bF-loa">
-                                                    <rect key="frame" x="0.0" y="61.000000000000007" width="375" height="20.333333333333336"/>
+                                                    <rect key="frame" x="0.0" y="61.333333333333336" width="375" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
