@@ -9,26 +9,33 @@ import UIKit
 
 class FavoritesTableViewController: UITableViewController {
     
-    let segueId = "goToFavoriteArticle"
-    let db1 = ArticleEntity()
+    // MARK: - Properties
     
-    var articles = [Article]()
-    var selectedArticle = String()
+    private let segueId = "goToFavoriteArticle"
+    private let db1 = ArticleEntity()
+    
+    private var articles = [Article]()
+    private var selectedArticle = String()
+    
+    // MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateData()
     }
     
-    func updateData() {
+    private func updateData() {
         articles = db1.getFavouriteArticles()
         tableView.reloadData()
     }
     
-    // MARK: - Table view data source
+    override func viewWillAppear(_ animated: Bool) {
+        updateData()
+    }
+    
+    // MARK: - Table view data source methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return articles.count
     }
     
@@ -41,11 +48,17 @@ class FavoritesTableViewController: UITableViewController {
         return cell
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        updateData()
+    // MARK: - Swipe to delete method
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            db1.changeFavouriteArticleStatus(by: articles[indexPath.row].number, currentFavouriteStatus: 1)
+            articles = db1.getFavouriteArticles()
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
-    // MARK: - Navigation
+    // MARK: - Navigation methods
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? ArticleViewController {
@@ -56,9 +69,6 @@ class FavoritesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedArticle = articles[indexPath.row].number
-        let selectedTitle = articles[indexPath.row].title
-        if selectedTitle != "Виключена." {
-            self.performSegue(withIdentifier: segueId, sender: Any.self)
-        }
+        self.performSegue(withIdentifier: segueId, sender: Any.self)
     }
 }
