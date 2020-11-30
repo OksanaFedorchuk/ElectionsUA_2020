@@ -43,25 +43,6 @@ class ArticleViewController: UIViewController {
     }
     
     // MARK: - Swipe Gesture Methods
-//    func unique(array1: [Article], array2: [Article]) -> [Article] {
-//        var uniqueArticles = [Article]()
-//        
-//        for article2 in array2 {
-//            var f = false
-//            
-//            for article1 in array1 {
-//                
-//                if article2.number == article1.number {
-//                    f = true
-//                }
-//            }
-//            
-//            if f == false {
-//                uniqueArticles.append(article2)
-//            }
-//        }
-//        return uniqueArticles
-//    }
     
     func getSwipedArticle() -> [Article] {
         

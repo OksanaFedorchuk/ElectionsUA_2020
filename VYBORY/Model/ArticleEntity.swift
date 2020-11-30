@@ -127,8 +127,10 @@ class ArticleEntity {
             
             if let results = try Database.shared.connection?.prepare(tblArticles.select(number, title, content, favourite, chapterNumber).filter(title.match("\(searchText)*"))) {
                 for a in results {
-                    let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.content], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
-                    searchResult.append(article)
+                    if a[ArticleEntity.shared.title] != "Виключена." {
+                        let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.content], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
+                        searchResult.append(article)
+                    }
                 }
             }
         } catch {
@@ -142,8 +144,10 @@ class ArticleEntity {
         do {
             if let results2 = try Database.shared.connection?.prepare(tblArticles.select(number, title, snippet, favourite, chapterNumber).filter(content.match("\(searchText)*"))) {
                 for a in results2 {
-                    let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.snippet], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
-                    searchResult.append(article)
+                    if a[ArticleEntity.shared.title] != "Виключена." {
+                        let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.snippet], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
+                        searchResult.append(article)
+                    }
                 }
             }
         } catch {
