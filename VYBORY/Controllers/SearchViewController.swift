@@ -12,13 +12,15 @@ class SearchViewController: UITableViewController {
     let db = ArticleEntity()
     let segueId = "goToSearchArticle"
     
-    let backgroundImage: UIImageView = {
-        let imageView = UIImageView(frame: .zero)
-        imageView.image = UIImage()
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+//    let backgroundImage: UIImageView = {
+//        let imageView = UIImageView(frame: .zero)
+//        imageView.image = UIImage()
+//        imageView.contentMode = .scaleAspectFit
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        return imageView
+//    }()
+//
+
     
     var allTheData = [[Article]]()
     
@@ -31,16 +33,27 @@ class SearchViewController: UITableViewController {
     
     
     override func viewDidLoad() {
+
+        let noResultsView = NoContentView(frame: CGRect(x: 20, y: 20, width: 400, height: 700))
+//                NSLayoutConstraint.activate([
+//                    noResultsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//                    noResultsView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+//                ])
+        noResultsView.noContImage.image = UIImage(named: "dog_1")
+        noResultsView.noContLabel.text = "Щось знайти?"
+                tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        self.view.addSubview(noResultsView)
+
+//        backgroundImage.image = UIImage(named: "dog_1")
+
+//        view.insertSubview(backgroundImage, at: 0)
+//        NSLayoutConstraint.activate([
+//            backgroundImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            backgroundImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+//        ])
         
-        backgroundImage.image = UIImage(named: "dog_1")
-        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        view.insertSubview(backgroundImage, at: 0)
-        NSLayoutConstraint.activate([
-            backgroundImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            backgroundImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
+//        updateData()
         super.viewDidLoad()
-        updateData()
         
     }
     
@@ -48,7 +61,9 @@ class SearchViewController: UITableViewController {
     
     func updateImage() {
         if self.titleSearchResult.count + self.contentSearchResult.count == 0 {
-            self.backgroundImage.image = UIImage(named: "dog_2")
+//            self.noResultsView.NoContentImage.image = UIImage(named: "dog_2")
+////            self.backgroundImage.image = UIImage(named: "dog_2")
+//            self.noResultsView.NoContentLabel.text = "Нічого не знайдено"
         }
         
         tableView.reloadData()
@@ -96,7 +111,7 @@ class SearchViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        backgroundImage.image = .none
+//        backgroundImage.image = .none
         
         let searchResultCell = tableView.dequeueReusableCell(withIdentifier: "titleSearchResultCell", for: indexPath) as! SearchCell
         
