@@ -8,22 +8,12 @@
 import UIKit
 
 class SearchViewController: UITableViewController {
+    @IBOutlet weak var searchBar: UISearchBar!
     
     let db = ArticleEntity()
     let segueId = "goToSearchArticle"
     
-//    let backgroundImage: UIImageView = {
-//        let imageView = UIImageView(frame: .zero)
-//        imageView.image = UIImage()
-//        imageView.contentMode = .scaleAspectFit
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        return imageView
-//    }()
-//
-
-    
     var allTheData = [[Article]]()
-    
     var titleSearchResult = [Article]()
     var contentSearchResult = [Article]()
     var searchText = String()
@@ -31,49 +21,64 @@ class SearchViewController: UITableViewController {
     var diff = [Article]()
     var allSearchArticles = [Article]()
     
+    lazy var noResultsView = NoContentView(frame: tableView.bounds.offsetBy(dx: 0, dy: searchBar.frame.maxY))
+    
     
     override func viewDidLoad() {
-
-        let noResultsView = NoContentView(frame: CGRect(x: 20, y: 20, width: 400, height: 700))
-//                NSLayoutConstraint.activate([
-//                    noResultsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//                    noResultsView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//                ])
-        noResultsView.noContImage.image = UIImage(named: "dog_1")
-        noResultsView.noContLabel.text = "Щось знайти?"
-                tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        self.view.addSubview(noResultsView)
-
-//        backgroundImage.image = UIImage(named: "dog_1")
-
-//        view.insertSubview(backgroundImage, at: 0)
-//        NSLayoutConstraint.activate([
-//            backgroundImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            backgroundImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//        ])
         
-//        updateData()
+        addPlaceholerView()
+        configurePlaceholderView(with: .searchDog)
         super.viewDidLoad()
         
     }
     
-    // MARK: - Data Manipulation Methods
+    // MARK: - Subview Methods
     
-    func updateImage() {
-        if self.titleSearchResult.count + self.contentSearchResult.count == 0 {
-//            self.noResultsView.NoContentImage.image = UIImage(named: "dog_2")
-////            self.backgroundImage.image = UIImage(named: "dog_2")
-//            self.noResultsView.NoContentLabel.text = "Нічого не знайдено"
-        }
-        
-        tableView.reloadData()
+    
+    enum PlaceholderViewMode {
+        case hidden
+        case searchDog
+        case sadDog
     }
+    
+    func addPlaceholerView() {
+        self.view.addSubview(noResultsView)
+        noResultsView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            noResultsView.topAnchor.constraint(equalTo: view.topAnchor, constant: searchBar.frame.maxY),
+            noResultsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            noResultsView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+    }
+    
+    func configurePlaceholderView(with type: PlaceholderViewMode) {
+        switch type {
+        
+        case .hidden:
+            noResultsView.isHidden = true
+
+        case .searchDog:
+            noResultsView.isHidden = false
+            noResultsView.noContImage.image = UIImage(named: "dog_1")
+            noResultsView.noContLabel.text = "Щось знайти?"
+            
+        case .sadDog:
+            noResultsView.isHidden = false
+            self.noResultsView.noContImage.image = UIImage(named: "dog_2")
+            self.noResultsView.noContLabel.text = "Нічого не знайдено"
+        }
+    }
+    
+    // MARK: - Data Manipulation Methods
     
     func updateData() {
         titleSearchResult = db.getTitleSearchResultsFiltered(by: searchText)
         contentSearchResult = db.getContentSearchResultsFiltered(by: searchText)
+        
         diff = unique(array1: titleSearchResult, array2: contentSearchResult)
+        
         allTheData = [titleSearchResult, diff]
+        
         allSearchArticles = titleSearchResult + diff
         tableView.reloadData()
     }
@@ -111,8 +116,8 @@ class SearchViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        backgroundImage.image = .none
-        
+        configurePlaceholderView(with: .hidden)
+
         let searchResultCell = tableView.dequeueReusableCell(withIdentifier: "titleSearchResultCell", for: indexPath) as! SearchCell
         
         searchResultCell.numberLabel.attributedText = allTheData[indexPath.section][indexPath.row].number.highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica Light", size: 10)!)
@@ -129,7 +134,6 @@ class SearchViewController: UITableViewController {
             destinationVC.navigationItem.title = selectedArticle
             destinationVC.segueFlag = 3
             destinationVC.searchText = searchText
-            
             destinationVC.searchArticles = allSearchArticles
         }
     }
@@ -148,21 +152,43 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.returnKeyType = UIReturnKeyType.done
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        configurePlaceholderView(with: .searchDog)
+        allTheData.removeAll()
+        updateData()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if let text = searchBar.text {
-            self.searchText = text
+        if ((searchBar.text?.isEmpty) == true) {
+            
+            configurePlaceholderView(with: .searchDog)
+            allTheData.removeAll()
+            tableView.reloadData()
         }
-        allTheData.removeAll()
-        updateData()
-        updateImage()
+        else {
+            
+            if let text = searchBar.text {
+                self.searchText = text
+                allTheData.removeAll()
+                updateData()
+                
+                if self.titleSearchResult.count + self.contentSearchResult.count == 0 {
+                    configurePlaceholderView(with: .sadDog)
+                    tableView.reloadData()
+                }
+            }
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
 }
+
+
 
 extension String {
     
