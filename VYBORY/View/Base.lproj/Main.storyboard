@@ -240,48 +240,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXL-qK-VWp">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yb-Cd-rKK">
-                                        <rect key="frame" x="20" y="30" width="339" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Roy-lm-6xp">
-                                        <rect key="frame" x="20" y="54.000000000000007" width="338.66666666666669" height="20.333333333333336"/>
-                                        <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Roy-lm-6xp" firstAttribute="trailing" secondItem="52J-Wg-NoO" secondAttribute="trailing" constant="358.66666666666669" id="9Br-eg-BZT" userLabel="Content Label.trailing = Content Layout Guide.trailing + 359"/>
-                                    <constraint firstItem="Roy-lm-6xp" firstAttribute="width" secondItem="sON-z1-OMD" secondAttribute="width" multiplier="0.903382" id="OAj-ad-YBS"/>
-                                    <constraint firstItem="2yb-Cd-rKK" firstAttribute="trailing" secondItem="52J-Wg-NoO" secondAttribute="trailing" constant="359" id="RDy-gi-bTE"/>
-                                    <constraint firstItem="2yb-Cd-rKK" firstAttribute="leading" secondItem="52J-Wg-NoO" secondAttribute="leading" constant="20" id="U3J-V3-1BO"/>
-                                    <constraint firstItem="Roy-lm-6xp" firstAttribute="bottom" secondItem="52J-Wg-NoO" secondAttribute="bottom" constant="74.333333333333329" id="Y3X-O0-VGK" userLabel="Content Label.bottom = Content Layout Guide.bottom"/>
-                                    <constraint firstItem="2yb-Cd-rKK" firstAttribute="top" secondItem="52J-Wg-NoO" secondAttribute="top" constant="30" id="g45-pf-usO"/>
-                                    <constraint firstItem="Roy-lm-6xp" firstAttribute="leading" secondItem="52J-Wg-NoO" secondAttribute="leading" constant="20" id="qvI-xu-vRj"/>
-                                    <constraint firstItem="Roy-lm-6xp" firstAttribute="top" secondItem="2yb-Cd-rKK" secondAttribute="bottom" constant="3.6666666666666714" id="rNR-6g-hbA" userLabel="Content Label.top = Title Label.bottom + 4"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="52J-Wg-NoO"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="sON-z1-OMD"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="jrR-0A-2jT" appends="YES" id="are-UF-ut4"/>
-                                    <outletCollection property="gestureRecognizers" destination="9A4-jz-vAD" appends="YES" id="AJK-jQ-2Sh"/>
-                                </connections>
-                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDc-5p-Jfh">
+                                <rect key="frame" x="20" y="118" width="335" height="19.333333333333343"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMs-gl-6Wh">
+                                <rect key="frame" x="20" y="157.33333333333331" width="335" height="561.66666666666674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5gh-oI-H7x"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="XXL-qK-VWp" firstAttribute="leading" secondItem="5gh-oI-H7x" secondAttribute="leading" id="ETb-tg-cwD"/>
-                            <constraint firstItem="XXL-qK-VWp" firstAttribute="trailing" secondItem="5gh-oI-H7x" secondAttribute="trailing" id="Gzo-9n-1cF"/>
-                            <constraint firstItem="XXL-qK-VWp" firstAttribute="top" secondItem="5gh-oI-H7x" secondAttribute="top" id="dch-Ck-t9e"/>
-                            <constraint firstItem="XXL-qK-VWp" firstAttribute="bottom" secondItem="5gh-oI-H7x" secondAttribute="bottom" id="dp8-Po-5Ks"/>
+                            <constraint firstItem="jMs-gl-6Wh" firstAttribute="leading" secondItem="5gh-oI-H7x" secondAttribute="leading" constant="20" id="297-hJ-dDQ"/>
+                            <constraint firstItem="jMs-gl-6Wh" firstAttribute="top" secondItem="kDc-5p-Jfh" secondAttribute="bottom" constant="20" id="3ua-Gr-5XU"/>
+                            <constraint firstItem="5gh-oI-H7x" firstAttribute="bottom" secondItem="jMs-gl-6Wh" secondAttribute="bottom" constant="10" id="EFK-ua-kns"/>
+                            <constraint firstItem="kDc-5p-Jfh" firstAttribute="top" secondItem="5gh-oI-H7x" secondAttribute="top" constant="30" id="iyO-8H-Jgm"/>
+                            <constraint firstItem="5gh-oI-H7x" firstAttribute="trailing" secondItem="kDc-5p-Jfh" secondAttribute="trailing" constant="20" id="lhJ-5G-VNQ"/>
+                            <constraint firstItem="5gh-oI-H7x" firstAttribute="trailing" secondItem="jMs-gl-6Wh" secondAttribute="trailing" constant="20" id="mdi-ed-wBB"/>
+                            <constraint firstItem="kDc-5p-Jfh" firstAttribute="leading" secondItem="5gh-oI-H7x" secondAttribute="leading" constant="20" id="nn3-h7-BPw"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="jrR-0A-2jT" appends="YES" id="EGt-ca-Jay"/>
+                            <outletCollection property="gestureRecognizers" destination="9A4-jz-vAD" appends="YES" id="8ht-dl-FnD"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Z5f-wQ-iuY">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="heart" catalog="system" id="4Sx-ci-QJe">
@@ -291,8 +279,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="contentLabel" destination="Roy-lm-6xp" id="E3S-j7-GOI"/>
-                        <outlet property="titleLabel" destination="2yb-Cd-rKK" id="udK-Yl-KBe"/>
+                        <outlet property="contentTextView" destination="jMs-gl-6Wh" id="KGe-Wl-chk"/>
+                        <outlet property="titleLabel" destination="kDc-5p-Jfh" id="H9S-3I-Nf9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1GL-CL-qzl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -307,7 +295,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1343" y="1963"/>
+            <point key="canvasLocation" x="-1343.2" y="1962.5615763546798"/>
         </scene>
         <!--Протокол-->
         <scene sceneID="wbB-qb-B6M">
@@ -550,7 +538,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bGI-nb-ikg"/>
+        <segue reference="L6J-ug-Ok0"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>

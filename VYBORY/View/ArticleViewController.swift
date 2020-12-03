@@ -19,7 +19,8 @@ class ArticleViewController: UIViewController {
     var searchArticles = [Article]()
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var contentTextView: UITextView!
+    
     
     // MARK: - Like methods
     
@@ -121,7 +122,7 @@ class ArticleViewController: UIViewController {
     func updateUI() {
         navigationItem.title = article[0].number
         titleLabel.text = article[0].title
-        contentLabel.text = article[0].content
+        contentTextView.text = article[0].content
         getCurrentStatus()
         setCurrentStatusImage()
     }
