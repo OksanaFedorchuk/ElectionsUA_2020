@@ -144,9 +144,9 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="oLy-QE-irg" firstAttribute="leading" secondItem="M9G-Sg-mJY" secondAttribute="leading" constant="10" id="A7R-Pw-717"/>
-                                        <constraint firstItem="oLy-QE-irg" firstAttribute="top" secondItem="M9G-Sg-mJY" secondAttribute="top" constant="8" id="obc-IJ-FdZ"/>
+                                        <constraint firstItem="oLy-QE-irg" firstAttribute="top" secondItem="M9G-Sg-mJY" secondAttribute="top" constant="8" id="obc-IJ-FdZ" userLabel="Stack View.top = top + 10"/>
                                         <constraint firstAttribute="trailing" secondItem="oLy-QE-irg" secondAttribute="trailing" constant="10" id="v10-hp-Owq"/>
-                                        <constraint firstAttribute="bottom" secondItem="oLy-QE-irg" secondAttribute="bottom" constant="8" id="yOS-w7-ypS"/>
+                                        <constraint firstAttribute="bottom" secondItem="oLy-QE-irg" secondAttribute="bottom" constant="8" id="yOS-w7-ypS" userLabel="bottom = Stack View.bottom + 10"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -205,9 +205,9 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Tce-wQ-SYw" firstAttribute="top" secondItem="bp3-Gi-d69" secondAttribute="top" constant="8" id="Rul-TJ-IFA"/>
+                                        <constraint firstItem="Tce-wQ-SYw" firstAttribute="top" secondItem="bp3-Gi-d69" secondAttribute="top" constant="8" id="Rul-TJ-IFA" userLabel="Stack View.top = top + 10"/>
                                         <constraint firstItem="Tce-wQ-SYw" firstAttribute="leading" secondItem="bp3-Gi-d69" secondAttribute="leading" constant="10" id="Swx-CL-qfU"/>
-                                        <constraint firstAttribute="bottom" secondItem="Tce-wQ-SYw" secondAttribute="bottom" constant="8" id="YdQ-5F-ZnQ"/>
+                                        <constraint firstAttribute="bottom" secondItem="Tce-wQ-SYw" secondAttribute="bottom" constant="8" id="YdQ-5F-ZnQ" userLabel="bottom = Stack View.bottom + 10"/>
                                         <constraint firstAttribute="trailing" secondItem="Tce-wQ-SYw" secondAttribute="trailing" constant="10" id="vNT-uO-OVt"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -258,13 +258,13 @@
                         <viewLayoutGuide key="safeArea" id="5gh-oI-H7x"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="jMs-gl-6Wh" firstAttribute="leading" secondItem="5gh-oI-H7x" secondAttribute="leading" constant="20" id="297-hJ-dDQ"/>
-                            <constraint firstItem="jMs-gl-6Wh" firstAttribute="top" secondItem="kDc-5p-Jfh" secondAttribute="bottom" constant="20" id="3ua-Gr-5XU"/>
+                            <constraint firstItem="jMs-gl-6Wh" firstAttribute="leading" secondItem="5gh-oI-H7x" secondAttribute="leading" constant="20" id="297-hJ-dDQ" userLabel="Content Text View.leading = Safe Area.leading + 10"/>
+                            <constraint firstItem="jMs-gl-6Wh" firstAttribute="top" secondItem="kDc-5p-Jfh" secondAttribute="bottom" constant="20" id="3ua-Gr-5XU" userLabel="Content Text View.top = Title Label.bottom + 15"/>
                             <constraint firstItem="5gh-oI-H7x" firstAttribute="bottom" secondItem="jMs-gl-6Wh" secondAttribute="bottom" constant="10" id="EFK-ua-kns"/>
-                            <constraint firstItem="kDc-5p-Jfh" firstAttribute="top" secondItem="5gh-oI-H7x" secondAttribute="top" constant="30" id="iyO-8H-Jgm"/>
-                            <constraint firstItem="5gh-oI-H7x" firstAttribute="trailing" secondItem="kDc-5p-Jfh" secondAttribute="trailing" constant="20" id="lhJ-5G-VNQ"/>
-                            <constraint firstItem="5gh-oI-H7x" firstAttribute="trailing" secondItem="jMs-gl-6Wh" secondAttribute="trailing" constant="20" id="mdi-ed-wBB"/>
-                            <constraint firstItem="kDc-5p-Jfh" firstAttribute="leading" secondItem="5gh-oI-H7x" secondAttribute="leading" constant="20" id="nn3-h7-BPw"/>
+                            <constraint firstItem="kDc-5p-Jfh" firstAttribute="top" secondItem="5gh-oI-H7x" secondAttribute="top" constant="30" id="iyO-8H-Jgm" userLabel="Title Label.top = Safe Area.top + 20"/>
+                            <constraint firstItem="5gh-oI-H7x" firstAttribute="trailing" secondItem="kDc-5p-Jfh" secondAttribute="trailing" constant="20" id="lhJ-5G-VNQ" userLabel="Safe Area.trailing = Title Label.trailing + 10"/>
+                            <constraint firstItem="5gh-oI-H7x" firstAttribute="trailing" secondItem="jMs-gl-6Wh" secondAttribute="trailing" constant="20" id="mdi-ed-wBB" userLabel="Safe Area.trailing = Content Text View.trailing + 10"/>
+                            <constraint firstItem="kDc-5p-Jfh" firstAttribute="leading" secondItem="5gh-oI-H7x" secondAttribute="leading" constant="20" id="nn3-h7-BPw" userLabel="Title Label.leading = Safe Area.leading + 10"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="jrR-0A-2jT" appends="YES" id="EGt-ca-Jay"/>
@@ -348,8 +348,8 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="NBv-58-xW5" secondAttribute="trailing" id="C3K-aB-is6"/>
-                                        <constraint firstAttribute="bottom" secondItem="NBv-58-xW5" secondAttribute="bottom" constant="8" id="GDS-C4-jZQ"/>
-                                        <constraint firstItem="NBv-58-xW5" firstAttribute="top" secondItem="qhh-yN-vqd" secondAttribute="top" constant="8" id="VwO-D8-UwF"/>
+                                        <constraint firstAttribute="bottom" secondItem="NBv-58-xW5" secondAttribute="bottom" constant="8" id="GDS-C4-jZQ" userLabel="bottom = Stack View.bottom + 10"/>
+                                        <constraint firstItem="NBv-58-xW5" firstAttribute="top" secondItem="qhh-yN-vqd" secondAttribute="top" constant="8" id="VwO-D8-UwF" userLabel="Stack View.top = top + 10"/>
                                         <constraint firstItem="NBv-58-xW5" firstAttribute="leading" secondItem="qhh-yN-vqd" secondAttribute="leading" constant="10" id="k3l-TD-wZk"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -426,8 +426,8 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="1vy-W2-a81" secondAttribute="bottom" constant="8" id="PVh-Gv-oSy"/>
-                                        <constraint firstItem="1vy-W2-a81" firstAttribute="top" secondItem="aDw-3K-TGz" secondAttribute="top" constant="8" id="bCi-kg-OGO"/>
+                                        <constraint firstAttribute="bottom" secondItem="1vy-W2-a81" secondAttribute="bottom" constant="8" id="PVh-Gv-oSy" userLabel="bottom = Stack View.bottom + 10"/>
+                                        <constraint firstItem="1vy-W2-a81" firstAttribute="top" secondItem="aDw-3K-TGz" secondAttribute="top" constant="8" id="bCi-kg-OGO" userLabel="Stack View.top = top + 10"/>
                                         <constraint firstItem="1vy-W2-a81" firstAttribute="leading" secondItem="aDw-3K-TGz" secondAttribute="leading" constant="10" id="eWF-mU-xTx"/>
                                         <constraint firstAttribute="trailing" secondItem="1vy-W2-a81" secondAttribute="trailing" constant="10" id="pEb-tn-lxz"/>
                                     </constraints>
