@@ -272,6 +272,10 @@
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="52J-Wg-NoO"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="sON-z1-OMD"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="jrR-0A-2jT" appends="YES" id="are-UF-ut4"/>
+                                    <outletCollection property="gestureRecognizers" destination="9A4-jz-vAD" appends="YES" id="AJK-jQ-2Sh"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5gh-oI-H7x"/>
