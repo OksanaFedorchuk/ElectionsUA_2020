@@ -19,12 +19,10 @@ class ProtocolViewController: UIViewController {
             noResultsView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             noResultsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 50),
             noResultsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            noResultsView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
         
         noResultsView.noContImage.image = UIImage(named: "dog_1")
         noResultsView.noContLabel.text = "Протоколи в розробці"
-        // Do any additional setup after loading the view.
     }
 
 
