@@ -25,6 +25,7 @@
 		181350C8253DD21A00FB7E08 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350C7253DD21A00FB7E08 /* CodeViewController.swift */; };
 		181350CC253DD26100FB7E08 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350CB253DD26100FB7E08 /* FavoritesTableViewController.swift */; };
 		181350D0253DD29E00FB7E08 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350CF253DD29E00FB7E08 /* SearchViewController.swift */; };
+		185422BA257A8014007D2FF3 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185422B9257A8014007D2FF3 /* AboutUsViewController.swift */; };
 		1870162C2575413E00A3AE5A /* NoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1870162B2575413E00A3AE5A /* NoContentView.swift */; };
 		1870162F2575414F00A3AE5A /* NoContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1870162E2575414F00A3AE5A /* NoContentView.xib */; };
 		18833961254AB66E0002AAB8 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833960254AB66E0002AAB8 /* ArticlesViewController.swift */; };
@@ -59,6 +60,7 @@
 		181350C7253DD21A00FB7E08 /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
 		181350CB253DD26100FB7E08 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		181350CF253DD29E00FB7E08 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		185422B9257A8014007D2FF3 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutUsViewController.swift; path = VYBORY/View/AboutUsViewController.swift; sourceTree = SOURCE_ROOT; };
 		1870162B2575413E00A3AE5A /* NoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoContentView.swift; sourceTree = "<group>"; };
 		1870162E2575414F00A3AE5A /* NoContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoContentView.xib; sourceTree = "<group>"; };
 		18833960254AB66E0002AAB8 /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		181350C5253DD1A700FB7E08 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				185422B9257A8014007D2FF3 /* AboutUsViewController.swift */,
 				181350C7253DD21A00FB7E08 /* CodeViewController.swift */,
 				1810F9A62548170A00D3641B /* ChaptersViewController.swift */,
 				18833960254AB66E0002AAB8 /* ArticlesViewController.swift */,
@@ -317,6 +320,7 @@
 				1810F99F25474E5F00D3641B /* ChapterEntity.swift in Sources */,
 				1810F9842541822F00D3641B /* Database.swift in Sources */,
 				181350C8253DD21A00FB7E08 /* CodeViewController.swift in Sources */,
+				185422BA257A8014007D2FF3 /* AboutUsViewController.swift in Sources */,
 				18833965254AB7C70002AAB8 /* ArticleViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

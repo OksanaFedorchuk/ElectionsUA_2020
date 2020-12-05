@@ -11,6 +11,9 @@ private let reuseIdentifier = "CollectionViewCell"
 
 class CodeViewController: UICollectionViewController {
     
+    @IBAction func infoBarButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToAboutUsText", sender: Any.self)
+    }
     
     let db = BookEntity()
     let bookImages = ["01_book_01", "01_book_02", "01_book_03", "01_book_04"]
