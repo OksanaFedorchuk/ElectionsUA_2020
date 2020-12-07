@@ -30,6 +30,7 @@
 		1870162F2575414F00A3AE5A /* NoContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1870162E2575414F00A3AE5A /* NoContentView.xib */; };
 		18833961254AB66E0002AAB8 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833960254AB66E0002AAB8 /* ArticlesViewController.swift */; };
 		18833965254AB7C70002AAB8 /* ArticleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833964254AB7C70002AAB8 /* ArticleViewCell.swift */; };
+		188FBCB9257E3548009C29FE /* InteractiveLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188FBCB8257E3548009C29FE /* InteractiveLabel.swift */; };
 		18BDA244254AFF2B009A493D /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BDA243254AFF2B009A493D /* ArticleViewController.swift */; };
 		18BDA258254C378E009A493D /* Pods_VYBORY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1031F2042AD1B76B05A3D60E /* Pods_VYBORY.framework */; };
 		18BDA25E254C3860009A493D /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BDA25D254C3860009A493D /* SQLite.framework */; };
@@ -65,6 +66,7 @@
 		1870162E2575414F00A3AE5A /* NoContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoContentView.xib; sourceTree = "<group>"; };
 		18833960254AB66E0002AAB8 /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		18833964254AB7C70002AAB8 /* ArticleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleViewCell.swift; path = VYBORY/Controllers/ArticleViewCell.swift; sourceTree = SOURCE_ROOT; };
+		188FBCB8257E3548009C29FE /* InteractiveLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InteractiveLabel.swift; path = VYBORY/View/InteractiveLabel.swift; sourceTree = SOURCE_ROOT; };
 		18BDA243254AFF2B009A493D /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleViewController.swift; path = VYBORY/View/ArticleViewController.swift; sourceTree = SOURCE_ROOT; };
 		18BDA24C254C2C3C009A493D /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BDA25D254C3860009A493D /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,7 @@
 		181350DC253DD88600FB7E08 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				188FBCB8257E3548009C29FE /* InteractiveLabel.swift */,
 				18DC5CA825541B8D0062284E /* SearchCell.swift */,
 				18BDA26C254D93BA009A493D /* FavoriteViewCell.swift */,
 				18833964254AB7C70002AAB8 /* ArticleViewCell.swift */,
@@ -311,6 +314,7 @@
 				1810F9B12549648700D3641B /* ArticleEntity.swift in Sources */,
 				18BDA26D254D93BA009A493D /* FavoriteViewCell.swift in Sources */,
 				181350CC253DD26100FB7E08 /* FavoritesTableViewController.swift in Sources */,
+				188FBCB9257E3548009C29FE /* InteractiveLabel.swift in Sources */,
 				181350AD253DC47000FB7E08 /* AppDelegate.swift in Sources */,
 				1810F98A25419C7700D3641B /* BookEntity.swift in Sources */,
 				18833961254AB66E0002AAB8 /* ArticlesViewController.swift in Sources */,

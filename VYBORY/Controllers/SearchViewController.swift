@@ -120,9 +120,9 @@ class SearchViewController: UITableViewController {
 
         let searchResultCell = tableView.dequeueReusableCell(withIdentifier: "titleSearchResultCell", for: indexPath) as! SearchCell
         
-        searchResultCell.numberLabel.attributedText = allTheData[indexPath.section][indexPath.row].number.highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica Light", size: 10)!)
-        searchResultCell.titleLabel.attributedText = allTheData[indexPath.section][indexPath.row].title.highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 16)!)
-        searchResultCell.contentLabel.attributedText =  allTheData[indexPath.section][indexPath.row].content.highlightText(searchText, with: .blue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 14)!)
+        searchResultCell.numberLabel.attributedText = allTheData[indexPath.section][indexPath.row].number.highlightText(searchText, with: .systemTeal, caseInsensitivie: true, font: UIFont(name: "Helvetica Light", size: 10)!)
+        searchResultCell.titleLabel.attributedText = allTheData[indexPath.section][indexPath.row].title.highlightText(searchText, with: .systemTeal, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 16)!)
+        searchResultCell.contentLabel.attributedText =  allTheData[indexPath.section][indexPath.row].content.highlightText(searchText, with: .systemTeal, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 14)!)
         
         return searchResultCell
     }
