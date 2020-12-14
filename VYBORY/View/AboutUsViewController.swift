@@ -9,8 +9,38 @@ import UIKit
 
 class AboutUsViewController: UIViewController {
     
+    @IBOutlet weak var aboutUsLabel: InteractiveLabel?
     
-    @IBOutlet weak var aboutUsLabel: UILabel!
+    @IBAction func facebookTapped(_ sender: Any) {
+        if let url = URL(string: "https://www.facebook.com/cn.opora") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @IBAction func twitterTapped(_ sender: Any) {
+        if let url = URL(string: "https://twitter.com/opora") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @IBAction func telegramTapped(_ sender: Any) {
+        if let url = URL(string: "https://t.me/opora_news") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @IBAction func instagramTapped(_ sender: Any) {
+        if let url = URL(string: "https://www.instagram.com/cn.opora/") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @IBAction func youTubeTapped(_ sender: Any) {
+        if let url = URL(string: "https://www.youtube.com/user/oporavideo") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
     
     override func viewDidLoad() {
         
@@ -46,6 +76,6 @@ class AboutUsViewController: UIViewController {
         fullAttributedString.append(attributedLinkString3)
         fullAttributedString.append(plainAttributedString1)
         
-        aboutUsLabel.attributedText = fullAttributedString
+        aboutUsLabel?.attributedText = fullAttributedString
     }
 }

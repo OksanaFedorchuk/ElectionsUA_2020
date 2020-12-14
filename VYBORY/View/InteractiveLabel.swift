@@ -8,7 +8,9 @@
 import UIKit
 
 class InteractiveLabel: UILabel {
-
+    
+    var openedUrls: [URL: Date] = [:]
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         self.configure()
@@ -80,14 +82,23 @@ class InteractiveLabel: UILabel {
         
         let attributeValue = self.attributedText?.attribute(attributeName, at: characterIndex, effectiveRange: nil)
         
+        
         if let value = attributeValue {
             if let url = value as? URL {
-                UIApplication.shared.open(url)
+                if let openedUrlDate = openedUrls[url] {
+                    let interval =  Date().timeIntervalSince(openedUrlDate)
+                    if interval < 1 {
+                        return superBool
+                    } else {
+                        openedUrls[url] = Date()
+                        UIApplication.shared.open(url)
+                    }
+                } else {
+                    openedUrls[url] = Date()
+                    UIApplication.shared.open(url)
+                }
             }
         }
-        
         return superBool
-        
     }
-
 }

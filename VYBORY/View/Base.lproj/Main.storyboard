@@ -54,44 +54,59 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VsI-nS-D1y">
+                                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VsI-nS-D1y">
                                                 <rect key="frame" x="0.0" y="110.33333333333334" width="342" height="40"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAP-vs-Vr6">
+                                                    <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tAP-vs-Vr6">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="g7i-62-JRc"/>
                                                             <constraint firstAttribute="width" secondItem="tAP-vs-Vr6" secondAttribute="height" multiplier="1:1" id="vxt-7Z-tlX"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="facebook"/>
+                                                        <connections>
+                                                            <action selector="facebookTapped:" destination="vQ0-WK-gxU" eventType="touchUpInside" id="nEt-cB-7OM"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fs-SB-9oA">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9fs-SB-9oA">
                                                         <rect key="frame" x="75.666666666666671" y="0.0" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="9fs-SB-9oA" secondAttribute="height" multiplier="1:1" id="Tsv-HB-sKN"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="twitter"/>
+                                                        <connections>
+                                                            <action selector="twitterTapped:" destination="vQ0-WK-gxU" eventType="touchUpInside" id="GcY-Lm-ke5"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Br0-ba-1am">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Br0-ba-1am">
                                                         <rect key="frame" x="151" y="0.0" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Br0-ba-1am" secondAttribute="height" multiplier="1:1" id="vKT-PN-Cql"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="telegram"/>
+                                                        <connections>
+                                                            <action selector="telegramTapped:" destination="vQ0-WK-gxU" eventType="touchUpInside" id="gG9-Gh-I8b"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdr-In-kOJ">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rdr-In-kOJ">
                                                         <rect key="frame" x="226.66666666666666" y="0.0" width="39.999999999999972" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Rdr-In-kOJ" secondAttribute="height" multiplier="1:1" id="jRb-K2-G3F"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="instagram"/>
+                                                        <connections>
+                                                            <action selector="instagramTapped:" destination="vQ0-WK-gxU" eventType="touchUpInside" id="v5R-HK-MQo"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6R-AN-vd3">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h6R-AN-vd3">
                                                         <rect key="frame" x="302" y="0.0" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="h6R-AN-vd3" secondAttribute="height" multiplier="1:1" id="6iC-ZG-vMX"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="youtube"/>
+                                                        <connections>
+                                                            <action selector="youTubeTapped:" destination="vQ0-WK-gxU" eventType="touchUpInside" id="keJ-MT-Fnh"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -148,10 +163,10 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" restorationIdentifier="CollectionViewCell" reuseIdentifier="CollectionViewCell" id="7d5-JH-Iva" customClass="CollectionViewCell" customModule="VYBORY" customModuleProvider="target">
-                                <rect key="frame" x="62.666666666666664" y="0.0" width="249.99999999999997" height="250"/>
+                                <rect key="frame" x="62.666666666666664" y="0.0" width="249.99999999999994" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZiY-C3-0nC">
-                                    <rect key="frame" x="0.0" y="0.0" width="249.99999999999997" height="250"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="249.99999999999994" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l5l-RI-khu">
