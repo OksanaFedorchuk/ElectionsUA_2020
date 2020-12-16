@@ -51,7 +51,7 @@ class ArticleViewController: UIViewController {
         
         switch segueFlag {
         case 1:
-            articles = db1.getArticlesFiltered(by: article[0].chapterNumber)
+            articles = db1.getAllArticles()
         case 2:
             articles = db1.getFavouriteArticles()
         case 3:
@@ -122,7 +122,8 @@ class ArticleViewController: UIViewController {
     func updateUI() {
         switch segueFlag {
         case 1:
-            navigationItem.title = article[0].number
+            self.navigationItem.title = article[0].number
+            self.navigationController?.navigationBar.backItem?.title = article[0].chapterNumber
             titleLabel.text = article[0].title
             contentTextView.text = article[0].content
             getCurrentStatus()
@@ -130,15 +131,14 @@ class ArticleViewController: UIViewController {
         //            articles = db1.getArticlesFiltered(by: article[0].chapterNumber)
         case 2:
             
-            navigationItem.title = article[0].number
+            self.navigationItem.title = article[0].number
             titleLabel.text = article[0].title
             contentTextView.text = article[0].content
             getCurrentStatus()
             setCurrentStatusImage()
         //            articles = db1.getFavouriteArticles()
         case 3:
-            //            contentTextView.textColor = .label
-            navigationItem.title = article[0].number
+            self.navigationItem.title = article[0].number
             titleLabel.attributedText = generateAttributedString(with: searchText, targetString: article[0].title, fontSize: 16, fontWeight: UIFont.Weight.bold)
             contentTextView.attributedText = generateAttributedString(with: searchText, targetString: article[0].content, fontSize: 15, fontWeight: UIFont.Weight.regular)
             getCurrentStatus()

@@ -38,6 +38,25 @@ class ArticleEntity {
     
     // MARK: - Query for the list of articles in selected chapter
     
+    func getAllArticles() -> [Article] {
+        var articles = [Article]()
+        
+        do {
+            if let articlesVtable = try Database.shared.connection?.prepare(tblArticles) {
+                for a in articlesVtable {
+                    if a[ArticleEntity.shared.title] != "Виключена." {
+                        let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.content], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
+                        articles.append(article)
+                    }
+                }
+            }
+        } catch {
+            print("Cannot list quesry objects in tblArticles. Error: \(error), \(error.localizedDescription)")
+        }
+        
+        return articles
+    }
+    
     func getArticlesFiltered(by selectedChapter: String) -> [Article] {
         var articles = [Article]()
         
