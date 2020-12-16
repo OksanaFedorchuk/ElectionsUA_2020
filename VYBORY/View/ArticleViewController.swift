@@ -120,10 +120,48 @@ class ArticleViewController: UIViewController {
     // MARK: - UI update
     
     func updateUI() {
-        navigationItem.title = article[0].number
-        titleLabel.text = article[0].title
-        contentTextView.text = article[0].content
-        getCurrentStatus()
-        setCurrentStatusImage()
+        switch segueFlag {
+        case 1:
+            navigationItem.title = article[0].number
+            titleLabel.text = article[0].title
+            contentTextView.text = article[0].content
+            getCurrentStatus()
+            setCurrentStatusImage()
+        //            articles = db1.getArticlesFiltered(by: article[0].chapterNumber)
+        case 2:
+            
+            navigationItem.title = article[0].number
+            titleLabel.text = article[0].title
+            contentTextView.text = article[0].content
+            getCurrentStatus()
+            setCurrentStatusImage()
+        //            articles = db1.getFavouriteArticles()
+        case 3:
+            //            contentTextView.textColor = .label
+            navigationItem.title = article[0].number
+            titleLabel.attributedText = generateAttributedString(with: searchText, targetString: article[0].title, fontSize: 16, fontWeight: UIFont.Weight.bold)
+            contentTextView.attributedText = generateAttributedString(with: searchText, targetString: article[0].content, fontSize: 15, fontWeight: UIFont.Weight.regular)
+            getCurrentStatus()
+            setCurrentStatusImage()
+        //            articles = searchArticles
+        default:
+            print("You failed")
+        }
+    }
+    
+    func generateAttributedString(with searchTerm: String, targetString: String, fontSize: CGFloat, fontWeight: UIFont.Weight) -> NSAttributedString? {
+        let attributedString = NSMutableAttributedString(string: targetString)
+        do {
+            let regex = try NSRegularExpression(pattern: searchTerm.trimmingCharacters(in: .whitespacesAndNewlines).folding(options: .diacriticInsensitive, locale: .current), options: .caseInsensitive)
+            let range = NSRange(location: 0, length: targetString.utf16.count)
+            attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: fontWeight)], range: range)
+            for match in regex.matches(in: targetString.folding(options: .diacriticInsensitive, locale: .current), options: .withTransparentBounds, range: range) {
+                attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemTeal, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: fontWeight)], range: match.range)
+            }
+            return attributedString
+        } catch {
+            NSLog("Error creating regular expresion: \(error)")
+            return nil
+        }
     }
 }
