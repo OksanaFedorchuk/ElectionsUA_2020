@@ -12,6 +12,7 @@ class ArticleViewController: UIViewController {
     // MARK: - Properties
     
     let db1 = ArticleEntity()
+    let db2 = ChapterEntity()
     var article = [Article]()
     var currentStatus = Int()
     var segueFlag = Int()
@@ -23,6 +24,13 @@ class ArticleViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentTextView: UITextView!
     
+    // MARK: - ViewDidLoad
+    
+    override func viewDidLoad() {
+        article = db1.getSelectedArticleFiltered(by: navigationItem.title!)
+        updateUI()
+        super.viewDidLoad()
+    }
     
     // MARK: - Like methods
     
@@ -130,6 +138,7 @@ class ArticleViewController: UIViewController {
         if (sender.direction == .right) {
             //            if the selected article is not first in favourites array {}
             article = db1.getSelectedArticleFiltered(by: getSwipedArticle()[0].number)
+//            didChangeCurrenItem?(article)
             updateUI()
 
             if oldFavs.first?.number != article[0].number {
@@ -148,6 +157,7 @@ class ArticleViewController: UIViewController {
         if (sender.direction == .left) {
             //            if the selected article is not last in favourites array {}
             article = db1.getSelectedArticleFiltered(by: getSwipedArticle()[1].number)
+//            didChangeCurrenItem?(article)
             updateUI()
 
             if oldFavs.last?.number != article[0].number {
@@ -163,13 +173,6 @@ class ArticleViewController: UIViewController {
         }
     }
     
-    // MARK: - ViewDidLoad
-    
-    override func viewDidLoad() {
-        article = db1.getSelectedArticleFiltered(by: navigationItem.title!)
-        updateUI()
-        super.viewDidLoad()
-    }
     
     // MARK: - UI update
     
@@ -184,7 +187,13 @@ class ArticleViewController: UIViewController {
         case 1:
             //            display selected article
             self.navigationItem.title = article[0].number
-            self.navigationController?.navigationBar.backItem?.title = article[0].chapterNumber
+            //            change the title of navigationBar in articlesVC
+            self.navigationController?.navigationBar.items?[2].title = article[0].chapterNumber
+            //            change the title of navigationBar in chaptersVC and backbuttonTitle in articlesVC
+            let chapter = db2.getChaptersFiltered(by: article[0].chapterNumber)
+            self.navigationController?.navigationBar.items?[1].title = chapter[0].bookNumber
+            self.navigationController?.navigationBar.items?[1].backBarButtonItem?.title = chapter[0].bookNumber
+            
             titleLabel.text = article[0].title
             contentTextView.text = article[0].content
             getCurrentStatus()

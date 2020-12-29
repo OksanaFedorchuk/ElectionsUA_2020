@@ -13,7 +13,6 @@
 		1810F98A25419C7700D3641B /* BookEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F98925419C7700D3641B /* BookEntity.swift */; };
 		1810F9982546DBDB00D3641B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F9972546DBDB00D3641B /* CollectionViewCell.swift */; };
 		1810F99F25474E5F00D3641B /* ChapterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F99E25474E5F00D3641B /* ChapterEntity.swift */; };
-		1810F9A72548170A00D3641B /* ChaptersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F9A62548170A00D3641B /* ChaptersViewController.swift */; };
 		1810F9AE2548707C00D3641B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F9AD2548707C00D3641B /* TableViewCell.swift */; };
 		1810F9B12549648700D3641B /* ArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810F9B02549648700D3641B /* ArticleEntity.swift */; };
 		181350AD253DC47000FB7E08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350AC253DC47000FB7E08 /* AppDelegate.swift */; };
@@ -25,6 +24,8 @@
 		181350C8253DD21A00FB7E08 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350C7253DD21A00FB7E08 /* CodeViewController.swift */; };
 		181350CC253DD26100FB7E08 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350CB253DD26100FB7E08 /* FavoritesTableViewController.swift */; };
 		181350D0253DD29E00FB7E08 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350CF253DD29E00FB7E08 /* SearchViewController.swift */; };
+		183861D3259A3233006D3FF2 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183861D2259A3233006D3FF2 /* Chapter.swift */; };
+		183861D7259B3812006D3FF2 /* ChaptersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183861D6259B3812006D3FF2 /* ChaptersViewController.swift */; };
 		185422BA257A8014007D2FF3 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185422B9257A8014007D2FF3 /* AboutUsViewController.swift */; };
 		1870162C2575413E00A3AE5A /* NoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1870162B2575413E00A3AE5A /* NoContentView.swift */; };
 		1870162F2575414F00A3AE5A /* NoContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1870162E2575414F00A3AE5A /* NoContentView.xib */; };
@@ -47,7 +48,6 @@
 		1810F98925419C7700D3641B /* BookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEntity.swift; sourceTree = "<group>"; };
 		1810F9972546DBDB00D3641B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = VYBORY/View/CollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		1810F99E25474E5F00D3641B /* ChapterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterEntity.swift; sourceTree = "<group>"; };
-		1810F9A62548170A00D3641B /* ChaptersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChaptersViewController.swift; path = VYBORY/View/ChaptersViewController.swift; sourceTree = SOURCE_ROOT; };
 		1810F9AD2548707C00D3641B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = VYBORY/Controllers/TableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		1810F9B02549648700D3641B /* ArticleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleEntity.swift; sourceTree = "<group>"; };
 		181350A9253DC47000FB7E08 /* VYBORY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VYBORY.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +61,8 @@
 		181350C7253DD21A00FB7E08 /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
 		181350CB253DD26100FB7E08 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		181350CF253DD29E00FB7E08 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		183861D2259A3233006D3FF2 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
+		183861D6259B3812006D3FF2 /* ChaptersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChaptersViewController.swift; path = VYBORY/View/ChaptersViewController.swift; sourceTree = SOURCE_ROOT; };
 		185422B9257A8014007D2FF3 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutUsViewController.swift; path = VYBORY/View/AboutUsViewController.swift; sourceTree = SOURCE_ROOT; };
 		1870162B2575413E00A3AE5A /* NoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoContentView.swift; sourceTree = "<group>"; };
 		1870162E2575414F00A3AE5A /* NoContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoContentView.xib; sourceTree = "<group>"; };
@@ -128,7 +130,7 @@
 			children = (
 				185422B9257A8014007D2FF3 /* AboutUsViewController.swift */,
 				181350C7253DD21A00FB7E08 /* CodeViewController.swift */,
-				1810F9A62548170A00D3641B /* ChaptersViewController.swift */,
+				183861D6259B3812006D3FF2 /* ChaptersViewController.swift */,
 				18833960254AB66E0002AAB8 /* ArticlesViewController.swift */,
 				18BDA243254AFF2B009A493D /* ArticleViewController.swift */,
 				181350B0253DC47000FB7E08 /* ProtocolViewController.swift */,
@@ -154,6 +156,7 @@
 				1810F99E25474E5F00D3641B /* ChapterEntity.swift */,
 				1810F9B02549648700D3641B /* ArticleEntity.swift */,
 				18F6658C2567BA0B00891A26 /* Article.swift */,
+				183861D2259A3233006D3FF2 /* Chapter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				18DC5CA925541B8D0062284E /* SearchCell.swift in Sources */,
 				181350B1253DC47000FB7E08 /* ProtocolViewController.swift in Sources */,
 				1870162C2575413E00A3AE5A /* NoContentView.swift in Sources */,
+				183861D7259B3812006D3FF2 /* ChaptersViewController.swift in Sources */,
 				1810F9B12549648700D3641B /* ArticleEntity.swift in Sources */,
 				18BDA26D254D93BA009A493D /* FavoriteViewCell.swift in Sources */,
 				181350CC253DD26100FB7E08 /* FavoritesTableViewController.swift in Sources */,
@@ -318,9 +322,9 @@
 				181350AD253DC47000FB7E08 /* AppDelegate.swift in Sources */,
 				1810F98A25419C7700D3641B /* BookEntity.swift in Sources */,
 				18833961254AB66E0002AAB8 /* ArticlesViewController.swift in Sources */,
+				183861D3259A3233006D3FF2 /* Chapter.swift in Sources */,
 				181350AF253DC47000FB7E08 /* SceneDelegate.swift in Sources */,
 				18BDA244254AFF2B009A493D /* ArticleViewController.swift in Sources */,
-				1810F9A72548170A00D3641B /* ChaptersViewController.swift in Sources */,
 				1810F99F25474E5F00D3641B /* ChapterEntity.swift in Sources */,
 				1810F9842541822F00D3641B /* Database.swift in Sources */,
 				181350C8253DD21A00FB7E08 /* CodeViewController.swift in Sources */,

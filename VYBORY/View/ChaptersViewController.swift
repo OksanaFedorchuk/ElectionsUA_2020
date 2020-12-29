@@ -11,13 +11,12 @@ class ChaptersViewController: UITableViewController {
     
     let db = ChapterEntity()
     
-    var selectedChapter = String()
-    
-    var chapters = [[String]]()
-    
-    
+    var chapters = [Chapter]()
+    var currentChapter = Chapter(number: "", title: "", bookNumber: "")
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         updateData()
     }
     
@@ -25,6 +24,12 @@ class ChaptersViewController: UITableViewController {
     
     func updateData() {
         chapters = db.getChaptersFiltered(by: navigationItem.title!)
+    }
+    
+    //    get current chapters when returning using back button
+    override func viewWillAppear(_ animated: Bool) {
+        updateData()
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,8 +40,8 @@ class ChaptersViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! TableViewCell
         
-        cell.numberLabel.text = chapters[indexPath.row][0]
-        cell.contentLabel.text = chapters[indexPath.row][1]
+        cell.numberLabel.text = chapters[indexPath.row].number
+        cell.contentLabel.text = chapters[indexPath.row].title
         
         return cell
         
@@ -45,14 +50,15 @@ class ChaptersViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let destinationVC = segue.destination as? ArticlesViewController {
-            destinationVC.navigationItem.title = selectedChapter
+            destinationVC.navigationItem.title = currentChapter.number
+            
             navigationItem.backBarButtonItem = UIBarButtonItem(title: navigationItem.title, style: .plain, target: nil, action: nil)
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        selectedChapter = chapters[indexPath.row][0]
+        currentChapter = chapters[indexPath.row]
         self.performSegue(withIdentifier: "goToArticles", sender: Any.self)
     }
     

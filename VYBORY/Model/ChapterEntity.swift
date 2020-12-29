@@ -35,15 +35,14 @@ class ChapterEntity {
         }
     }
     
-    func getChaptersFiltered(by selectedBook: String) -> [[String]] {
-        var chapters = [[String]]()
+    func getChaptersFiltered(by currentItem: String) -> [Chapter] {
+        var chapters = [Chapter]()
         do {
-            let filterCondition = (bookNumber == selectedBook)
+            let filterCondition = (bookNumber == currentItem) || (number == currentItem)
             if let chaptersTable = try Database.shared.connection?.prepare(self.tblChapters.filter(filterCondition)) {
                 for chapter in chaptersTable {
-                    let number = chapter[ChapterEntity.shared.number]
-                    let title = chapter[ChapterEntity.shared.title]
-                    chapters.append([number, title])
+                    let chapter = Chapter(number: chapter[ChapterEntity.shared.number], title: chapter[ChapterEntity.shared.title], bookNumber: chapter[ChapterEntity.shared.bookNumber])
+                    chapters.append(chapter)
                 }
             }
         } catch {

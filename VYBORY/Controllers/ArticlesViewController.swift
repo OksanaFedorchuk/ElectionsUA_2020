@@ -12,7 +12,9 @@ class ArticlesViewController: UITableViewController {
     let db1 = ArticleEntity()
 
     var articles = [Article]()
-    var selectedArticle = Article(number: "", title: "", content: "", favourite: 0, chapterNumber: "")
+    var currentArticle = Article(number: "", title: "", content: "", favourite: 0, chapterNumber: "")
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,22 +39,26 @@ class ArticlesViewController: UITableViewController {
         return cell
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        updateData()
+        tableView.reloadData()
+    }
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? ArticleViewController {
-            destinationVC.navigationItem.title = selectedArticle.number
+            destinationVC.navigationItem.title = currentArticle.number
             destinationVC.segueFlag = 1
-            destinationVC.navigationItem.backButtonTitle = selectedArticle.chapterNumber
-//            navigationItem.backBarButtonItem = UIBarButtonItem(title: navigationItem.title, style: .plain, target: nil, action: nil)
+            destinationVC.navigationItem.backButtonTitle = currentArticle.chapterNumber
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedArticle = articles[indexPath.row]
-//        let selectedTitle = articles[indexPath.row].title
+        currentArticle = articles[indexPath.row]
         if articles[indexPath.row].title != "Виключена." {
             self.performSegue(withIdentifier: "goToArticle", sender: Any.self)
         }
     }
+
+
 }
