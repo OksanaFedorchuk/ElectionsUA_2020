@@ -1,17 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "01_book_02.svg",
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "01_book_02_dark.svg",
+      "filename" : "01_book_02_dark-1.svg",
       "idiom" : "universal"
     }
   ],
