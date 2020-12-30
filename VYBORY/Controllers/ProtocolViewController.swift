@@ -16,9 +16,9 @@ class ProtocolViewController: UIViewController {
         self.view.addSubview(noResultsView)
         noResultsView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            noResultsView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            noResultsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 50),
             noResultsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            noResultsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            noResultsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         
         noResultsView.noContImage.image = UIImage(named: "dog_1")

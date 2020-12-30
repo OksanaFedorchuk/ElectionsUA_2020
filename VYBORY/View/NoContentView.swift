@@ -25,7 +25,14 @@ class NoContentView: UIView {
     func xibInit() {
         let viewFromXib = Bundle.main.loadNibNamed("NoContentView", owner: self, options: nil)![0] as! UIView
         viewFromXib.frame = self.bounds
+        viewFromXib.translatesAutoresizingMaskIntoConstraints = false
         addSubview(viewFromXib)
+        NSLayoutConstraint.activate([
+            viewFromXib.topAnchor.constraint(equalTo: topAnchor),
+            viewFromXib.bottomAnchor.constraint(equalTo: bottomAnchor),
+            viewFromXib.leadingAnchor.constraint(equalTo: leadingAnchor),
+            viewFromXib.trailingAnchor.constraint(equalTo: trailingAnchor),
+        ])
     }
     
 }

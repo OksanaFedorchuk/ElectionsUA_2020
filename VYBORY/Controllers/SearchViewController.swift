@@ -42,12 +42,12 @@ class SearchViewController: UITableViewController {
     }
     
     func addPlaceholerView() {
-        self.view.addSubview(noResultsView)
+        view.addSubview(noResultsView)
         noResultsView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            noResultsView.topAnchor.constraint(equalTo: view.topAnchor, constant: searchBar.frame.maxY),
             noResultsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            noResultsView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            noResultsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: searchBar.frame.height),
+            noResultsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
