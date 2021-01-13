@@ -15,7 +15,7 @@
         <scene sceneID="0eQ-V1-vh5">
             <objects>
                 <tabBarController id="NZB-8D-OL8" customClass="TabBarViewController" customModule="VYBORY" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" backgroundImage="Rectangle 3-2" id="vF9-YM-w9g">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" backgroundImage="tabBarBackground" id="vF9-YM-w9g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="myBackground"/>
@@ -39,7 +39,7 @@
             <objects>
                 <viewController id="vQ0-WK-gxU" customClass="AboutUsViewController" customModule="VYBORY" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kJt-q7-4y8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rv3-jG-Z7X">
@@ -156,7 +156,7 @@
             <objects>
                 <collectionViewController restorationIdentifier="CodeViewController" storyboardIdentifier="CodeViewController" id="a66-PT-u3R" customClass="CodeViewController" customModule="VYBORY" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" scrollEnabled="NO" dataMode="prototypes" id="qbT-kM-Kie">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="myBackground"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Km7-HK-4OH">
@@ -177,17 +177,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="250" height="148"/>
                                         </imageView>
                                         <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gdb-MW-Q0i">
-                                            <rect key="frame" x="20" y="170" width="210" height="38"/>
+                                            <rect key="frame" x="20" y="170" width="210" height="43"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiL-lp-Sju">
-                                                    <rect key="frame" x="0.0" y="0.0" width="210" height="12"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiL-lp-Sju">
+                                                    <rect key="frame" x="0.0" y="0.0" width="210" height="15.666666666666666"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" name="mySecLabel"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOu-fk-aNo">
-                                                    <rect key="frame" x="0.0" y="20" width="210" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOu-fk-aNo">
+                                                    <rect key="frame" x="0.0" y="23.666666666666657" width="210" height="19.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" name="myPrimaLabel"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -239,29 +239,29 @@
             <objects>
                 <tableViewController storyboardIdentifier="ChapterViewController" id="t4J-qL-FG9" customClass="ChaptersViewController" customModule="VYBORY" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fZ7-pg-QWU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="myBackground"/>
                         <color key="tintColor" name="myBackground"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" id="Olk-VJ-37u" customClass="TableViewCell" customModule="VYBORY" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="48.333332061767578"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="50.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Olk-VJ-37u" id="M9G-Sg-mJY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="48.333332061767578"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="oLy-QE-irg">
-                                            <rect key="frame" x="10" y="8" width="355" height="32.333333333333336"/>
+                                            <rect key="frame" x="10" y="8" width="355" height="34.666666666666664"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0h-Os-Ek8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="12"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="14.333333333333334"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" name="mySecLabel"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gK0-HF-3nZ" userLabel="Content Label">
-                                                    <rect key="frame" x="0.0" y="12.999999999999998" width="355" height="19.333333333333329"/>
+                                                    <rect key="frame" x="0.0" y="15.333333333333334" width="355" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" name="myPrimaLabel"/>
                                                     <nil key="highlightedColor"/>
@@ -304,29 +304,29 @@
             <objects>
                 <tableViewController storyboardIdentifier="ArticlesVC" id="0ot-ZS-nZn" customClass="ArticlesViewController" customModule="VYBORY" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pBp-Xl-vtm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="myBackground"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleViewCell" id="RG7-SL-gpU" userLabel="articleViewCell" customClass="TableViewCell" customModule="VYBORY" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="48.333332061767578"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="50.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RG7-SL-gpU" id="bp3-Gi-d69">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="48.333332061767578"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tce-wQ-SYw">
-                                            <rect key="frame" x="10" y="8" width="355" height="32.333333333333336"/>
+                                            <rect key="frame" x="10" y="8" width="355" height="34.666666666666664"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxK-pA-8RL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="12"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="14.333333333333334"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" name="mySecLabel"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwY-Uw-JkD" userLabel="Content Label">
-                                                    <rect key="frame" x="0.0" y="12.999999999999998" width="355" height="19.333333333333329"/>
+                                                    <rect key="frame" x="0.0" y="15.333333333333334" width="355" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" name="myPrimaLabel"/>
                                                     <nil key="highlightedColor"/>
@@ -369,7 +369,7 @@
             <objects>
                 <viewController id="b8G-di-0SB" customClass="ArticleViewController" customModule="VYBORY" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nfq-eO-teB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMs-gl-6Wh">
@@ -425,7 +425,7 @@
             <objects>
                 <viewController id="weu-XH-VXt" customClass="ProtocolViewController" customModule="VYBORY" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZAa-Md-xJK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="4nY-Hj-07P"/>
                         <color key="backgroundColor" name="myBackground"/>
@@ -441,28 +441,28 @@
             <objects>
                 <tableViewController id="F40-fZ-VY6" customClass="FavoritesTableViewController" customModule="VYBORY" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6Kr-iy-fyN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="myBackground"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteViewCell" id="PqY-W0-u64" customClass="FavoriteViewCell" customModule="VYBORY" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="48.333332061767578"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="50.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PqY-W0-u64" id="qhh-yN-vqd">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="48.333332061767578"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="NBv-58-xW5">
-                                            <rect key="frame" x="10" y="8" width="365" height="32.333333333333336"/>
+                                            <rect key="frame" x="10" y="8" width="365" height="34.666666666666664"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuh-qA-TYg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="365" height="12"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="365" height="14.333333333333334"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" name="mySecLabel"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9w2-MT-AU5" userLabel="Content Label">
-                                                    <rect key="frame" x="0.0" y="12.999999999999998" width="365" height="19.333333333333329"/>
+                                                    <rect key="frame" x="0.0" y="15.333333333333334" width="365" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" name="myPrimaLabel"/>
                                                     <nil key="highlightedColor"/>
@@ -504,7 +504,7 @@
             <objects>
                 <tableViewController id="wAd-tW-rak" customClass="SearchViewController" customModule="VYBORY" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BuO-CL-qIV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="myBackground"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" translucent="NO" id="r3s-I2-gse">
@@ -525,31 +525,31 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleSearchResultCell" id="ayq-PF-1xh" customClass="SearchCell" customModule="VYBORY" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="64.333335876464844"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="66.666664123535156"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ayq-PF-1xh" id="aDw-3K-TGz">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64.333335876464844"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="66.666664123535156"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1vy-W2-a81">
-                                            <rect key="frame" x="10" y="8.0000000000000036" width="355" height="48.333333333333343"/>
+                                            <rect key="frame" x="10" y="7.9999999999999964" width="355" height="50.666666666666657"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xF5-LB-8fV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="12"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="14.333333333333334"/>
                                                     <color key="backgroundColor" name="myBackground"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" name="mySecLabel"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsu-NO-ZQQ">
-                                                    <rect key="frame" x="0.0" y="11.999999999999998" width="355" height="19.333333333333329"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsu-NO-ZQQ">
+                                                    <rect key="frame" x="0.0" y="14.333333333333334" width="355" height="19.333333333333329"/>
                                                     <color key="backgroundColor" name="myBackground"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" name="myPrimaLabel"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NuX-HU-08q">
-                                                    <rect key="frame" x="0.0" y="31.333333333333336" width="355" height="17"/>
+                                                    <rect key="frame" x="0.0" y="33.666666666666664" width="355" height="17"/>
                                                     <color key="backgroundColor" name="myBackground"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" name="myPrimaLabel"/>
@@ -710,7 +710,6 @@
     <color key="tintColor" systemColor="labelColor"/>
     <resources>
         <image name="OPORA" width="1361" height="300"/>
-        <image name="Rectangle 3-2" width="665" height="154"/>
         <image name="book" catalog="system" width="128" height="102"/>
         <image name="book.fill" catalog="system" width="128" height="102"/>
         <image name="doc" catalog="system" width="115" height="128"/>
@@ -722,6 +721,7 @@
         <image name="instagram" width="512" height="512"/>
         <image name="magnifyingglass.circle" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="tabBarBackground" width="665" height="154"/>
         <image name="telegram" width="512" height="512"/>
         <image name="twitter" width="512" height="512"/>
         <image name="youtube" width="512" height="512"/>

@@ -13,15 +13,17 @@ class ArticleViewController: UIViewController {
     
     let db1 = ArticleEntity()
     let db2 = ChapterEntity()
+    
     var article = [Article]()
     var currentStatus = Int()
     var segueFlag = Int()
+    
     var searchText = String()
     var searchArticles = [Article]()
+    
     var oldFavs = [Article]()
     var newFavs = [Article]()
     
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentTextView: UITextView!
     
     // MARK: - ViewDidLoad
@@ -35,13 +37,13 @@ class ArticleViewController: UIViewController {
     // MARK: - Like methods
     
     @IBAction func likeTapped(_ sender: UIBarButtonItem) {
-//        if like tapped in favouriteVC
+        //        if like tapped in favouriteVC
         if self.tabBarController?.selectedViewController == tabBarController?.viewControllers?[2] {
             segueFlag = 4
         }
-//        get favourites before unliked article is removed
+        //        get favourites before unliked article is removed
         oldFavs = db1.getFavouriteArticles()
-//        change favourite status for the article
+        //        change favourite status for the article
         getCurrentStatus()
         db1.changeFavouriteArticleStatus(by: navigationItem.title!, currentFavouriteStatus: currentStatus)
         getCurrentStatus()
@@ -125,29 +127,23 @@ class ArticleViewController: UIViewController {
     
     @IBAction func swipedRight(_ sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
-            //            if the selected article is not first in favourites array {}
             article = db1.getSelectedArticleFiltered(by: getSwipedArticle()[0].number)
-//            didChangeCurrenItem?(article)
             updateUI()
-
+            
             if oldFavs.first?.number != article[0].number {
                 oldFavs = db1.getFavouriteArticles()
             }
-            //            handling dislikes for two favs left in array?
         }
     }
     
     @IBAction func swipedLeft(_ sender: UISwipeGestureRecognizer) {
         if (sender.direction == .left) {
-            //            if the selected article is not last in favourites array {}
             article = db1.getSelectedArticleFiltered(by: getSwipedArticle()[1].number)
-//            didChangeCurrenItem?(article)
             updateUI()
-
+            
             if oldFavs.last?.number != article[0].number {
                 oldFavs = db1.getFavouriteArticles()
             }
-            //            handling dislikes for two favs left in array?
         }
     }
     
@@ -172,37 +168,23 @@ class ArticleViewController: UIViewController {
             self.navigationController?.navigationBar.items?[1].title = chapter[0].bookNumber
             self.navigationController?.navigationBar.items?[1].backBarButtonItem?.title = chapter[0].bookNumber
             
-//            titleLabel.text = article[0].title
             
-            let title = attributedArticle(targetString: String("\(article[0].title) \n \n"), fontSize: 16, fontWeight: UIFont.Weight.bold, fontColor: UIColor(named: "myPrimaLabel")!)!
-            let content = attributedArticle(targetString: article[0].content, fontSize: 14, fontWeight: UIFont.Weight.regular, fontColor: UIColor(named: "myPrimaLabel")!)!
+            contentTextView.attributedText = generateAttributedArticleText(searchText: nil, titleText: article[0].title, contentText: article[0].content)
             
-            let attributedArticle = NSMutableAttributedString()
-            attributedArticle.append(title)
-            attributedArticle.append(content)
-            
-            contentTextView.attributedText = attributedArticle
-//                = NSAttributedString(string: "\(String(describing: title)) \n \(String(describing: content))")
-            
-//                String("\(article[0].title) \n \(article[0].content)")
-                
             getCurrentStatus()
             setCurrentStatusImage()
             
         case 2, 4:
             //            display favourite article
             self.navigationItem.title = article[0].number
-            titleLabel.text = article[0].title
-            contentTextView.text = article[0].content
+            contentTextView.attributedText = generateAttributedArticleText(searchText: nil, titleText: article[0].title, contentText: article[0].content)
             getCurrentStatus()
             setCurrentStatusImage()
             
         case 3:
             //            display search result article with attributed blue searchText
             self.navigationItem.title = article[0].number
-//            titleLabel.textColor = UIColor(named: "myPrimaLabel")
-            titleLabel.attributedText = generateAttributedString(with: searchText, targetString: article[0].title, fontSize: 16, fontWeight: UIFont.Weight.bold)
-            contentTextView.attributedText = generateAttributedString(with: searchText, targetString: article[0].content, fontSize: 15, fontWeight: UIFont.Weight.regular)
+            contentTextView.attributedText = generateAttributedArticleText(searchText: searchText, titleText: article[0].title, contentText: article[0].content)
             getCurrentStatus()
             setCurrentStatusImage()
             
@@ -211,26 +193,44 @@ class ArticleViewController: UIViewController {
         }
     }
     
-//    attribute searchText in the article
-    
-    func attributedArticle(targetString: String, fontSize: CGFloat, fontWeight: UIFont.Weight, fontColor: UIColor ) -> NSAttributedString? {
-        let attributedString = NSMutableAttributedString(string: targetString)
-
-            let range = NSRange(location: 0, length: targetString.utf16.count)
-            attributedString.addAttributes([NSAttributedString.Key.foregroundColor: fontColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: fontWeight)], range: range)
-            return attributedString
+    //    make an attributed string containing title and content of an article
+    func generateAttributedArticleText(searchText: String?, titleText: String, contentText: String) -> NSAttributedString {
+        let title = attributedString(with: searchText, targetString: String("\(titleText) \n \n"), fontSize: 17, fontWeight: UIFont.Weight.bold)!
+        let content = attributedString(with: searchText, targetString: contentText, fontSize: 15, fontWeight: UIFont.Weight.regular)!
+        
+        let attributedArticle = NSMutableAttributedString()
+        attributedArticle.append(title)
+        attributedArticle.append(content)
+        
+        return attributedArticle
     }
     
-    func generateAttributedString(with searchTerm: String, targetString: String, fontSize: CGFloat, fontWeight: UIFont.Weight) -> NSAttributedString? {
+    //    make attributed string for a text with or without a highlited searchTerm
+    func attributedString(with searchTerm: String?, targetString: String, fontSize: CGFloat, fontWeight: UIFont.Weight) -> NSAttributedString? {
         let attributedString = NSMutableAttributedString(string: targetString)
+        
         do {
-            let regex = try NSRegularExpression(pattern: searchTerm.trimmingCharacters(in: .whitespacesAndNewlines).folding(options: .diacriticInsensitive, locale: .current), options: .caseInsensitive)
-            let range = NSRange(location: 0, length: targetString.utf16.count)
-            attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "myPrimaLabel")!, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: fontWeight)], range: range)
-            for match in regex.matches(in: targetString.folding(options: .diacriticInsensitive, locale: .current), options: .withTransparentBounds, range: range) {
-                attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "myBlue")!, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: fontWeight)], range: match.range)
+            //            if there is a searchTerm in string
+            if let searchTerm = searchTerm {
+                
+                let regex = try NSRegularExpression(pattern: searchTerm.trimmingCharacters(in: .whitespacesAndNewlines).folding(options: .diacriticInsensitive, locale: .current), options: .caseInsensitive)
+                
+                let range = NSRange(location: 0, length: targetString.utf16.count)
+                attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "myPrimaLabel")!, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: fontWeight)], range: range)
+                
+                for match in regex.matches(in: targetString.folding(options: .diacriticInsensitive, locale: .current), options: .withTransparentBounds, range: range) {
+                    attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "myBlue")!, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: fontWeight)], range: match.range)
+                }
             }
+            //            if there is no searchTerm in string
+            if searchTerm == nil {
+                let range = NSRange(location: 0, length: targetString.utf16.count)
+                
+                attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "myPrimaLabel")!, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: fontWeight)], range: range)
+            }
+            
             return attributedString
+            
         } catch {
             NSLog("Error creating regular expresion: \(error)")
             return nil
