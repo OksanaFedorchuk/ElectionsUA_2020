@@ -38,7 +38,7 @@ class ChaptersViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.Identifiers.Cell.ChapterCell, for: indexPath) as! TableViewCell
         
         cell.numberLabel.text = chapters[indexPath.row].number
         cell.contentLabel.text = chapters[indexPath.row].title
@@ -59,7 +59,7 @@ class ChaptersViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         currentChapter = chapters[indexPath.row]
-        self.performSegue(withIdentifier: "goToArticles", sender: Any.self)
+        self.performSegue(withIdentifier: K.Identifiers.Segue.GoToArticles, sender: Any.self)
     }
     
 }

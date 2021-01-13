@@ -12,11 +12,11 @@ class ChapterEntity {
     
     static let shared = ChapterEntity()
     
-    private let tblChapters = Table("chapters")
+    private let tblChapters = Table(K.Database.Table.Chapters)
     
-    private let number = Expression<String>("number")
-    private let title = Expression<String>("title")
-    private let bookNumber = Expression<String>("book_number")
+    private let number = Expression<String>(K.Database.Row.Number)
+    private let title = Expression<String>(K.Database.Row.Title)
+    private let bookNumber = Expression<String>(K.Database.Row.BookNumber)
     
     init() {
         do {
@@ -26,12 +26,10 @@ class ChapterEntity {
                     table.column(self.title)
                     table.column(self.bookNumber)
                 }))
-                print ("Table Chapters has been created")
             } else {
-                print ("Fail creating the table Chapters")
             }
         }catch {
-            print("Fail creating the table Chapters. Error: \(error)")
+            print(error.localizedDescription)
         }
     }
     
@@ -46,7 +44,7 @@ class ChapterEntity {
                 }
             }
         } catch {
-            print("Cannot list query objects in tblChapters. Error: \(error), \(error.localizedDescription)")
+            print(error.localizedDescription)
         }
         return chapters
     }

@@ -12,27 +12,25 @@ class ArticleEntity {
     
     static let shared = ArticleEntity()
     
-    private let tblArticles = VirtualTable("articles")
+    private let tblArticles = VirtualTable(K.Database.Table.Articles)
     
-    private let number = Expression<String>("number")
-    private let title = Expression<String>("title")
-    private let content = Expression<String>("content")
-    private let favourite = Expression<Int>("favourite")
-    private let chapterNumber = Expression<String>("chapter_number")
+    private let number = Expression<String>(K.Database.Row.Number)
+    private let title = Expression<String>(K.Database.Row.Title)
+    private let content = Expression<String>(K.Database.Row.Content)
+    private let favourite = Expression<Int>(K.Database.Row.Favourite)
+    private let chapterNumber = Expression<String>(K.Database.Row.ChapterNumber)
     
-    lazy var snippet = snippetWrapper(column: content, tableName: "articles")
+    lazy var snippet = snippetWrapper(column: content, tableName: K.Database.Table.Articles)
     
     
     init() {
         do {
             if let connection = Database.shared.connection {
                 try connection.run(tblArticles.create(.FTS4(number, title, content, favourite, chapterNumber), ifNotExists: true))
-                print ("Table Articles has been created")
             } else {
-                print ("Fail creating the table Articles")
             }
         }catch {
-            print("Fail creating the table Articles. Error: \(error), \(error.localizedDescription)")
+            print(error.localizedDescription)
         }
     }
     
@@ -44,14 +42,14 @@ class ArticleEntity {
         do {
             if let articlesVtable = try Database.shared.connection?.prepare(tblArticles) {
                 for a in articlesVtable {
-                    if a[ArticleEntity.shared.title] != "Виключена." {
+                    if a[ArticleEntity.shared.title] != K.Database.NilItem {
                         let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.content], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
                         articles.append(article)
                     }
                 }
             }
         } catch {
-            print("Cannot list quesry objects in tblArticles. Error: \(error), \(error.localizedDescription)")
+            print(error.localizedDescription)
         }
         
         return articles
@@ -63,14 +61,14 @@ class ArticleEntity {
         do {
             if let articlesVtable = try Database.shared.connection?.prepare(tblArticles.filter(chapterNumber.match("\(selectedChapter)"))) {
                 for a in articlesVtable {
-                    if a[ArticleEntity.shared.title] != "Виключена." {
+                    if a[ArticleEntity.shared.title] != K.Database.NilItem {
                         let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.content], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
                         articles.append(article)
                     }
                 }
             }
         } catch {
-            print("Cannot list quesry objects in tblArticles. Error: \(error), \(error.localizedDescription)")
+            print(error.localizedDescription)
         }
         return articles
     }
@@ -87,7 +85,7 @@ class ArticleEntity {
                 }
             }
         } catch {
-            print("Cannot list quesry objects in tblChapters. Error: \(error), \(error.localizedDescription)")
+            print(error.localizedDescription)
         }
         return articles
     }
@@ -103,7 +101,7 @@ class ArticleEntity {
                 }
             }
         } catch {
-            print("Cannot list quesry objects in tblChapters. Error: \(error), \(error.localizedDescription)")
+            print(error.localizedDescription)
         }
         return articleStatus
     }
@@ -117,7 +115,7 @@ class ArticleEntity {
                 try Database.shared.connection?.run(article.update(favourite <- status))
             }
             catch {
-                print("Unable to shange the favorite article status. Error is: \(error), \(error.localizedDescription)")
+                print(error.localizedDescription)
             }
         }
     }
@@ -133,7 +131,7 @@ class ArticleEntity {
                 }
             }
         } catch {
-            print("Cannot list quesry objects in tblChapters. Error: \(error), \(error.localizedDescription)")
+            print(error.localizedDescription)
         }
         return favoriteArticles
     }
@@ -146,14 +144,14 @@ class ArticleEntity {
             
             if let results = try Database.shared.connection?.prepare(tblArticles.select(number, title, content, favourite, chapterNumber).filter(title.match("\(searchText)*"))) {
                 for a in results {
-                    if a[ArticleEntity.shared.title] != "Виключена." {
+                    if a[ArticleEntity.shared.title] != K.Database.NilItem {
                         let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.content], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
                         searchResult.append(article)
                     }
                 }
             }
         } catch {
-            print("Cannot list query objects in tblArticles. Error: \(error), \(error.localizedDescription)")
+            print(error.localizedDescription)
         }
         return searchResult
     }
@@ -163,14 +161,14 @@ class ArticleEntity {
         do {
             if let results2 = try Database.shared.connection?.prepare(tblArticles.select(number, title, snippet, favourite, chapterNumber).filter(content.match("\(searchText)*"))) {
                 for a in results2 {
-                    if a[ArticleEntity.shared.title] != "Виключена." {
+                    if a[ArticleEntity.shared.title] != K.Database.NilItem {
                         let article = Article(number: a[ArticleEntity.shared.number], title: a[ArticleEntity.shared.title], content: a[ArticleEntity.shared.snippet], favourite: a[ArticleEntity.shared.favourite], chapterNumber: a[ArticleEntity.shared.chapterNumber])
                         searchResult.append(article)
                     }
                 }
             }
         } catch {
-            print("Cannot list query objects in tblArticles. Error: \(error), \(error.localizedDescription)")
+            print(error.localizedDescription)
         }
         return searchResult
     }

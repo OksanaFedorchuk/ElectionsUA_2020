@@ -148,7 +148,7 @@ class ArticleViewController: UIViewController {
     }
     
     
-    // MARK: - UI update
+    // MARK: - UI update methods
     
     // updates fav image when come back to codeVC
     override func viewDidAppear(_ animated: Bool) {
@@ -205,7 +205,7 @@ class ArticleViewController: UIViewController {
         return attributedArticle
     }
     
-    //    make attributed string for a text with or without a highlited searchTerm
+    //    make attributed string for a retrieved text with or without a highlited searchTerm
     func attributedString(with searchTerm: String?, targetString: String, fontSize: CGFloat, fontWeight: UIFont.Weight) -> NSAttributedString? {
         let attributedString = NSMutableAttributedString(string: targetString)
         
@@ -216,23 +216,23 @@ class ArticleViewController: UIViewController {
                 let regex = try NSRegularExpression(pattern: searchTerm.trimmingCharacters(in: .whitespacesAndNewlines).folding(options: .diacriticInsensitive, locale: .current), options: .caseInsensitive)
                 
                 let range = NSRange(location: 0, length: targetString.utf16.count)
-                attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "myPrimaLabel")!, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: fontWeight)], range: range)
+                attributedString.addAttributes([NSAttributedString.Key.foregroundColor: K.Color.MyPrimaLabel, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: fontWeight)], range: range)
                 
                 for match in regex.matches(in: targetString.folding(options: .diacriticInsensitive, locale: .current), options: .withTransparentBounds, range: range) {
-                    attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "myBlue")!, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: fontWeight)], range: match.range)
+                    attributedString.addAttributes([NSAttributedString.Key.foregroundColor: K.Color.MyBlue, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: fontWeight)], range: match.range)
                 }
             }
             //            if there is no searchTerm in string
             if searchTerm == nil {
                 let range = NSRange(location: 0, length: targetString.utf16.count)
                 
-                attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "myPrimaLabel")!, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: fontWeight)], range: range)
+                attributedString.addAttributes([NSAttributedString.Key.foregroundColor: K.Color.MyPrimaLabel, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: fontWeight)], range: range)
             }
             
             return attributedString
             
         } catch {
-            NSLog("Error creating regular expresion: \(error)")
+            debugPrint(error)
             return nil
         }
     }

@@ -12,31 +12,31 @@ class AboutUsViewController: UIViewController {
     @IBOutlet weak var aboutUsLabel: InteractiveLabel?
     
     @IBAction func facebookTapped(_ sender: Any) {
-        if let url = URL(string: "https://www.facebook.com/cn.opora") {
+        if let url = K.AboutUsText.URLs.SocialMedia.Facebook {
             UIApplication.shared.open(url)
         }
     }
     
     @IBAction func twitterTapped(_ sender: Any) {
-        if let url = URL(string: "https://twitter.com/opora") {
+        if let url = K.AboutUsText.URLs.SocialMedia.Twitter {
             UIApplication.shared.open(url)
         }
     }
     
     @IBAction func telegramTapped(_ sender: Any) {
-        if let url = URL(string: "https://t.me/opora_news") {
+        if let url = K.AboutUsText.URLs.SocialMedia.Telegram {
             UIApplication.shared.open(url)
         }
     }
     
     @IBAction func instagramTapped(_ sender: Any) {
-        if let url = URL(string: "https://www.instagram.com/cn.opora/") {
+        if let url = K.AboutUsText.URLs.SocialMedia.Instagram {
             UIApplication.shared.open(url)
         }
     }
     
     @IBAction func youTubeTapped(_ sender: Any) {
-        if let url = URL(string: "https://www.youtube.com/user/oporavideo") {
+        if let url = K.AboutUsText.URLs.SocialMedia.YouTube {
             UIApplication.shared.open(url)
         }
     }
@@ -46,26 +46,49 @@ class AboutUsViewController: UIViewController {
         
         
         
-        let plainAttributedString = NSMutableAttributedString(string:
-                                                                """
-            Громадянська мережа ОПОРА – одна з провідних неурядових та позапартійних всеукраїнських організацій громадського контролю у сфері виборів.
-            З 2007 року ОПОРА аналізує виборчий процес, проводить спостереження за всіма його етапами, працює над удосконаленням виборчого законодавства відповідно до міжнародних стандартів. Загалом за цей час до моніторингу виборів було залучено понад 20 тисяч кваліфікованих спостерігачів.
-
-            Для своїх спостерігачів, та усіх інших учасників виборчого процесу ми розробили цей мобільний додаток із виборчим кодексом та верифікатором протоколу, який знадобиться вам у ніч підрахунку голосів. Тепер виборчий кодекс буде завжди із вами, а зручний пошук дозволить швидко знайти необхідну статтю.
-
-            Отримати усю оперативну інформацію про перебіг Місцевих виборів 2020 року Ви можете тут: \n \n
-            """, attributes: nil)
+        let plainAttributedString = NSMutableAttributedString(
+            string: K.AboutUsText.Text.String1,
+            attributes: nil
+        )
         
-        let attributedLinkString = NSMutableAttributedString(string: "Вебсайт \n", attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "myBlue")!, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.underlineColor: UIColor(named: "myBlue")!, NSAttributedString.Key.attachment: URL(string: "https://oporaua.org/")!])
+        let attributedLinkString = NSMutableAttributedString(
+            string: K.AboutUsText.Text.WebsiteLinkString,
+            attributes: [
+                NSAttributedString.Key.foregroundColor: K.Color.MyBlue,
+                NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
+                NSAttributedString.Key.underlineColor: K.Color.MyBlue,
+                NSAttributedString.Key.attachment: K.AboutUsText.URLs.Platforms.Website
+            ])
         
         
-        let attributedLinkString1 = NSMutableAttributedString(string: "Мапа порушень \n", attributes:[NSAttributedString.Key.foregroundColor: UIColor(named: "myBlue")!, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.underlineColor: UIColor(named: "myBlue")!, NSAttributedString.Key.attachment: URL(string: "https://oporaua.org/map-reports")!])
+        let attributedLinkString1 = NSMutableAttributedString(
+            string: K.AboutUsText.Text.MapLinkString,
+            attributes:[
+                NSAttributedString.Key.foregroundColor: K.Color.MyBlue,
+                NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
+                NSAttributedString.Key.underlineColor: K.Color.MyBlue,
+                NSAttributedString.Key.attachment: K.AboutUsText.URLs.Platforms.Map
+            ])
         
-        let attributedLinkString2 = NSMutableAttributedString(string: "Все про виборчі дані та соцмережі \n", attributes:[NSAttributedString.Key.foregroundColor: UIColor(named: "myBlue")!, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.underlineColor: UIColor(named: "myBlue")!, NSAttributedString.Key.attachment: URL(string: "https://danivyboriv.net/")!])
+        let attributedLinkString2 = NSMutableAttributedString(
+            string: K.AboutUsText.Text.DaniLinkString,
+            attributes:[
+                NSAttributedString.Key.foregroundColor: K.Color.MyBlue,
+                NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
+                NSAttributedString.Key.underlineColor: K.Color.MyBlue,
+                NSAttributedString.Key.attachment: K.AboutUsText.URLs.Platforms.Dani
+            ])
         
-        let attributedLinkString3 = NSMutableAttributedString(string: "Аналізатор політичної реклами \n \n", attributes:[NSAttributedString.Key.foregroundColor: UIColor(named: "myBlue")!, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.underlineColor: UIColor(named: "myBlue")!, NSAttributedString.Key.attachment: URL(string: "https://fb.oporaua.org/")!])
+        let attributedLinkString3 = NSMutableAttributedString(
+            string: K.AboutUsText.Text.AnalizatorLinkString,
+            attributes:[
+                NSAttributedString.Key.foregroundColor: K.Color.MyBlue,
+                NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
+                NSAttributedString.Key.underlineColor: K.Color.MyBlue,
+                NSAttributedString.Key.attachment: K.AboutUsText.URLs.Platforms.Analizator
+            ])
         
-        let plainAttributedString1 = NSMutableAttributedString(string: "І не забувайте стежити за нами в соціальних мережах:", attributes: nil)
+        let plainAttributedString1 = NSMutableAttributedString(string: K.AboutUsText.Text.String2, attributes: nil)
         
         let fullAttributedString = NSMutableAttributedString()
         

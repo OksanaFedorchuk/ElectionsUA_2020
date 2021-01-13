@@ -13,10 +13,10 @@ class BookEntity {
     static let shared = BookEntity()
     
     
-    private let tblBooks = Table("books")
+    private let tblBooks = Table(K.Database.Table.Books)
     
-    private let number = Expression<String>("number")
-    private let title = Expression<String>("title")
+    private let number = Expression<String>(K.Database.Row.Number)
+    private let title = Expression<String>(K.Database.Row.Title)
     
     init() {
         do {
@@ -25,29 +25,25 @@ class BookEntity {
                     table.column(self.number)
                     table.column(self.title)
                 }))
-                print ("Table Books has been created")
             } else {
-                print ("Fail creating the table Books")
             }
         } catch {
-            let nserror = error as NSError
-            print("Fail creating the table Books. Error: \(nserror)")
+            print(error.localizedDescription)
         }
     }
     
-    func getBooks() -> [[String]]{
-        var books = [[String]]()
+    func getBooks() -> [Book]{
+        var books = [Book]()
         do {
             if let booksTable = try Database.shared.connection?.prepare(BookEntity.shared.tblBooks) {
                 
                 for book in booksTable {
-                    let number = book[BookEntity.shared.number]
-                    let title = book[BookEntity.shared.title]
-                    books.append([number, title])
+                    let book = Book(number: book[BookEntity.shared.number], title: book[BookEntity.shared.title])
+                    books.append(book)
                 }
             }
         } catch {
-            print(error)
+            print(error.localizedDescription)
         }
         return books
     }

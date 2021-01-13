@@ -11,7 +11,6 @@ class FavoritesTableViewController: UITableViewController {
     
     // MARK: - Properties
     
-    private let segueId = "goToFavoriteArticle"
     private let db1 = ArticleEntity()
     
     private var articles = [Article]()
@@ -40,7 +39,7 @@ class FavoritesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteViewCell", for: indexPath) as! FavoriteViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.Identifiers.Cell.FavoriteCell, for: indexPath) as! TableViewCell
         
         cell.numberLabel.text = articles[indexPath.row].number
         cell.contentLabel.text = articles[indexPath.row].title
@@ -69,6 +68,6 @@ class FavoritesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedArticle = articles[indexPath.row].number
-        self.performSegue(withIdentifier: segueId, sender: Any.self)
+        self.performSegue(withIdentifier: K.Identifiers.Segue.GoToFavoriteArticle, sender: Any.self)
     }
 }

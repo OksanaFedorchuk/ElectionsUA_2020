@@ -33,7 +33,7 @@ class ArticlesViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "articleViewCell", for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.Identifiers.Cell.ArticleCell, for: indexPath) as! TableViewCell
         cell.numberLabel.text = articles[indexPath.row].number
         cell.contentLabel.text = articles[indexPath.row].title
         return cell
@@ -55,9 +55,7 @@ class ArticlesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentArticle = articles[indexPath.row]
-        if articles[indexPath.row].title != "Виключена." {
-            self.performSegue(withIdentifier: "goToArticle", sender: Any.self)
-        }
+        self.performSegue(withIdentifier: K.Identifiers.Segue.GoToArticle, sender: Any.self)
     }
 
 

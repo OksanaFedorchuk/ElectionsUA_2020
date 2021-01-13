@@ -11,17 +11,27 @@ class SearchViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     let db = ArticleEntity()
-    let segueId = "goToSearchArticle"
-    
+
+    //    properties to propagate table, titles first section, content second section
     var allTheData = [[Article]]()
     var titleSearchResult = [Article]()
     var contentSearchResult = [Article]()
-    var searchText = String()
-    var selectedArticle = String()
     var diff = [Article]()
+    
+    // array of retrieved search articles for swipes in article view
     var allSearchArticles = [Article]()
     
+    var searchText = String()
+    var selectedArticle = String()
+    
+    //    dog placeholder
     lazy var noResultsView = NoContentView(frame: tableView.bounds.offsetBy(dx: 0, dy: searchBar.frame.maxY))
+    
+    enum PlaceholderViewMode {
+        case hidden
+        case searchDog
+        case sadDog
+    }
     
     
     override func viewDidLoad() {
@@ -32,14 +42,7 @@ class SearchViewController: UITableViewController {
         
     }
     
-    // MARK: - Subview Methods
-    
-    
-    enum PlaceholderViewMode {
-        case hidden
-        case searchDog
-        case sadDog
-    }
+    // MARK: - Placeholder Methods
     
     func addPlaceholerView() {
         view.addSubview(noResultsView)
@@ -56,22 +59,23 @@ class SearchViewController: UITableViewController {
         
         case .hidden:
             noResultsView.isHidden = true
-
+            
         case .searchDog:
             noResultsView.isHidden = false
-            noResultsView.noContImage.image = UIImage(named: "dog_1")
-            noResultsView.noContLabel.text = "ЩОСЬ ЗНАЙТИ?"
+            noResultsView.noContImage.image = K.Placeholder.Image.Dog
+            noResultsView.noContLabel.text = K.Placeholder.Text.FindSomething
             
         case .sadDog:
             noResultsView.isHidden = false
-            self.noResultsView.noContImage.image = UIImage(named: "dog_2")
-            self.noResultsView.noContLabel.text = "НІЧОГО НЕ ЗНАЙДЕНО"
+            self.noResultsView.noContImage.image = K.Placeholder.Image.DogCry
+            self.noResultsView.noContLabel.text = K.Placeholder.Text.NothingFound
         }
     }
     
     // MARK: - Data Manipulation Methods
-    
+    //    retrieve db rows using searchText
     func updateData() {
+        
         titleSearchResult = db.getTitleSearchResultsFiltered(by: searchText)
         contentSearchResult = db.getContentSearchResultsFiltered(by: searchText)
         
@@ -117,12 +121,20 @@ class SearchViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         configurePlaceholderView(with: .hidden)
-
-        let searchResultCell = tableView.dequeueReusableCell(withIdentifier: "titleSearchResultCell", for: indexPath) as! SearchCell
         
-        searchResultCell.numberLabel.attributedText = allTheData[indexPath.section][indexPath.row].number.highlightText(searchText, with: UIColor(named: "myBlue")!, caseInsensitivie: true, font: UIFont(name: "Helvetica Light", size: 10)!)
-        searchResultCell.titleLabel.attributedText = allTheData[indexPath.section][indexPath.row].title.highlightText(searchText, with: UIColor(named: "myBlue")!, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 16)!)
-        searchResultCell.contentLabel.attributedText =  allTheData[indexPath.section][indexPath.row].content.highlightText(searchText, with: UIColor(named: "myBlue")!, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 14)!)
+        let searchResultCell = tableView.dequeueReusableCell(withIdentifier: K.Identifiers.Cell.SearchResultCell, for: indexPath) as! SearchCell
+        
+        searchResultCell.numberLabel.attributedText = allTheData[indexPath.section][indexPath.row]
+            .number
+            .highlightText(searchText, with: K.Color.MyBlue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 12)!)
+        
+        searchResultCell.titleLabel.attributedText = allTheData[indexPath.section][indexPath.row]
+            .title
+            .highlightText(searchText, with: K.Color.MyPrimaLabel, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 16)!)
+        
+        searchResultCell.contentLabel.attributedText =  allTheData[indexPath.section][indexPath.row]
+            .content
+            .highlightText(searchText, with: K.Color.MyBlue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 14)!)
         
         return searchResultCell
     }
@@ -140,10 +152,7 @@ class SearchViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedArticle = allTheData[indexPath.section][indexPath.row].number
-        let selectedTitle = allTheData[indexPath.section][indexPath.row].title
-        if selectedTitle != "Виключена." {
-            self.performSegue(withIdentifier: segueId, sender: Any.self)
-        }
+        self.performSegue(withIdentifier: K.Identifiers.Segue.GoToSearchArticle, sender: Any.self)
     }
 }
 // MARK: - Search Bar Delegate Methods
@@ -187,8 +196,6 @@ extension SearchViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
 }
-
-
 
 extension String {
     

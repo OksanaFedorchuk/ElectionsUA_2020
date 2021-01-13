@@ -21,8 +21,8 @@ class ProtocolViewController: UIViewController {
             noResultsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -80)
         ])
         
-        noResultsView.noContImage.image = UIImage(named: "dog_1")
-        noResultsView.noContLabel.text = "ПРОТОКОЛИ В РОЗРОБЦІ"
+        noResultsView.noContImage.image = K.Placeholder.Image.Dog
+        noResultsView.noContLabel.text = K.Placeholder.Text.Protocols
     }
 
 
