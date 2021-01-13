@@ -1,16 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "dog_1 1-4.svg",
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
       "filename" : "dog_1 1-5.svg",
       "idiom" : "universal"
     }
