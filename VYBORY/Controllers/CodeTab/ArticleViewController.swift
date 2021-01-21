@@ -44,9 +44,9 @@ class ArticleViewController: UIViewController {
     
     func setCurrentStatusImage() {
         if currentStatus == 0 {
-            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
+            navigationItem.rightBarButtonItem?.image = K.Image.heart
         } else {
-            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
+            navigationItem.rightBarButtonItem?.image = K.Image.heartFill
         }
     }
     

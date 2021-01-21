@@ -20,6 +20,8 @@ struct K {
     struct Image {
         
         static let BookImages = ["01_book_01", "01_book_02", "01_book_03", "01_book_04"]
+        static let heart = UIImage(systemName: "heart")
+        static let heartFill = UIImage(systemName: "heart.fill")
         
     }
     //    MARK: - Database
