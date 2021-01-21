@@ -60,7 +60,7 @@ class FavoritesTableViewController: UITableViewController {
     // MARK: - Navigation methods
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? ArticleViewController {
+        if let destinationVC = segue.destination as? FavArticleViewController {
             destinationVC.navigationItem.title = selectedArticle
             destinationVC.segueFlag = 2
         }

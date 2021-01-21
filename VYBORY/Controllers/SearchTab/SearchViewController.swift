@@ -125,16 +125,16 @@ class SearchViewController: UITableViewController {
         let searchResultCell = tableView.dequeueReusableCell(withIdentifier: K.Identifiers.Cell.SearchResultCell, for: indexPath) as! SearchCell
         
         searchResultCell.numberLabel.attributedText = allTheData[indexPath.section][indexPath.row]
-            .number
-            .highlightText(searchText, with: K.Color.MyBlue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 12)!)
+            .number.highlightText(highlight: searchText, fontSize: 12, fontWeight: UIFont.Weight.regular, caseInsensitivie: true)
+//            .highlightText(searchText, with: K.Color.MyBlue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 12)!)
         
         searchResultCell.titleLabel.attributedText = allTheData[indexPath.section][indexPath.row]
-            .title
-            .highlightText(searchText, with: K.Color.MyPrimaLabel, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 16)!)
+            .title.highlightText(highlight: searchText, fontSize: 16, fontWeight: UIFont.Weight.regular, caseInsensitivie: true)
+//            .highlightText(searchText, with: K.Color.MyPrimaLabel, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 16)!)
         
         searchResultCell.contentLabel.attributedText =  allTheData[indexPath.section][indexPath.row]
-            .content
-            .highlightText(searchText, with: K.Color.MyBlue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 14)!)
+            .content.highlightText(highlight: searchText, fontSize: 14, fontWeight: UIFont.Weight.regular, caseInsensitivie: true)
+//            .highlightText(searchText, with: K.Color.MyBlue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 14)!)
         
         return searchResultCell
     }
@@ -142,9 +142,8 @@ class SearchViewController: UITableViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? ArticleViewController {
+        if let destinationVC = segue.destination as? SearchArticleViewController {
             destinationVC.navigationItem.title = selectedArticle
-            destinationVC.segueFlag = 3
             destinationVC.searchText = searchText
             destinationVC.searchArticles = allSearchArticles
         }
@@ -194,27 +193,5 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-    }
-}
-
-extension String {
-    
-    func highlightText(
-        _ text: String,
-        with color: UIColor,
-        caseInsensitivie: Bool = false,
-        font: UIFont = .preferredFont(forTextStyle: .body)) -> NSAttributedString
-    {
-        let attrString = NSMutableAttributedString(string: self)
-        let range = (self as NSString).range(of: text, options: caseInsensitivie ? .caseInsensitive : [])
-        attrString.addAttribute(
-            .foregroundColor,
-            value: color,
-            range: range)
-        attrString.addAttribute(
-            .font,
-            value: font,
-            range: NSRange(location: 0, length: attrString.length))
-        return attrString
     }
 }

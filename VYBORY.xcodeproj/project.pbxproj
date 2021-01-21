@@ -25,9 +25,12 @@
 		181350D0253DD29E00FB7E08 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181350CF253DD29E00FB7E08 /* SearchViewController.swift */; };
 		183861D3259A3233006D3FF2 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183861D2259A3233006D3FF2 /* Chapter.swift */; };
 		183861D7259B3812006D3FF2 /* ChaptersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183861D6259B3812006D3FF2 /* ChaptersViewController.swift */; };
+		1839E8DB25B9AEE900114C36 /* AttrString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839E8DA25B9AEE900114C36 /* AttrString.swift */; };
 		185422BA257A8014007D2FF3 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185422B9257A8014007D2FF3 /* AboutUsViewController.swift */; };
 		186C9DCA25AF176700CCAD4F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C9DC925AF176700CCAD4F /* Book.swift */; };
 		186C9DD525AF282600CCAD4F /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C9DD425AF282600CCAD4F /* K.swift */; };
+		186C9DE625B89A3200CCAD4F /* FavArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C9DE525B89A3200CCAD4F /* FavArticleViewController.swift */; };
+		186C9DE925B89B0700CCAD4F /* SearchArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C9DE825B89B0700CCAD4F /* SearchArticleViewController.swift */; };
 		1870162C2575413E00A3AE5A /* NoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1870162B2575413E00A3AE5A /* NoContentView.swift */; };
 		1870162F2575414F00A3AE5A /* NoContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1870162E2575414F00A3AE5A /* NoContentView.xib */; };
 		18833961254AB66E0002AAB8 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833960254AB66E0002AAB8 /* ArticlesViewController.swift */; };
@@ -61,9 +64,12 @@
 		181350CF253DD29E00FB7E08 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		183861D2259A3233006D3FF2 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		183861D6259B3812006D3FF2 /* ChaptersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChaptersViewController.swift; path = VYBORY/Controllers/CodeTab/ChaptersViewController.swift; sourceTree = SOURCE_ROOT; };
+		1839E8DA25B9AEE900114C36 /* AttrString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttrString.swift; sourceTree = "<group>"; };
 		185422B9257A8014007D2FF3 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutUsViewController.swift; path = VYBORY/Controllers/CodeTab/AboutUsViewController.swift; sourceTree = SOURCE_ROOT; };
 		186C9DC925AF176700CCAD4F /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		186C9DD425AF282600CCAD4F /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		186C9DE525B89A3200CCAD4F /* FavArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavArticleViewController.swift; path = VYBORY/Views/FavArticleViewController.swift; sourceTree = SOURCE_ROOT; };
+		186C9DE825B89B0700CCAD4F /* SearchArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticleViewController.swift; sourceTree = "<group>"; };
 		1870162B2575413E00A3AE5A /* NoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoContentView.swift; sourceTree = "<group>"; };
 		1870162E2575414F00A3AE5A /* NoContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoContentView.xib; sourceTree = "<group>"; };
 		18833960254AB66E0002AAB8 /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +197,7 @@
 				18F6658C2567BA0B00891A26 /* Article.swift */,
 				183861D2259A3233006D3FF2 /* Chapter.swift */,
 				186C9DC925AF176700CCAD4F /* Book.swift */,
+				1839E8DA25B9AEE900114C36 /* AttrString.swift */,
 			);
 			path = "Object Models";
 			sourceTree = "<group>";
@@ -228,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				181350CB253DD26100FB7E08 /* FavoritesTableViewController.swift */,
+				186C9DE525B89A3200CCAD4F /* FavArticleViewController.swift */,
 			);
 			path = FavouritesTab;
 			sourceTree = "<group>";
@@ -236,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				181350CF253DD29E00FB7E08 /* SearchViewController.swift */,
+				186C9DE825B89B0700CCAD4F /* SearchArticleViewController.swift */,
 			);
 			path = SearchTab;
 			sourceTree = "<group>";
@@ -391,12 +400,15 @@
 				1810F98A25419C7700D3641B /* BookEntity.swift in Sources */,
 				18833961254AB66E0002AAB8 /* ArticlesViewController.swift in Sources */,
 				186C9DCA25AF176700CCAD4F /* Book.swift in Sources */,
+				186C9DE625B89A3200CCAD4F /* FavArticleViewController.swift in Sources */,
 				183861D3259A3233006D3FF2 /* Chapter.swift in Sources */,
+				186C9DE925B89B0700CCAD4F /* SearchArticleViewController.swift in Sources */,
 				181350AF253DC47000FB7E08 /* SceneDelegate.swift in Sources */,
 				18BDA244254AFF2B009A493D /* ArticleViewController.swift in Sources */,
 				1810F99F25474E5F00D3641B /* ChapterEntity.swift in Sources */,
 				1810F9842541822F00D3641B /* Database.swift in Sources */,
 				181350C8253DD21A00FB7E08 /* BooksViewController.swift in Sources */,
+				1839E8DB25B9AEE900114C36 /* AttrString.swift in Sources */,
 				185422BA257A8014007D2FF3 /* AboutUsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,7 +559,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BKWHC8NZRW;
+				DEVELOPMENT_TEAM = 4733B7MMFG;
 				INFOPLIST_FILE = VYBORY/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -569,7 +581,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BKWHC8NZRW;
+				DEVELOPMENT_TEAM = 4733B7MMFG;
 				INFOPLIST_FILE = VYBORY/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

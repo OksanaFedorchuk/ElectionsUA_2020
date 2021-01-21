@@ -1,21 +1,23 @@
 //
-//  ArticleViewController.swift
+//  FArticleViewController.swift
 //  VYBORY
 //
-//  Created by Oksana Fedorchuk on 29.10.2020.
+//  Created by Oksana Fedorchuk on 20.01.2021.
 //
 
 import UIKit
 
-class ArticleViewController: UIViewController {
+class FavArticleViewController: UIViewController {
+    
     
     // MARK: - Properties
     
     let db1 = ArticleEntity()
-    let db2 = ChapterEntity()
     
     var article = [Article]()
     var currentStatus = Int()
+    var segueFlag = Int()
+    var oldFavs = [Article]()
     
     @IBOutlet weak var contentTextView: UITextView!
     
@@ -30,12 +32,23 @@ class ArticleViewController: UIViewController {
     // MARK: - Like methods
     
     @IBAction func likeTapped(_ sender: UIBarButtonItem) {
-
+        
+        //        favourite articles array with unliked one
+        oldFavs = db1.getFavouriteArticles()
+        segueFlag = 1
+        
+        
+        //        change favourite status for the article
         getCurrentStatus()
         db1.changeFavouriteArticleStatus(by: navigationItem.title!, currentFavouriteStatus: currentStatus)
         getCurrentStatus()
         setCurrentStatusImage()
-
+        //        favourite articles array
+        let newFavs = db1.getFavouriteArticles()
+        //        if the current article is liked two times at once
+        if oldFavs.count < newFavs.count {
+            oldFavs = newFavs
+        }
     }
     
     func getCurrentStatus() {
@@ -54,11 +67,22 @@ class ArticleViewController: UIViewController {
     
     func getSwipedArticle() -> [Article] {
         
-        let articles = db1.getAllArticles()
+        var articles = [Article]()
         
-        //        current view article
+        switch segueFlag {
+        case 1:
+            //            favourite articles array with unliked one
+            articles = oldFavs
+        case 2:
+            //            favourite articles array
+            articles = db1.getFavouriteArticles()
+            
+        default:
+            print("Segue flag error")
+        }
+        
+        //        current article
         let currentArticle = article[0]
-        
         
         var currentIndex = 0
         var previousAndNextArticles = [Article]()
@@ -75,6 +99,7 @@ class ArticleViewController: UIViewController {
         
         //        get index of the previous article in array
         if currentIndex <= 0 {
+            //            if article is the first in array
             previous = articles[currentIndex]
         }
         else {
@@ -83,6 +108,7 @@ class ArticleViewController: UIViewController {
         
         //        get index of the next article in array
         if currentIndex+1 >= articles.count {
+            //            if the article is the last in array
             next = articles[currentIndex]
         }
         else {
@@ -97,18 +123,27 @@ class ArticleViewController: UIViewController {
     
     @IBAction func swipedRight(_ sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
+            
             article = db1.getSelectedArticleFiltered(by: getSwipedArticle()[0].number)
             updateUI()
+            //            if the swiped article is liked, update array
+            if article[0].favourite == 1 {
+                segueFlag = 2
+            }
         }
     }
     
     @IBAction func swipedLeft(_ sender: UISwipeGestureRecognizer) {
         if (sender.direction == .left) {
+            
             article = db1.getSelectedArticleFiltered(by: getSwipedArticle()[1].number)
             updateUI()
+            //            if the swiped article is liked, update array
+            if article[0].favourite == 1 {
+                segueFlag = 2
+            }
         }
     }
-    
     
     // MARK: - UI update methods
     
@@ -119,18 +154,10 @@ class ArticleViewController: UIViewController {
     }
     
     func updateUI() {
-        //            display selected article
+        
+        //            display favourite article
         self.navigationItem.title = article[0].number
-        //            change the title of navigationBar in articlesVC
-        self.navigationController?.navigationBar.items?[2].title = article[0].chapterNumber
-        //            change the title of navigationBar in chaptersVC and backbuttonTitle in articlesVC
-        let chapter = db2.getChaptersFiltered(by: article[0].chapterNumber)
-        self.navigationController?.navigationBar.items?[1].title = chapter[0].bookNumber
-        self.navigationController?.navigationBar.items?[1].backBarButtonItem?.title = chapter[0].bookNumber
-        
-        
         contentTextView.attributedText = generateAttributedArticleText(searchText: nil, titleText: article[0].title, contentText: article[0].content)
-        
         getCurrentStatus()
         setCurrentStatusImage()
     }
@@ -138,10 +165,10 @@ class ArticleViewController: UIViewController {
     //    make an attributed string containing title and content of an article
     func generateAttributedArticleText(searchText: String?, titleText: String, contentText: String) -> NSAttributedString {
         
-        let title = titleText.highlightText(highlight: nil, fontSize: 17, fontWeight: UIFont.Weight.bold, caseInsensitivie: true)!
-        let content = contentText.highlightText(highlight: nil, fontSize: 15, fontWeight: UIFont.Weight.regular, caseInsensitivie: true)!
-        let attributedArticle = NSMutableAttributedString()
+        let title = titleText.highlightText(highlight: searchText, fontSize: 17, fontWeight: UIFont.Weight.bold, caseInsensitivie: true)!
+        let content = contentText.highlightText(highlight: searchText, fontSize: 15, fontWeight: UIFont.Weight.regular, caseInsensitivie: true)!
         
+        let attributedArticle = NSMutableAttributedString()
         attributedArticle.append(title)
         attributedArticle.append(NSAttributedString(string: " \n \n"))
         attributedArticle.append(content)

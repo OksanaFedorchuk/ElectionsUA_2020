@@ -1,21 +1,25 @@
 //
-//  ArticleViewController.swift
+//  SearchArticleViewController.swift
 //  VYBORY
 //
-//  Created by Oksana Fedorchuk on 29.10.2020.
+//  Created by Oksana Fedorchuk on 20.01.2021.
 //
 
 import UIKit
 
-class ArticleViewController: UIViewController {
+class SearchArticleViewController: UIViewController {
+    
     
     // MARK: - Properties
     
     let db1 = ArticleEntity()
-    let db2 = ChapterEntity()
     
     var article = [Article]()
     var currentStatus = Int()
+    var segueFlag = Int()
+    
+    var searchText = String()
+    var searchArticles = [Article]()
     
     @IBOutlet weak var contentTextView: UITextView!
     
@@ -30,12 +34,12 @@ class ArticleViewController: UIViewController {
     // MARK: - Like methods
     
     @IBAction func likeTapped(_ sender: UIBarButtonItem) {
-
+        
+        //        change favourite status for the article
         getCurrentStatus()
         db1.changeFavouriteArticleStatus(by: navigationItem.title!, currentFavouriteStatus: currentStatus)
         getCurrentStatus()
         setCurrentStatusImage()
-
     }
     
     func getCurrentStatus() {
@@ -54,7 +58,7 @@ class ArticleViewController: UIViewController {
     
     func getSwipedArticle() -> [Article] {
         
-        let articles = db1.getAllArticles()
+        //            let articles = searchArticles
         
         //        current view article
         let currentArticle = article[0]
@@ -66,7 +70,7 @@ class ArticleViewController: UIViewController {
         var next: Article
         
         //        get the index of current article in array
-        for a in articles {
+        for a in searchArticles {
             if a.number == currentArticle.number {
                 break
             }
@@ -75,18 +79,18 @@ class ArticleViewController: UIViewController {
         
         //        get index of the previous article in array
         if currentIndex <= 0 {
-            previous = articles[currentIndex]
+            previous = searchArticles[currentIndex]
         }
         else {
-            previous = articles[currentIndex-1]
+            previous = searchArticles[currentIndex-1]
         }
         
         //        get index of the next article in array
-        if currentIndex+1 >= articles.count {
-            next = articles[currentIndex]
+        if currentIndex+1 >= searchArticles.count {
+            next = searchArticles[currentIndex]
         }
         else {
-            next = articles[currentIndex+1]
+            next = searchArticles[currentIndex+1]
         }
         
         previousAndNextArticles.append(previous)
@@ -112,30 +116,21 @@ class ArticleViewController: UIViewController {
     
     // MARK: - UI update methods
     
-    // updates fav image when come back to codeVC
+    // updates fav image when come back to VC
     override func viewDidAppear(_ animated: Bool) {
         getCurrentStatus()
         setCurrentStatusImage()
     }
     
     func updateUI() {
-        //            display selected article
+        //            display search result article with attributed blue searchText
         self.navigationItem.title = article[0].number
-        //            change the title of navigationBar in articlesVC
-        self.navigationController?.navigationBar.items?[2].title = article[0].chapterNumber
-        //            change the title of navigationBar in chaptersVC and backbuttonTitle in articlesVC
-        let chapter = db2.getChaptersFiltered(by: article[0].chapterNumber)
-        self.navigationController?.navigationBar.items?[1].title = chapter[0].bookNumber
-        self.navigationController?.navigationBar.items?[1].backBarButtonItem?.title = chapter[0].bookNumber
-        
-        
-        contentTextView.attributedText = generateAttributedArticleText(searchText: nil, titleText: article[0].title, contentText: article[0].content)
-        
+        contentTextView.attributedText = generateAttributedArticleText(searchText: searchText, titleText: article[0].title, contentText: article[0].content)
         getCurrentStatus()
         setCurrentStatusImage()
     }
     
-    //    make an attributed string containing title and content of an article
+    //    make an attributed string containing title and content of the article
     func generateAttributedArticleText(searchText: String?, titleText: String, contentText: String) -> NSAttributedString {
         
         let title = titleText.highlightText(highlight: nil, fontSize: 17, fontWeight: UIFont.Weight.bold, caseInsensitivie: true)!
