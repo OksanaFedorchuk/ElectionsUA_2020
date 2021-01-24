@@ -58,8 +58,6 @@ class SearchArticleViewController: UIViewController {
     
     func getSwipedArticle() -> [Article] {
         
-        //            let articles = searchArticles
-        
         //        current view article
         let currentArticle = article[0]
         
@@ -133,8 +131,8 @@ class SearchArticleViewController: UIViewController {
     //    make an attributed string containing title and content of the article
     func generateAttributedArticleText(searchText: String?, titleText: String, contentText: String) -> NSAttributedString {
         
-        let title = titleText.highlightText(highlight: nil, fontSize: 17, fontWeight: UIFont.Weight.bold, caseInsensitivie: true)!
-        let content = contentText.highlightText(highlight: nil, fontSize: 15, fontWeight: UIFont.Weight.regular, caseInsensitivie: true)!
+        let title = titleText.highlightText(highlight: searchText, fontSize: 17, fontWeight: UIFont.Weight.bold, caseInsensitivie: true)!
+        let content = contentText.highlightText(highlight: searchText, fontSize: 15, fontWeight: UIFont.Weight.regular, caseInsensitivie: true)!
         let attributedArticle = NSMutableAttributedString()
         
         attributedArticle.append(title)

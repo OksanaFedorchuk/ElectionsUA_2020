@@ -126,15 +126,12 @@ class SearchViewController: UITableViewController {
         
         searchResultCell.numberLabel.attributedText = allTheData[indexPath.section][indexPath.row]
             .number.highlightText(highlight: searchText, fontSize: 12, fontWeight: UIFont.Weight.regular, caseInsensitivie: true)
-//            .highlightText(searchText, with: K.Color.MyBlue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 12)!)
         
         searchResultCell.titleLabel.attributedText = allTheData[indexPath.section][indexPath.row]
             .title.highlightText(highlight: searchText, fontSize: 16, fontWeight: UIFont.Weight.regular, caseInsensitivie: true)
-//            .highlightText(searchText, with: K.Color.MyPrimaLabel, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 16)!)
         
         searchResultCell.contentLabel.attributedText =  allTheData[indexPath.section][indexPath.row]
             .content.highlightText(highlight: searchText, fontSize: 14, fontWeight: UIFont.Weight.regular, caseInsensitivie: true)
-//            .highlightText(searchText, with: K.Color.MyBlue, caseInsensitivie: true, font: UIFont(name: "Helvetica", size: 14)!)
         
         return searchResultCell
     }
