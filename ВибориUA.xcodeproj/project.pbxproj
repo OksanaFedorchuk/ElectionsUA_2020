@@ -36,22 +36,20 @@
 		18833961254AB66E0002AAB8 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833960254AB66E0002AAB8 /* ArticlesViewController.swift */; };
 		188FBCB9257E3548009C29FE /* InteractiveLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188FBCB8257E3548009C29FE /* InteractiveLabel.swift */; };
 		18BDA244254AFF2B009A493D /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BDA243254AFF2B009A493D /* ArticleViewController.swift */; };
-		18BDA258254C378E009A493D /* Pods_VYBORY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1031F2042AD1B76B05A3D60E /* Pods_VYBORY.framework */; };
 		18BDA25E254C3860009A493D /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BDA25D254C3860009A493D /* SQLite.framework */; };
 		18DC5CA925541B8D0062284E /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC5CA825541B8D0062284E /* SearchCell.swift */; };
 		18F6658D2567BA0B00891A26 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6658C2567BA0B00891A26 /* Article.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1031F2042AD1B76B05A3D60E /* Pods_VYBORY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VYBORY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1810F9832541822F00D3641B /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		1810F98625419B1900D3641B /* code.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = code.db; sourceTree = "<group>"; };
 		1810F98925419C7700D3641B /* BookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEntity.swift; sourceTree = "<group>"; };
-		1810F9972546DBDB00D3641B /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookCell.swift; path = VYBORY/Models/Cells/BookCell.swift; sourceTree = SOURCE_ROOT; };
+		1810F9972546DBDB00D3641B /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookCell.swift; path = "ВибориUA/Models/Cells/BookCell.swift"; sourceTree = SOURCE_ROOT; };
 		1810F99E25474E5F00D3641B /* ChapterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterEntity.swift; sourceTree = "<group>"; };
-		1810F9AD2548707C00D3641B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = VYBORY/Models/Cells/TableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		1810F9AD2548707C00D3641B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = "ВибориUA/Models/Cells/TableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		1810F9B02549648700D3641B /* ArticleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleEntity.swift; sourceTree = "<group>"; };
-		181350A9253DC47000FB7E08 /* VYBORY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VYBORY.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		181350A9253DC47000FB7E08 /* ВибориUA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ВибориUA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		181350AC253DC47000FB7E08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		181350AE253DC47000FB7E08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		181350B0253DC47000FB7E08 /* ProtocolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolViewController.swift; sourceTree = "<group>"; };
@@ -63,24 +61,25 @@
 		181350CB253DD26100FB7E08 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		181350CF253DD29E00FB7E08 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		183861D2259A3233006D3FF2 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
-		183861D6259B3812006D3FF2 /* ChaptersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChaptersViewController.swift; path = VYBORY/Controllers/CodeTab/ChaptersViewController.swift; sourceTree = SOURCE_ROOT; };
+		183861D6259B3812006D3FF2 /* ChaptersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChaptersViewController.swift; path = "ВибориUA/Controllers/CodeTab/ChaptersViewController.swift"; sourceTree = SOURCE_ROOT; };
 		1839E8DA25B9AEE900114C36 /* AttrString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttrString.swift; sourceTree = "<group>"; };
-		185422B9257A8014007D2FF3 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutUsViewController.swift; path = VYBORY/Controllers/CodeTab/AboutUsViewController.swift; sourceTree = SOURCE_ROOT; };
+		185422B9257A8014007D2FF3 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutUsViewController.swift; path = "ВибориUA/Controllers/CodeTab/AboutUsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		186C9DC925AF176700CCAD4F /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		186C9DD425AF282600CCAD4F /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
-		186C9DE525B89A3200CCAD4F /* FavArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavArticleViewController.swift; path = VYBORY/Views/FavArticleViewController.swift; sourceTree = SOURCE_ROOT; };
+		186C9DE525B89A3200CCAD4F /* FavArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavArticleViewController.swift; path = "ВибориUA/Views/FavArticleViewController.swift"; sourceTree = SOURCE_ROOT; };
 		186C9DE825B89B0700CCAD4F /* SearchArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticleViewController.swift; sourceTree = "<group>"; };
 		1870162B2575413E00A3AE5A /* NoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoContentView.swift; sourceTree = "<group>"; };
 		1870162E2575414F00A3AE5A /* NoContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoContentView.xib; sourceTree = "<group>"; };
 		18833960254AB66E0002AAB8 /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
-		188FBCB8257E3548009C29FE /* InteractiveLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InteractiveLabel.swift; path = VYBORY/Views/InteractiveLabel.swift; sourceTree = SOURCE_ROOT; };
-		18BDA243254AFF2B009A493D /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleViewController.swift; path = VYBORY/Controllers/CodeTab/ArticleViewController.swift; sourceTree = SOURCE_ROOT; };
+		188FBCB8257E3548009C29FE /* InteractiveLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InteractiveLabel.swift; path = "ВибориUA/Views/InteractiveLabel.swift"; sourceTree = SOURCE_ROOT; };
+		18BDA243254AFF2B009A493D /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleViewController.swift; path = "ВибориUA/Controllers/CodeTab/ArticleViewController.swift"; sourceTree = SOURCE_ROOT; };
 		18BDA24C254C2C3C009A493D /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BDA25D254C3860009A493D /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		18DC5CA825541B8D0062284E /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCell.swift; path = VYBORY/Models/Cells/SearchCell.swift; sourceTree = SOURCE_ROOT; };
+		18DC5CA825541B8D0062284E /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCell.swift; path = "ВибориUA/Models/Cells/SearchCell.swift"; sourceTree = SOURCE_ROOT; };
 		18F6658C2567BA0B00891A26 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		2153F3124CDEE7754F7FB2D8 /* Pods-VYBORY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VYBORY.release.xcconfig"; path = "Target Support Files/Pods-VYBORY/Pods-VYBORY.release.xcconfig"; sourceTree = "<group>"; };
-		251BC590B2FF047B0E22E94F /* Pods-VYBORY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VYBORY.debug.xcconfig"; path = "Target Support Files/Pods-VYBORY/Pods-VYBORY.debug.xcconfig"; sourceTree = "<group>"; };
+		758E3AC74C1716E253F7994E /* Pods-ВибориUA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ВибориUA.debug.xcconfig"; path = "Target Support Files/Pods-ВибориUA/Pods-ВибориUA.debug.xcconfig"; sourceTree = "<group>"; };
+		852B13EEEB6E7071CD561496 /* Pods-ВибориUA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ВибориUA.release.xcconfig"; path = "Target Support Files/Pods-ВибориUA/Pods-ВибориUA.release.xcconfig"; sourceTree = "<group>"; };
+		F5C5CAC181E86C417A6AF1B3 /* Pods_______UA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_______UA.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +87,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18BDA258254C378E009A493D /* Pods_VYBORY.framework in Frameworks */,
 				18BDA25E254C3860009A493D /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,7 +107,7 @@
 		181350AA253DC47000FB7E08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				181350A9253DC47000FB7E08 /* VYBORY.app */,
+				181350A9253DC47000FB7E08 /* ВибориUA.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,7 +124,8 @@
 				181350BA253DC47300FB7E08 /* Info.plist */,
 				186C9DD425AF282600CCAD4F /* K.swift */,
 			);
-			path = VYBORY;
+			name = VYBORY;
+			path = "ВибориUA";
 			sourceTree = "<group>";
 		};
 		181350C5253DD1A700FB7E08 /* Controllers */ = {
@@ -254,7 +253,7 @@
 			children = (
 				18BDA25D254C3860009A493D /* SQLite.framework */,
 				18BDA24C254C2C3C009A493D /* SQLite.framework */,
-				1031F2042AD1B76B05A3D60E /* Pods_VYBORY.framework */,
+				F5C5CAC181E86C417A6AF1B3 /* Pods_______UA.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -262,8 +261,8 @@
 		4E5D8872B4E0539DF5532455 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				251BC590B2FF047B0E22E94F /* Pods-VYBORY.debug.xcconfig */,
-				2153F3124CDEE7754F7FB2D8 /* Pods-VYBORY.release.xcconfig */,
+				758E3AC74C1716E253F7994E /* Pods-ВибориUA.debug.xcconfig */,
+				852B13EEEB6E7071CD561496 /* Pods-ВибориUA.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -271,23 +270,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		181350A8253DC47000FB7E08 /* VYBORY */ = {
+		181350A8253DC47000FB7E08 /* ВибориUA */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 181350BD253DC47300FB7E08 /* Build configuration list for PBXNativeTarget "VYBORY" */;
+			buildConfigurationList = 181350BD253DC47300FB7E08 /* Build configuration list for PBXNativeTarget "ВибориUA" */;
 			buildPhases = (
-				14D6951D633C29B40F27B6B4 /* [CP] Check Pods Manifest.lock */,
+				D5C5759272540C5B6A03DC2C /* [CP] Check Pods Manifest.lock */,
 				181350A5253DC47000FB7E08 /* Sources */,
 				181350A6253DC47000FB7E08 /* Frameworks */,
 				181350A7253DC47000FB7E08 /* Resources */,
-				CC3CDEC583C9D9AA057073A2 /* [CP] Embed Pods Frameworks */,
+				746D456171398DA7A2FFA922 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = VYBORY;
+			name = "ВибориUA";
 			productName = VYBORY;
-			productReference = 181350A9253DC47000FB7E08 /* VYBORY.app */;
+			productReference = 181350A9253DC47000FB7E08 /* ВибориUA.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -304,7 +303,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 181350A4253DC47000FB7E08 /* Build configuration list for PBXProject "VYBORY" */;
+			buildConfigurationList = 181350A4253DC47000FB7E08 /* Build configuration list for PBXProject "ВибориUA" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -317,7 +316,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				181350A8253DC47000FB7E08 /* VYBORY */,
+				181350A8253DC47000FB7E08 /* ВибориUA */,
 			);
 		};
 /* End PBXProject section */
@@ -338,7 +337,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		14D6951D633C29B40F27B6B4 /* [CP] Check Pods Manifest.lock */ = {
+		746D456171398DA7A2FFA922 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ВибориUA/Pods-ВибориUA-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ВибориUA/Pods-ВибориUA-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ВибориUA/Pods-ВибориUA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5C5759272540C5B6A03DC2C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -353,28 +369,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VYBORY-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ВибориUA-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CC3CDEC583C9D9AA057073A2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VYBORY/Pods-VYBORY-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VYBORY/Pods-VYBORY-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VYBORY/Pods-VYBORY-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -553,14 +552,15 @@
 		};
 		181350BE253DC47300FB7E08 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 251BC590B2FF047B0E22E94F /* Pods-VYBORY.debug.xcconfig */;
+			baseConfigurationReference = 758E3AC74C1716E253F7994E /* Pods-ВибориUA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 4733B7MMFG;
-				INFOPLIST_FILE = VYBORY/Info.plist;
+				INFOPLIST_FILE = "ВибориUA/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -575,14 +575,15 @@
 		};
 		181350BF253DC47300FB7E08 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2153F3124CDEE7754F7FB2D8 /* Pods-VYBORY.release.xcconfig */;
+			baseConfigurationReference = 852B13EEEB6E7071CD561496 /* Pods-ВибориUA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 4733B7MMFG;
-				INFOPLIST_FILE = VYBORY/Info.plist;
+				INFOPLIST_FILE = "ВибориUA/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -598,7 +599,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		181350A4253DC47000FB7E08 /* Build configuration list for PBXProject "VYBORY" */ = {
+		181350A4253DC47000FB7E08 /* Build configuration list for PBXProject "ВибориUA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				181350BB253DC47300FB7E08 /* Debug */,
@@ -607,7 +608,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		181350BD253DC47300FB7E08 /* Build configuration list for PBXNativeTarget "VYBORY" */ = {
+		181350BD253DC47300FB7E08 /* Build configuration list for PBXNativeTarget "ВибориUA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				181350BE253DC47300FB7E08 /* Debug */,
