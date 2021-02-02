@@ -97,7 +97,7 @@
 		181350A0253DC47000FB7E08 = {
 			isa = PBXGroup;
 			children = (
-				181350AB253DC47000FB7E08 /* VYBORY */,
+				181350AB253DC47000FB7E08 /* ВибориUA */,
 				181350AA253DC47000FB7E08 /* Products */,
 				4E5D8872B4E0539DF5532455 /* Pods */,
 				218B0A21346DBDEC0DD36C14 /* Frameworks */,
@@ -112,7 +112,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		181350AB253DC47000FB7E08 /* VYBORY */ = {
+		181350AB253DC47000FB7E08 /* ВибориUA */ = {
 			isa = PBXGroup;
 			children = (
 				181350AC253DC47000FB7E08 /* AppDelegate.swift */,
@@ -124,7 +124,6 @@
 				181350BA253DC47300FB7E08 /* Info.plist */,
 				186C9DD425AF282600CCAD4F /* K.swift */,
 			);
-			name = VYBORY;
 			path = "ВибориUA";
 			sourceTree = "<group>";
 		};
